@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+.toast-bottom-center {
+    bottom: 30%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }

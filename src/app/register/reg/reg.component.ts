@@ -56,15 +56,18 @@ export class RegComponent {
           let Response = response;
           console.log(Response);
           if(Response === 'Object Created'){
+            this.userservice.Showsuccess("Registered successfully","Success");
             this.router.navigate([''])
           }
           else{
-            alert('Some constraint is not satisfied');
+            // alert('Some constraint is not satisfied');
+            this.userservice.Showerror("Some constraint is not satisfied","Sorry");
           }
         }  
       );}
       else{
         console.log("password do not match")
+        this.userservice.Showerror("password do not match","Sorry");
       }
       /*   /////////////////////////////////////////PETHACHI COMMENTED THIS OUT///////////////////////////////////
       // this.otpget = this.arr[0].split("");
