@@ -13,6 +13,7 @@ import { UsersService } from 'src/app/users.service';
 })
 export class RegComponent {
 
+  //hello by isu
   users : Users = new Users();
   confirmpwd :String;
   regForm!: FormGroup
