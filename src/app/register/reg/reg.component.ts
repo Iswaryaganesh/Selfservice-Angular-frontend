@@ -58,17 +58,27 @@ export class RegComponent {
           if(Response === 'Object Created'){
             this.userservice.Showsuccess("Registered successfully","Success");
             this.router.navigate([''])
+          }      
+          else if(Response === 'Email already exist')
+          {
+            this.userservice.Showwarning("Email already exists","Invalid");
           }
-          else{
-            // alert('Some constraint is not satisfied');
-            this.userservice.Showerror("Some constraint is not satisfied","Sorry");
+          else if(Response === 'Phone number already exists')
+          {
+              this.userservice.Showwarning("Phone number already exists","Invalid");
+          }
+          else if(Response === 'Phone number should be of 10 digits')
+          {
+              this.userservice.Showwarning("Phone number should be of 10 digits","Invalid");
           }
         }  
-      );}
-      else{
+      );
+        
+    }
+    else{
         console.log("password do not match")
-        this.userservice.Showerror("password do not match","Sorry");
-      }
+        this.userservice.Showerror("password and confirm password does not match","Sorry");
+     }
       /*   /////////////////////////////////////////PETHACHI COMMENTED THIS OUT///////////////////////////////////
       // this.otpget = this.arr[0].split("");
       // this.otpget = this.obj.otp.split("");
