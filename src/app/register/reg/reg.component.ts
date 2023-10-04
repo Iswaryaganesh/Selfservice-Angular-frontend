@@ -46,7 +46,7 @@ export class RegComponent {
       console.log(this.regForm.value)
       //send val to db
 
-
+      if(this.users.password===this.confirmpwd){
       console.log(this.users)
       this.userservice.CustomerSignup(this.users).subscribe(
         response =>{
@@ -60,15 +60,19 @@ export class RegComponent {
             alert('Some constraint is not satisfied');
           }
         }  
-      );
-
-      this.otpget = this.arr[0].split("");
-      this.otpget = this.obj.otp.split("");
-      console.log(this.otpget);
-      this.show1 = !this.show1;
-      this.show2 = !this.show2;
+      );}
+      else{
+        console.log("password do not match")
+      }
+      /*   /////////////////////////////////////////PETHACHI COMMENTED THIS OUT///////////////////////////////////
+      // this.otpget = this.arr[0].split("");
+      // this.otpget = this.obj.otp.split("");
+      // console.log(this.otpget);
+      // this.show1 = !this.show1;
+      // this.show2 = !this.show2;
 
       //this.router.navigate(['/home'])
+      */
     }
     else{
       //throw error using toaster
