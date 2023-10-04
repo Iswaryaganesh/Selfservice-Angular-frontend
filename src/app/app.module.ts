@@ -8,6 +8,9 @@ import { RegComponent } from './register/reg/reg.component';
 import { HomepageComponent } from './home/homepage/homepage.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { Acct1Component } from './acct1/acct1.component';
 
@@ -25,7 +28,14 @@ import { Acct1Component } from './acct1/acct1.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({// positionClass:"toast-bottom-center",
+    preventDuplicates:true,
+    timeOut:2000,
+    progressBar:true,
+    positionClass:'toast-bottom-center'
+  }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
