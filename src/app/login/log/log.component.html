@@ -1,0 +1,43 @@
+<!-- <div class="outer"> -->
+    <div class="container-fluid">
+      <div class="row"> 
+          <!-- <div class="col-md-7"> -->
+            <div id="col1" class="col-md-5 col-lg-6 col-sm-0 col-xs-0">
+              <img id="loginimage" src="/assets/images/undraw_login1.png">
+          </div>
+        <div id="col2" class=" col-lg-6">
+          <div class="panel border"  style= "margin-left: 30px;">
+            <div class="panel-heading">
+              <h3 class="pt-3 font-weight-bold" style="color: black;">L O G I N</h3>
+            </div>
+            <div class="panel-body p-3">
+                <form [formGroup]="loginForm">
+                    <div class="form-group pt-3">
+                    <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                        <span class="fa fa-user p-2"></span>
+                        <input formControlName="username" type="text" placeholder="Email / Phone number" [(ngModel)]="users.email" [(ngModel)]="users.phonenumber">
+                    </div>
+                </div>
+                <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
+                <div class="form-group pt-3">
+                    <div class="input-field" [class.error] = "loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                        <span class="fa fa-lock p-2"></span>
+                        <input formControlName="password" type="password" placeholder="Password" [(ngModel)]="users.password">
+                    </div>
+                </div>
+                <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+                <div class="form-inline fr mt-4">
+                    <div class="text-end"><a id="forget" class="font-weight-bold">Forgot password?</a> </div>
+                </div>
+                <button (click)="onsubmit()" type="submit" class="btn btn-outline-primary mt-4 w-100">LOGIN</button> 
+                <div class="my-2 mx-3 py-3"><div id="loginlink" class="text-center pt-4" style="color: black ; ">Don't have account? <a id="forget" routerLink="/acct1" routerLinkActive="active">Sign up</a></div></div>
+                </form>
+            </div>
+          </div>
+        </div>
+
+          
+        <!-- </div> -->
+      </div>
+    </div>
+  <!-- </div> -->

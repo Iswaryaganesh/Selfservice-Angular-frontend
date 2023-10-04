@@ -1,0 +1,139 @@
+
+.container-fluid
+{
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover; 
+     -o-background-size: cover; */
+     background-position: center;
+     position: absolute;
+     
+}
+svg{
+    fill: #ff543c;
+    margin: 5px;
+}
+h3{
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: bold;
+}
+input, text, button
+{
+    font-family: 'Red Hat Display', sans-serif;
+    color: black;
+}
+.panel{
+    right: 0;
+    min-height: 380px;
+    width: 400px;
+    box-shadow: 10px 10px 20px;
+    border-radius: 12px;
+    margin-top: 120px;
+    float: right;
+    margin-right: 120px;
+}
+.panel-heading
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+a{
+    max-width: 100px;
+}
+a:hover
+{
+    text-decoration: none;
+}
+.form-inline
+{
+    padding-left: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#col1
+{
+    height: 100vh;
+}
+#col2
+{
+    height: 100vh;
+}
+.input-field
+{
+    
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    /* border: 1px solid #ddd; */
+    color: #ff543c;
+    
+}
+#loginimage
+{
+    top: 170px;
+    left: 150px;
+    height: 330px;
+    width: 330px;
+    background-position: center;
+}
+
+.btn{
+    margin-top: 20px;
+    border-radius: 15px;
+	border: 1px solid #ff543c;
+	cursor: pointer;
+	transition: 1s;
+} 
+.btn:hover{
+	background-color: #ff543c;
+}
+
+.input-field
+{
+    
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    /* border: 1px solid #ddd; */
+    color: #ff543c;
+}
+.input-field.error
+{
+    border: 1px solid red;
+    color: red;
+}
+input[type='text'], input[type='password']
+{
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+    border: none;
+    margin: 3px;
+    padding: 4px;
+    
+}
+ input[type='text']:focus, input[type='password']:focus
+{
+    border: 1px solid #ff543c;
+    /* transition-delay: 0.5s;
+    transition-duration: 0.5s; */
+    -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+}
