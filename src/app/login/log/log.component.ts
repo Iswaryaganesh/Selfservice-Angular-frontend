@@ -41,10 +41,16 @@ export class LogComponent {
             let Response = response;
             console.log(Response);
             if(Response === 'Login succesfull'){
+              this.userservice.Showsuccess("Login Successful","Welcome");
               this.router.navigate(['/home'])
             }
-            else{
-              alert('Wrong password');
+            else if(Response==='password does not match')
+            {
+              this.userservice.Showerror("Password does not match","Invalid");
+            }
+            else if(Response==='phone/email does not exist')
+            {
+              this.userservice.Showerror("Phone/email does not match","Invalid");
             }
           }      
       );
