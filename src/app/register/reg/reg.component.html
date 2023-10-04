@@ -13,7 +13,7 @@
               <h3 class="pt-3 font-weight-bold">S I G N U P</h3>
             </div>
             <div class="panel-body p-3">
-                <form [formGroup]="regForm">
+                <form [formGroup]="regForm" (ngSubmit)="onsubmit()">
                     <div class="form-group pt-3">  
                         <div class="input-field" [class.error]="regForm.controls['name'].dirty && regForm.hasError('required','name') "   >
                             <span class="fa fa-user p-2"></span>
@@ -51,7 +51,7 @@
               </div>
               <small class="text-danger" *ngIf="regForm.controls['repwd'].dirty && regForm.hasError('required','repwd')">*Confrim Password is required</small>
                 
-                <button (click)="onsubmit()" type="submit" class="btn btn-outline-primary mt-4 w-100">SIGN UP</button>
+                <button type="submit" class="btn btn-outline-primary mt-4 w-100">SIGN UP</button>
                 <div class="my-2 mx-3 py-3"><div class="text-center pt-4" id="loginlink">Already have an account? <a id="forget" routerLink="/login" routerLinkActive="active">Login</a></div></div>
                 </form>
             </div>

@@ -45,10 +45,20 @@ export class Acct1Component {
             let Response = response;
             console.log(Response);
             if(Response === 'Login Successfull'){
+              this.userservice.Showsuccess("Account verified successfully","Success");
               this.router.navigate(['/registerr'])
             }
-            else{
-              alert('Wrong password');
+            else if(Response === 'Account holder name is wrong')
+            {
+              this.userservice.Showerror("Account holder name is wrong","Invalid");
+            }
+            else if(Response === 'Account holder name/number is incorrect')
+            {
+              this.userservice.Showerror("Account holder name/number is incorrect","Invalid");
+            }
+            else if(Response === 'account number does not exist')
+            {
+              this.userservice.Showerror("Account number does not exist","Invalid");
             }
           }   
 
