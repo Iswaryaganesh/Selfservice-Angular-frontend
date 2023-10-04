@@ -54,18 +54,18 @@ a:hover
 }
 .panel{
     right: 0;
-    min-height: 380px;
+    min-height: 360px;
     width: 400px;
     box-shadow: 10px 10px 20px;
     border-radius: 12px;
-    margin-top: 80px;
+    margin-top: 50px;
     float: right;
     margin-right: 120px;
 }
 .input-field
 {
     
-    margin: 3px;
+    margin-bottom: 1px;
     border-radius: 5px;
     padding: 5px;
     display: flex;
@@ -79,7 +79,7 @@ a:hover
     border: 1px solid #ff543c;
     color: #ff543c;
 }
-input[type='text'],input[type='email'],input[type='tel'], input[type='password']
+#fields
 {
     box-shadow: none;
     outline: none;
@@ -90,7 +90,7 @@ input[type='text'],input[type='email'],input[type='tel'], input[type='password']
     /* transition-duration: 0.5s;
     transition-delay: 0.5s; */
 }
-input[type='text']:focus,input[type='email']:focus,input[type='tel']:focus, input[type='password']:focus
+#fields:focus
 {
     border: 1px solid #ff543c;
 }
@@ -127,11 +127,14 @@ img{
 }
 .card 
 {
-    margin-top: 50px;
+    margin-bottom: 50px;
     width: 25rem;
-    height: 15rem;
+    height: 25rem;
     /* position: absolute; */
-    top: 50%;
+    top: 70%;
+    border-style: solid;
+    border-radius: 10px;
+   
 }
 
 .card-img-top
@@ -147,11 +150,34 @@ img{
     width: 330px;
     background-position: center;
 }
-#backbtn
+
+
+.card-title
 {
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#otp
+{
+    border-bottom-color: gray;
+    border-radius: 1px;
+    width: 280px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#otpsubmit
+{
+    margin-top: 40px;
+    margin-left: 120px;
     width: 120px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 10%;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 30px;
+    transition-duration: 0.5s;
+}
+#otpsubmit:hover
+{
+    background-color: #ff543c;
+    color: white;
 }

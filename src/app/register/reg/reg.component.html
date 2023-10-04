@@ -17,28 +17,28 @@
                     <div class="form-group pt-3">  
                         <div class="input-field" [class.error]="regForm.controls['name'].dirty && regForm.hasError('required','name') "   >
                             <span class="fa fa-user p-2"></span>
-                            <input formControlName="name" type="text" placeholder="Name"  [(ngModel)]="users.name">
+                            <input id="fields" formControlName="name" type="text" placeholder="Name"  [(ngModel)]="users.name">
                         </div>
                     </div>
                     <small class="text-danger" *ngIf="regForm.controls['name'].dirty && regForm.hasError('required','name')">*Name is required</small>
                     <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['email'].dirty && regForm.hasError('required','email')">
                         <span class="fa fa-envelope p-2"></span>
-                        <input  formControlName="email" type="email" placeholder="Email" [(ngModel)]="users.email" >
+                        <input id="fields" formControlName="email" type="email" placeholder="Email" [(ngModel)]="users.email" >
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['email'].dirty && regForm.hasError('required','email')">*Email is required</small>
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">
                         <span class="fa fa-phone p-2"></span>
-                        <input formControlName="mobile" type="tel" placeholder="Mobile Number"  [(ngModel)]="users.phonenumber">
+                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number"  [(ngModel)]="users.phonenumber">
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">*Mobile number is required</small>
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['pwd'].dirty && regForm.hasError('required','pwd')">
                         <span class="fa fa-lock p-2"></span>
-                        <input formControlName="pwd" type="password" placeholder="Password"  [(ngModel)]="users.password" >
+                        <input id="fields" formControlName="pwd" type="password" placeholder="Password"  [(ngModel)]="users.password" >
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['pwd'].dirty && regForm.hasError('required','pwd')">*Password is required</small>
@@ -46,7 +46,7 @@
                 <div class="form-group pt-3">
                   <div class="input-field" [class.error]="regForm.controls['pwd'].dirty && regForm.hasError('required','pwd')">
                       <span class="fa fa-lock p-2"></span>
-                      <input formControlName="repwd" type="password" placeholder="Confirm Password"   [(ngModel)]="confirmpwd">
+                      <input id="fields" formControlName="repwd" type="password" placeholder="Confirm Password"   [(ngModel)]="confirmpwd">
                   </div>
               </div>
               <small class="text-danger" *ngIf="regForm.controls['repwd'].dirty && regForm.hasError('required','repwd')">*Confrim Password is required</small>
@@ -60,25 +60,20 @@
         
         <!-- </div> -->
         </div>
-        <!-- <ng-container *ngIf="show1">
-         <button routerLink="/home" class="btn btn-outline-primary" id="backbtn">BACK</button> 
+        <ng-container *ngIf="show1">
         <div class="container" id="cardcont">
         <div class="card mx-auto" >
           <div class="text-center" id="cardimg">
-            <img src="/assets/images/user-check-solid.svg" class="card-img-top" style="width: 70px; height: 60px;">
+            <img src="/assets/images/shield.gif" class="card-img-top" style="width: 55px; height: 65px;">
           </div>
             <h4 class="card-title">Enter the otp sent to ********18</h4>
             <div class="card-body">
-          <div class="row">
-            <input class="form-control" id="ex1" type="text">
-            <input class="form-control" id="ex1" type="text">
-            <input class="form-control" id="ex1" type="text">
-            <input class="form-control" id="ex1" type="text">
-          </div>
+            <input id="otp" type="text">
+            <button id="otpsubmit" type="submit">SUBMIT</button>
           </div>
         </div>
         </div>
-      </ng-container> -->
+      </ng-container>
       </div>
     </div>
   <!-- </div> -->

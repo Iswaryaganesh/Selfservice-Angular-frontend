@@ -26,7 +26,7 @@ export class RegComponent {
 
   otpget:any = [];
   public show1:boolean = false;
-  public show2:boolean = true;
+  // public show2:boolean = true;
   public buttonName:any = 'Show';
   constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService) //inject formbuilder
   {
@@ -43,6 +43,7 @@ export class RegComponent {
 
   onsubmit()
   {
+    this.show1 = !this.show1;
     if(this.regForm.valid)
     {
       console.log(this.regForm.value)
@@ -83,7 +84,6 @@ export class RegComponent {
       // this.otpget = this.arr[0].split("");
       // this.otpget = this.obj.otp.split("");
       // console.log(this.otpget);
-      // this.show1 = !this.show1;
       // this.show2 = !this.show2;
 
       //this.router.navigate(['/home'])
