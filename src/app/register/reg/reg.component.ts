@@ -17,6 +17,11 @@ export class RegComponent {
   //hello by velu
   users : Users = new Users();
   confirmpwd :String;
+
+  otpfrombackend:String;
+
+  otpfromfrontend:String;
+
   regForm!: FormGroup
   arr:any = ["0101"]
   obj={
@@ -48,19 +53,42 @@ export class RegComponent {
     {
       console.log(this.regForm.value)
       //send val to db
-
+      
       if(this.users.password===this.confirmpwd){
+      //console.log(this.users)
+      // this.userservice.CustomerSignup(this.users).subscribe(
+      //   response =>{
+      //     //console.log(this.confirmpwd);
+      //     let Response = response;
+      //     console.log(Response);
+      //     if(Response === 'Object Created'){
+      //       this.userservice.Showsuccess("Registered successfully","Success");
+      //       //this.router.navigate([''])
+      //     }      
+      //     if(Response === 'Email already exist')
+      //     {
+      //       this.userservice.Showwarning("Email already exists","Invalid");
+      //     }
+      //     else if(Response === 'Phone number already exists')
+      //     {
+      //         this.userservice.Showwarning("Phone number already exists","Invalid");
+      //     }
+      //     else if(Response === 'Phone number should be of 10 digits')
+      //     {
+      //         this.userservice.Showwarning("Phone number should be of 10 digits","Invalid");
+      //     }
+      //   }  
+      // );
+
       console.log(this.users)
-      this.userservice.CustomerSignup(this.users).subscribe(
+      console.log('hello by otp')
+      this.userservice.CustomersOTP(this.users).subscribe(
         response =>{
-          console.log(this.confirmpwd);
+          
           let Response = response;
+          this.otpfrombackend = response;
           console.log(Response);
-          if(Response === 'Object Created'){
-            this.userservice.Showsuccess("Registered successfully","Success");
-            this.router.navigate([''])
-          }      
-          else if(Response === 'Email already exist')
+          if(Response === 'Email already exist')
           {
             this.userservice.Showwarning("Email already exists","Invalid");
           }
@@ -68,11 +96,14 @@ export class RegComponent {
           {
               this.userservice.Showwarning("Phone number already exists","Invalid");
           }
-          else if(Response === 'Phone number should be of 10 digits')
+          else if(Response === 'Phone number should be of 13 digits including +91')
           {
-              this.userservice.Showwarning("Phone number should be of 10 digits","Invalid");
+              this.userservice.Showwarning("Phone number should be of 13 digits","Invalid");
+          }else{
+            this.userservice.Showwarning("otp is generated","valid");
           }
-        }  
+         
+        }
       );
         
     }
@@ -94,6 +125,30 @@ export class RegComponent {
       Validateform.validateform(this.regForm);
     }
   }
+  
+  otpverify()
+  {
+    if(this.users.password===this.confirmpwd){
+      //console.log('hello by final')
+      //console.log(this.otpfrombackend)
+      if(this.otpfromfrontend===this.otpfrombackend){
+        console.log('user can log in')
+        this.userservice.CustomerSignup(this.users).subscribe(
+        response =>{
+          console.log('good job');
+        }  
+        );
+        this.userservice.Showsuccess("Registered successfully","Success");
+        this.router.navigate([''])
+      }
+      else{
+        console.log('wrong otp')
+      }
+      
+    }
+  }
+
+
 
   
 }

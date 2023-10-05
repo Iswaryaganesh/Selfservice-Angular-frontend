@@ -13,6 +13,7 @@ export class UsersService {
   private baseURL = "http://localhost:8080/api/v1/";
   private userlink = "users";
   private signuplink = "signup";
+  private otplink = "otp";
   private CustomerURL = "http://localhost:8080/api/v1/customers";
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
@@ -32,6 +33,12 @@ export class UsersService {
   CustomerSignup(users:Users):Observable<String>{
     console.log(users)
     return this.httpClient.post(`${this.baseURL}`+this.signuplink,users,{responseType: 'text'});
+  }
+
+  CustomersOTP(users:Users):Observable<String>{
+    console.log('hello by otp observ');
+    console.log(users)
+    return this.httpClient.post(`${this.baseURL}`+this.otplink,users,{responseType: 'text'});
   }
 
   Showsuccess(title:any, message:any)
