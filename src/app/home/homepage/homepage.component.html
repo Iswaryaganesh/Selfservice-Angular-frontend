@@ -25,24 +25,32 @@
       </div>
     </nav>
   
-  
+  <!-- <div class="container-fluid"> -->
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="carousel-caption">
+      <div class="carousel-item active" data-bs-interval="4000">
+        <!-- <div class="carousel-caption">
           <h1>WE ARE ONE OF THE WORLD'S TOP SELF SERVICE WEBSITE</h1>
+        </div> -->
+        <video class="d-block w-100" [muted]="'muted'" autoplay loop><source src="assets/images/BG.mp4" type="video/mp4"  style="width: 100%;"></video>
+        <div class="carousel-caption">
+          <button id="knowmore">QUERY</button>
         </div>
-        <img src="assets/images/homebg.jpg" class="d-block">
       </div>
       <div class="carousel-item">
         <div class="carousel-caption">
           <h3>Connect with us to know more</h3>
           <button id="knowmore">KNOW MORE</button>
         </div>
-        <img src="assets/images/homebg.jpg" class="d-block">
+        <video class="d-block w-100" [muted]="'muted'" autoplay loop><source src="assets/images/BG.mp4" type="video/mp4" style="width: 100%;"></video>
       </div>
       <div class="carousel-item">
-        <img src="assets/images/homebg.jpg" class="d-block">
+        <video class="d-block w-100" [muted]="'muted'" autoplay loop><source src="assets/images/BG.mp4" type="video/mp4"  style="width: 100%;"></video>
         <div class="carousel-caption">
           <h3>View all your plans and pay them in a single tap</h3>
           <button id="knowmore">PAY</button>
@@ -58,3 +66,4 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+<!-- </div> -->

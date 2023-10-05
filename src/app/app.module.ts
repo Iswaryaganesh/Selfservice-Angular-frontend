@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { Acct1Component } from './acct1/acct1.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Acct1Component } from './acct1/acct1.component';
     LogComponent,
     RegComponent,
     HomepageComponent,
-    Acct1Component
+    Acct1Component,
+    ProfileComponent
 
   ],
   imports: [

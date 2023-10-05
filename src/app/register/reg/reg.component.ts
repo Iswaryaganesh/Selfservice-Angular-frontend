@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms'
 import {Route, Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
@@ -28,6 +28,7 @@ export class RegComponent {
   public show1:boolean = false;
   // public show2:boolean = true;
   public buttonName:any = 'Show';
+  otpvalid:boolean = false
   constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService) //inject formbuilder
   {
 
@@ -41,9 +42,13 @@ export class RegComponent {
     repwd:['',Validators.required]
   })}
 
+  // @ViewChild('scroll') scroll:ElementRef;
+
   onsubmit()
   {
     this.show1 = !this.show1;
+    this.router.navigateByUrl('registerr#otpsection');
+    // this.scroll.nativeElement.scrollTop= this.scroll.nativeElement.scrollHeight;
     if(this.regForm.valid)
     {
       console.log(this.regForm.value)
@@ -58,7 +63,7 @@ export class RegComponent {
           console.log(Response);
           if(Response === 'Object Created'){
             this.userservice.Showsuccess("Registered successfully","Success");
-            this.router.navigate([''])
+            // this.router.navigate([''])
           }      
           else if(Response === 'Email already exist')
           {

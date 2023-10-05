@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { LogComponent } from './login/log/log.component';
 import { RegComponent } from './register/reg/reg.component';
 import { HomepageComponent } from './home/homepage/homepage.component';
 import { Acct1Component } from './acct1/acct1.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'#', redirectTo:'page not found'},
-  // {path: '', component: LogComponent },
+  {path: '', component: LogComponent },
   {path:'login', component: LogComponent},
   {
     path:'registerr', component: RegComponent
@@ -17,11 +18,16 @@ const routes: Routes = [
   {
     path:'acct1', component: Acct1Component
   },
-  { path: '**', redirectTo: '/' }
+  {path:'profile',component:ProfileComponent}
 ];
+const routerOptions:ExtraOptions = {
+  scrollPositionRestoration:'enabled',
+  anchorScrolling:'enabled',
+}
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
