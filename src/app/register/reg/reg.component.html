@@ -31,7 +31,7 @@
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">
                         <span class="fa fa-phone p-2"></span>
-                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number"  [(ngModel)]="users.phonenumber">
+                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number add(+91)"  [(ngModel)]="users.phonenumber">
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">*Mobile number is required</small>
@@ -51,7 +51,7 @@
               </div>
               <small class="text-danger" *ngIf="regForm.controls['repwd'].dirty && regForm.hasError('required','repwd')">*Confrim Password is required</small>
                 
-                <button type="submit" class="btn btn-outline-primary mt-4 w-100">SIGN UP</button>
+                <button type="submit" class="btn btn-outline-primary mt-4 w-100">GENERATE OTP</button>
                 <div class="my-2 mx-3 py-3"><div class="text-center pt-4" id="loginlink">Already have an account? <a id="forget" routerLink="/login" routerLinkActive="active">Login</a></div></div>
                 </form>
             </div>
@@ -69,10 +69,10 @@
           <div class="text-center" id="cardimg">
             <img src="/assets/images/shield.gif" class="card-img-top" style="width: 55px; height: 65px;">
           </div>
-            <h4 class="card-title">Enter the otp sent to ********18</h4>
+            <h4 class="card-title">Enter the otp sent to your mobilenumber</h4>
             <div class="card-body">
-            <input id="otp" type="text">
-            <button id="otpsubmit" type="submit">SUBMIT</button>
+            <input id="otp" type="text" [(ngModel)]="otpfromfrontend" >
+            <button id="otpsubmit" type="submit" (click)="otpverify()" >SUBMIT</button>
           </div>
         </div>
         </div>
