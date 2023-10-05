@@ -15,7 +15,7 @@
                     <div class="form-group pt-3">
                     <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
                         <span class="fa fa-user p-2"></span>
-                        <input formControlName="username" type="text" placeholder="Email / Phone number" [(ngModel)]="users.email" [(ngModel)]="users.phonenumber">
+                        <input formControlName="username" type="text" placeholder="Email / Phone number (add +91)" [(ngModel)]="users.email" [(ngModel)]="users.phonenumber">
                     </div>
                 </div>
                 <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
