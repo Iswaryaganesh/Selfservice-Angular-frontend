@@ -47,13 +47,9 @@ export class ProfileComponent  {
     //  mobile:['',Validators.required],
     //  acctno:['',Validators.required],
     // })
-    // this.setprofile = {name:"", email:"", mobile:"", acctno:""};
-    // this.setprofile={
-    //   name:"ishu",
-    //   email:"ishu@gmail.com",
-    //   mobile:"2345678",
-    //   acctno:"456789"
-    // };
+
+
+    
   }
 
 

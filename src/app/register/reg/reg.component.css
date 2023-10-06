@@ -127,13 +127,22 @@ img{
 }
 .card 
 {
-    margin-bottom: 50px;
+    /* margin-bottom: 50px;
     width: 25rem;
     height: 25rem;
     /* position: absolute; */
-    top: 70%;
+    /* top: 70%;
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 10px;  */
+    right: 0;
+    min-height: 360px;
+    width: 400px;
+    box-shadow: 0px 5px 5px;
+    border-radius: 12px;
+    margin-top: 50px;
+    float: right;
+    margin-right: 120px;
+    margin-bottom: 50px;
    
 }
 
