@@ -92,12 +92,8 @@ export class RegComponent {
           
           let Response = response;
           this.otpfrombackend = response;
-          console.log(Response);
-          if(Response === 'Object Created'){
-            this.userservice.Showsuccess("Registered successfully","Success");
-            this.router.navigate([''])
-          }      
-          else if(Response === 'Email already exist')
+          console.log(Response);      
+          if(Response === 'Email already exist')
           {
             this.userservice.Showwarning("Email already exists","Invalid");
           }
@@ -109,7 +105,7 @@ export class RegComponent {
           {
               this.userservice.Showwarning("Phone number should be of 13 digits","Invalid");
           }else{
-            this.userservice.Showwarning("otp is generated","valid");
+            this.userservice.Showsuccess("otp is generated","valid");
           }
          
         }
