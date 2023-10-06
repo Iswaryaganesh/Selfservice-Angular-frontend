@@ -105,7 +105,7 @@ export class RegComponent {
           {
               this.userservice.Showwarning("Phone number should be of 13 digits","Invalid");
           }else{
-            this.userservice.Showwarning("otp is generated","valid");
+            this.userservice.Showsuccess("otp is generated","valid");
           }
          
         }
