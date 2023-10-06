@@ -74,6 +74,10 @@ input
     flex-basis: 40%;
     padding: 40px;
     background-color: #1c00b5;
+    /* background-image: url("/assets/images/profileimg.svg");
+    background-position: center;
+    background-size: cover; */
+
     color: white;
  }
 .input-row
