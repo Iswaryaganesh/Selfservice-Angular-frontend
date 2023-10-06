@@ -14,6 +14,7 @@ export class ProfileComponent {
   }
   profileForm:any;
   setprofile:any;
+  
   ngOnInit():void{
     // this.profileForm = this.fb.group({
     //  name:['',Validators.required],
@@ -21,13 +22,9 @@ export class ProfileComponent {
     //  mobile:['',Validators.required],
     //  acctno:['',Validators.required],
     // })
-    this.setprofile = {name:"", email:"", mobile:"", acctno:""};
-    this.setprofile={
-      name:"ishu",
-      email:"ishu@gmail.com",
-      mobile:"2345678",
-      acctno:"456789"
-    };
+
+
+    
   }
 
 
