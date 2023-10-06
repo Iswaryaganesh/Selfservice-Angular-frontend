@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms'
 import {Route, Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 import Validateform from 'src/app/helpers/validateform';
+import { SharedataService } from 'src/app/sharedata.service';
 import { Users } from 'src/app/users';
 import { UsersService } from 'src/app/users.service';
 
@@ -19,7 +20,7 @@ export class LogComponent {
  
 
   loginForm!: FormGroup
-  constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService) //inject formbuilder
+  constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService,private sharedata:SharedataService) //inject formbuilder
   {
 
   }
@@ -42,6 +43,7 @@ export class LogComponent {
             console.log(Response);
             if(Response === 'Login succesfull'){
               this.userservice.Showsuccess("Login Successful","Welcome");
+              this.sharedata.setprofileusers(this.users.email);
               this.router.navigate(['/home'])
             }
             else if(Response==='password does not match')

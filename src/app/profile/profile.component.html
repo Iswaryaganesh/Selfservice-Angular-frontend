@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
  <div class="container" id="minicont">
-    <h1>HELLO USER!</h1>
+    <h1>HELLO {{profileusers.name}}!</h1>
     <p>Your personal details shared with us are more confidential. Feel free to get in touch with us</p>
     <div class="profilebox">
         <div class="profile-left">
@@ -35,21 +35,21 @@
             <div class="input-row">
                 <div class="input-group">
                     <label>Name</label>
-                    <input type="text" placeholder="Name" disabled>
+                    <input type="text" placeholder="Name" [(ngModel)]="profileusers.name" [ngModelOptions]="{standalone:true}" disabled>                  
                     </div>
                 <div class="input-group">  
                     <label>Email</label>
-                    <input type="text" placeholder="Email" disabled>
+                    <input type="text" placeholder="Email"  [(ngModel)]="profileusers.email" [ngModelOptions]="{standalone:true}" disabled>
                 </div>
             </div>
                 <div class="input-row">
                 <div class="input-group">
                     <label>Mobile Number</label>
-                    <input type="text" placeholder="Mobile Number" disabled>
+                    <input type="text" placeholder="Mobile Number" [(ngModel)]="profileusers.phonenumber" [ngModelOptions]="{standalone:true}" disabled>
                     </div>
                 <div class="input-group">
                     <label>Account Number</label>
-                    <input type="text" placeholder="Account Number" disabled>
+                    <input type="text" placeholder="Account Number" [(ngModel)]="profileusers.accountNumber" [ngModelOptions]="{standalone:true}" disabled>
             </div>
             </div>
         </form>
