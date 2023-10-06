@@ -1,4 +1,4 @@
-input, label{
+/* input, label{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 10px;
     margin-left: 50px;
@@ -31,4 +31,85 @@ input
     padding: 4px;
     
 }
+ */
 
+ *
+ {
+    font-family: 'Poppins', sans-serif;
+
+    margin: 0;
+    padding: 0;
+ }
+#full{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: aqua;
+    position: relative;
+}
+ 
+
+#minicont
+ {
+    /* min-height: 100vh;
+    max-width: 100%; */
+    margin: 50px;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+ }
+ .profilebox
+ {
+    background: #fff;
+    display: flex;
+ }
+ .profile-left
+ {
+    flex-basis: 60%;
+    padding: 40px 60px;
+    background-color: #fff;
+ }
+ .profile-right
+ {
+    flex-basis: 40%;
+    padding: 40px;
+    background-color: #1c00b5;
+    color: white;
+ }
+.input-row
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.input-row .input-group
+{
+    flex-basis: 45%;
+    margin-top: 20px;
+}
+input{
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+    padding-top: 8px;
+}
+label{
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #1c00b5;
+}
+h1{
+    margin-bottom: 24px;
+}
+p{
+    font-weight: 250;
+    margin-bottom: 25px;
+}
+h5{
+    font-weight: 300;
+    margin-top: 5px;
+}
