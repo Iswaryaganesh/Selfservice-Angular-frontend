@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SharedataService {
 
-
+  private acctnumber:number;
   private email:String;
 
 
@@ -26,6 +26,15 @@ export class SharedataService {
   }
 
 
+  setAccoutNumber(acctnum:String){
+    let numberval: number = +acctnum   //typescript notation to convert string to number
+    this.acctnumber=numberval;
+  }
+
+
+  getAccountNumber(){
+    return this.acctnumber
+  }
 
 
 
