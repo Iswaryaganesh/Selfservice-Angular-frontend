@@ -1,8 +1,14 @@
+html{
+	scroll-behavior: smooth;
+    opacity: 1;
+    
+}
 .container-fluid
 {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
+    opacity: 1;
 }
 .panel-heading
 {

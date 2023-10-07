@@ -1,3 +1,6 @@
+html{
+	scroll-behavior: smooth;
+}
 h3{
     font-family: 'Red Hat Display', sans-serif;
     font-weight: bold;
