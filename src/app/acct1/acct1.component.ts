@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Validateform from '../helpers/validateform';
 import { Customers } from '../customers';
 import { UsersService } from 'src/app/users.service';
+import { SharedataService } from '../sharedata.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class Acct1Component {
 
 
   acctForm!: FormGroup
-  constructor(private fb: FormBuilder, private router:Router,private userservice:UsersService) //inject formbuilder
+  constructor(private fb: FormBuilder, private router:Router,private userservice:UsersService, private sharedata :SharedataService) //inject formbuilder
   {
 
   }
@@ -45,6 +46,8 @@ export class Acct1Component {
             let Response = response;
             console.log(Response);
             if(Response === 'Login Successfull'){
+              console.log(typeof(this.customers.accountNumber))
+              this.sharedata.setAccoutNumber(this.customers.accountNumber)
               this.userservice.Showsuccess("Account verified successfully","Success");
               this.router.navigate(['/registerr'])
             }
