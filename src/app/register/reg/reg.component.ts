@@ -3,6 +3,7 @@ import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms'
 import {Route, Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 import Validateform from 'src/app/helpers/validateform';
+import { SharedataService } from 'src/app/sharedata.service';
 import { Users } from 'src/app/users';
 import { UsersService } from 'src/app/users.service';
 
@@ -34,7 +35,7 @@ export class RegComponent {
   // public show2:boolean = true;
   public buttonName:any = 'Show';
   otpvalid:boolean = false
-  constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService) //inject formbuilder
+  constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService,private sharedata:SharedataService) //inject formbuilder
   {
 
   }
@@ -45,6 +46,9 @@ export class RegComponent {
     mobile:['',Validators.required],
     email:['',Validators.required],
     repwd:['',Validators.required]
+
+
+    
   })}
 
   // @ViewChild('scroll') scroll:ElementRef;
@@ -105,6 +109,7 @@ export class RegComponent {
           {
               this.userservice.Showwarning("Phone number should be of 13 digits","Invalid");
           }else{
+            
             this.userservice.Showsuccess("otp is generated","valid");
           }
          
@@ -138,6 +143,11 @@ export class RegComponent {
       //console.log(this.otpfrombackend)
       if(this.otpfromfrontend===this.otpfrombackend){
         console.log('user can log in')
+        
+        let tempNumber = this.sharedata.getAccountNumber()
+        //console.log(tempNumber)
+        //console.log(typeof(tempNumber))
+        this.users.accountNumber= tempNumber
         this.userservice.CustomerSignup(this.users).subscribe(
         response =>{
           console.log('good job');
