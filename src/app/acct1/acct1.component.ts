@@ -48,6 +48,7 @@ export class Acct1Component {
             if(Response === 'Login Successfull'){
               console.log(typeof(this.customers.accountNumber))
               this.sharedata.setAccoutNumber(this.customers.accountNumber)
+              this.sharedata.setRegAccoutNumber(this.customers.accountNumber)
               this.userservice.Showsuccess("Account verified successfully","Success");
               this.router.navigate(['/registerr'])
             }

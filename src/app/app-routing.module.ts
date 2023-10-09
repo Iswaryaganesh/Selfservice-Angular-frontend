@@ -5,6 +5,8 @@ import { RegComponent } from './register/reg/reg.component';
 import { HomepageComponent } from './home/homepage/homepage.component';
 import { Acct1Component } from './acct1/acct1.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PlansComponent } from './plans/plans.component';
+import { RouterComponent } from './router/router.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const routes: Routes = [
   {
     path:'acct1', component: Acct1Component
   },
-  {path:'profile',component:ProfileComponent}
+  {path:'profile',component:ProfileComponent},
+  {path:'plans',component:PlansComponent},
+  {path:'router',component:RouterComponent}
 ];
 const routerOptions:ExtraOptions = {
   scrollPositionRestoration:'enabled',

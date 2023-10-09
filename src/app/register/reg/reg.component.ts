@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms'
 import {Route, Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
+import { Customers } from 'src/app/customers';
 import Validateform from 'src/app/helpers/validateform';
 import { SharedataService } from 'src/app/sharedata.service';
 import { Users } from 'src/app/users';
@@ -17,6 +18,8 @@ export class RegComponent {
   //hello by isu
   //hello by velu
   users : Users = new Users();
+  customers:Customers = new Customers();
+  emailphone:Customers = new Customers();
   confirmpwd :String;
 
   otpfrombackend:String;
@@ -35,6 +38,7 @@ export class RegComponent {
   // public show2:boolean = true;
   public buttonName:any = 'Show';
   otpvalid:boolean = false
+  acctnum:String;
   constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService,private sharedata:SharedataService) //inject formbuilder
   {
 
@@ -49,7 +53,20 @@ export class RegComponent {
 
 
     
-  })}
+    
+  })
+
+  this.acctnum=this.sharedata.getRegAccountNumber();
+  this.customers.accountNumber = this.acctnum;
+  this.userservice.SetRegpage(this.customers).subscribe( response =>{
+    this.emailphone = response;
+    console.log(this.customers);
+    console.log(this.emailphone);
+  });
+
+
+
+}
 
   // @ViewChild('scroll') scroll:ElementRef;
 
@@ -60,7 +77,7 @@ export class RegComponent {
     // this.scroll.nativeElement.scrollTop= this.scroll.nativeElement.scrollHeight;
     if(this.regForm.valid)
     {
-      console.log(this.regForm.value)
+      // console.log(this.regForm.value)
       //send val to db
       
       if(this.users.password===this.confirmpwd){

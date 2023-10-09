@@ -13,6 +13,7 @@ export class UsersService {
   private baseURL = "http://localhost:8080/api/v1/";
   private userlink = "users";
   private signuplink = "signup";
+  private preparesignup = "signup1"
   private otplink = "otp";
   private profilelink = "profile";
   private CustomerURL = "http://localhost:8080/api/v1/customers";
@@ -44,6 +45,11 @@ export class UsersService {
 
   ProfilePage(users:Users):Observable<Users>{
     return this.httpClient.post<Users>(`${this.baseURL}`+this.profilelink,users);
+  }
+
+  SetRegpage(customers:Customers):Observable<Customers>
+  {
+    return this.httpClient.post<Customers>(`${this.baseURL}`+this.preparesignup,customers);
   }
 
   Showsuccess(title:any, message:any)
