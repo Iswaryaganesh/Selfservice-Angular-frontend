@@ -17,6 +17,7 @@ export class UsersService {
   private otplink = "otp";
   private profilelink = "profile";
   private CustomerURL = "http://localhost:8080/api/v1/customers";
+  private forgotlink = "forgot";
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
 
@@ -50,6 +51,11 @@ export class UsersService {
   SetRegpage(customers:Customers):Observable<Customers>
   {
     return this.httpClient.post<Customers>(`${this.baseURL}`+this.preparesignup,customers);
+  }
+
+  forgot(mobile:String):Observable<String>
+  {
+    return this.httpClient.post<String>(`${this.baseURL}`+this.forgotlink,mobile);
   }
 
   Showsuccess(title:any, message:any)

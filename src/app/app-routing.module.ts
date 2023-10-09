@@ -7,6 +7,7 @@ import { Acct1Component } from './acct1/acct1.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
 import { RouterComponent } from './router/router.component';
+import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,7 +23,9 @@ const routes: Routes = [
   },
   {path:'profile',component:ProfileComponent},
   {path:'plans',component:PlansComponent},
-  {path:'router',component:RouterComponent}
+  {path:'router',component:RouterComponent},
+  {path:'forgotPassword',component:ForgotpwdComponent}
+
 ];
 const routerOptions:ExtraOptions = {
   scrollPositionRestoration:'enabled',
