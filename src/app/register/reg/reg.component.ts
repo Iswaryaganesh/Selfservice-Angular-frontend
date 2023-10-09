@@ -73,7 +73,6 @@ export class RegComponent {
   onsubmit()
   {
     this.show1 = !this.show1;
-    this.router.navigateByUrl('registerr#otpsection');
     // this.scroll.nativeElement.scrollTop= this.scroll.nativeElement.scrollHeight;
     if(this.regForm.valid)
     {
@@ -126,8 +125,8 @@ export class RegComponent {
           {
               this.userservice.Showwarning("Phone number should be of 13 digits","Invalid");
           }else{
-            
             this.userservice.Showsuccess("otp is generated","valid");
+            this.router.navigateByUrl('registerr#otpsection');
           }
          
         }

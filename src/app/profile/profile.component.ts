@@ -24,9 +24,9 @@ export class ProfileComponent  {
   }
   ngOnInit():void{
 
-     this.emailProfile=this.sharedata.getprofileusers()
-     //console.log('hello by profile')
-     //console.log(this.emailProfile);
+    this.emailProfile=this.sharedata.getprofileusers()
+    //console.log('hello by profile')
+    //console.log(this.emailProfile);
     this.users.email= this.emailProfile
     //console.log('hello hello')
     console.log(this.users)

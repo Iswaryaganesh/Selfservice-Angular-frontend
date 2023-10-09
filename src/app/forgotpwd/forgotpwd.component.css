@@ -1,0 +1,112 @@
+.panel{
+  right: 0;
+  min-height: 300px;
+  width: 400px;
+  box-shadow: 10px 10px 20px;
+  border-radius: 12px;
+  margin-top: 100px;
+  float: right;
+  margin-right: 120px;
+}
+.container-fluid
+{
+    min-height: 100vh;
+    background-size: cover;
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover; 
+     -o-background-size: cover; */
+     background-position: center;
+     
+}
+.panel-heading
+{
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif; 
+}
+#col1
+{
+  height: 100vh;
+}
+#col2
+{
+  height: 100vh;
+}
+#loginimage
+{
+  top: 170px;
+  left: 150px;
+  height: 330px;
+  width: 330px;
+  background-position: center;
+}
+#loginlink{
+  border-top: 1px solid #aaa;
+  position: relative;
+}
+#loginlink::after
+{
+  content: "or";
+  color: black;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  padding: 0 8px;
+  background-color: whitesmoke;
+}
+.input-field
+{
+  
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  /* border: 1px solid #ddd; */
+  color: #ff543c;
+  
+}
+input[type='text'], input[type='password']
+{
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+    border: none;
+    margin: 3px;
+    padding: 4px;
+    
+}
+ input[type='text']:focus, input[type='password']:focus
+{
+    border: 1px solid #ff543c;
+    /* transition-delay: 0.5s;
+    transition-duration: 0.5s; */
+    -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.panel-body
+{
+  align-items: center;
+}
+
+img{
+    width: 80px;
+    height: 90px;
+    object-fit: cover;
+    position: relative;
+}
+.btn{
+  margin-top: 0;
+  border-radius: 15px;
+border: 1px solid #ff543c;
+cursor: pointer;
+transition: 1s;
+color: black;
+} 
+
+.btn:hover{
+background-color: #ff543c;
+  color: white;
+}
