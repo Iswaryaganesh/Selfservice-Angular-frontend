@@ -11,6 +11,7 @@ export class SharedataService {
 
   private acctnumber:number;
   private email:String;
+  private acctnum:String;
 
 
   constructor() { }
@@ -30,11 +31,26 @@ export class SharedataService {
     let numberval: number = +acctnum   //typescript notation to convert string to number
     this.acctnumber=numberval;
   }
+  
 
 
   getAccountNumber(){
     return this.acctnumber
   }
+
+  getRegAccountNumber(){
+    return this.acctnum;
+  }
+
+  setRegAccoutNumber(acctnum:String){
+    this.acctnum=acctnum;
+  }
+
+  // setEmailandphone(email:String, phone:String)
+  // {
+  //     this.email = email;
+  //     this.phone = phone;
+  // }
 
 
 

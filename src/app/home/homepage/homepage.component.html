@@ -1,7 +1,7 @@
 
 
 <div class="container-fluid" id="cont">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light" >
+  <nav class="navbar fixed-top navbar-expand-lg " >
       <div class="container-fluid">
         <a class="navbar-brand">S E L F - S E R V I C E</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,15 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item px-3">
-              <a class="nav-link active" routerLink="/" aria-current="page">HOME</a>
+              <a class="nav-link active" routerLink="/home" aria-current="page">HOME</a>
               <router-outlet></router-outlet>
             </li>
             <li class="nav-item px-3">
-              <a class="nav-link" href="#">PLANS</a>
+              <a class="nav-link" routerLink="/plans">PLANS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-3" href="#">ABOUT US</a>
+              <a class="nav-link px-3" href="home#about">ABOUT US</a>
             </li>
+            <div class="dropdown">
+              <button class="dropbtn">CONTACT
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
             <li class="nav-item px-3">
               <a routerLink="/profile" class="nav-link" href="#">PROFILE</a>
             </li>
@@ -36,8 +46,8 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="4000">
+    <div class="carousel-inner"  id="topcarousel">
+      <div class="carousel-item" data-bs-interval="4000"  id="topcarouselitem">
         <!-- <div class="carousel-caption">
           <h1>WE ARE ONE OF THE WORLD'S TOP SELF SERVICE WEBSITE</h1>
         </div> -->
@@ -46,14 +56,14 @@
           <button id="knowmore">QUERY</button>
         </div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item active" id="topcarouselitem">
         <div class="carousel-caption">
           <!-- <h3>Connect with us to know more</h3>-->
           <button id="myplan">MY PLAN</button> 
         </div>
         <video class="d-block w-100" [muted]="'muted'" autoplay loop><source src="assets/images/carouselvideo2.mp4" type="video/mp4" style="width: 100%;"></video>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item" id="topcarouselitem">
         <video class="d-block w-100" [muted]="'muted'" autoplay loop><source src="assets/images/carousel3video.mp4" type="video/mp4"  style="width: 100%;"></video>
         <div class="carousel-caption">
           <!-- <h3>View all your plans and pay them in a single tap</h3> -->
@@ -71,3 +81,98 @@
     </button>
   </div>
 <!-- </div> -->
+
+<section id="about">
+  <h1 id="abthead">
+    WHAT WE PROVIDE?
+  </h1>
+  <div class="bgrow" >
+  <div class="row1" id="abt" data-aos="fade-up" data-aos-once="false">
+        <img src="/assets/images/abtbg1.jpg" id="abtimg">
+        <p id="abtcontent">
+          Services featuring 2G, 3G, 4G, and a 5G network are on hand across India.
+        </p>
+    </div>
+  </div>
+    <div class="row1" id="abt" data-aos="fade-up" data-aos-once="false">
+      <p id="abtcontent">
+        Mobile commerce, fixed lines, high-speed home broadband, DTH, and numerous other services are available throughout India. We are assisting India's digital transformation by offering high speed data.
+      </p>
+      <img src="/assets/images/abtbg2.jpg" id="abtimg">
+  </div>
+  <div class="bgrow">
+  <div class="row1" id="abt" data-aos="fade-up" data-aos-once="false">
+    <img src="/assets/images/abtbg4.jpg" id="abtimg">
+    <p id="abtcontent">
+      Setting up a new DTH connection only takes a few hours. Your connection can be reviewed in just few taps from wherever you are. Configure your router settings and monitor data usage through our portal
+    </p>
+</div>
+</div>
+<h1 id="abthead">ABOUT PORTAL</h1>
+<div class="container app-desc" data-aos="fade-up" data-aos-once="false">
+<ul ><li style="list-style-type: square">Serves as a simple and easy design for self-care and customer support.</li>
+  <li style="list-style-type: square">Gives users the ability to monitor their account balance and recharge plan validity, link and manage multiple accounts, login and utilize app to purchase multiple plans.</li>
+ <li style="list-style-type: square"> Provides consumers with assistance and support by way of FAQs, useful hints, and troubleshooting tools.</li> 
+</ul>
+</div>
+</section>
+
+
+<section id="review">
+	<h1 id="reviewhead">
+		CUSTOMER REVIEWS
+	</h1>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-once="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner"  id="reviewcarousel">
+    <div class="carousel-item active" data-bs-interval="4000"  id="reviewcarouselitem">
+      <div class="col2">
+        <img src="assets/images/reviewer1.jpg">
+        <div class="rate">
+          <p>I like the most about them is their customer service, It's simply great. Also it's connection is more stable then any other service providers that I have tried before.</p>
+          <h3>Sam</h3>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" id="reviewcarouselitem">
+      <div class="col2">
+        <img src="assets/images/reviewer2.avif">
+        <div class="rate">
+          <p> I personally recommend it over others because of several reasons. The great customer support is one of them. They offer their customers, a seamless experience with good network connectivity, which is a crucial thing in today's world.</p>
+          <h3>Vinusha</h3>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" id="reviewcarouselitem">
+      <div class="col2">
+        <img src="assets/images/reviewer3.avif">
+        <div class="rate">
+          <p> It has been a good or satisfactory experience overall. They provide one of the best customer service. Query resolution time is quick and is quite transparent. </p>
+          <h3>John</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button> -->
+</div>
+</section>
+
+<h1 id="reviewhead">
+  CONTACT US
+</h1>
+<section id="contactus">
+    <p> We build a better nation through quality education.<br> Dream is not that comes while sleeping. <br>Dream is the one that disturbs sleep. </p>
+    <button class="faq">FAQ</button>
+</section>
+

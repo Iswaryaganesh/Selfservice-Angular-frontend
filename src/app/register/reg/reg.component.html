@@ -24,14 +24,14 @@
                     <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['email'].dirty && regForm.hasError('required','email')">
                         <span class="fa fa-envelope p-2"></span>
-                        <input id="fields" formControlName="email" type="email" placeholder="Email" [(ngModel)]="users.email" >
+                        <input id="fields" formControlName="email" type="email" placeholder="Email" [(ngModel)]="users.email" [(ngModel)]="emailphone.email" readonly>
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['email'].dirty && regForm.hasError('required','email')">*Email is required</small>
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">
                         <span class="fa fa-phone p-2"></span>
-                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number add(+91)"  [(ngModel)]="users.phonenumber">
+                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number add(+91)"  [(ngModel)]="users.phonenumber" [(ngModel)]="emailphone.phonenumber" readonly>
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">*Mobile number is required</small>
@@ -46,10 +46,10 @@
                 <div class="form-group pt-3">
                   <div class="input-field" [class.error]="regForm.controls['pwd'].dirty && regForm.hasError('required','pwd')">
                       <span class="fa fa-lock p-2"></span>
-                      <input id="fields" formControlName="repwd" type="password" placeholder="Confirm Password"   [(ngModel)]="confirmpwd">
+                      <input id="fields" formControlName="repwd" type="password" placeholder="Confirm Password" [(ngModel)]="confirmpwd">
                   </div>
               </div>
-              <small class="text-danger" *ngIf="regForm.controls['repwd'].dirty && regForm.hasError('required','repwd')">*Confrim Password is required</small>
+              <small class="text-danger" *ngIf="regForm.controls['repwd'].dirty && regForm.hasError('required','repwd')">*Confirm Password is required</small>
                 
                 <button type="submit" class="btn btn-outline-primary mt-4 w-100">GENERATE OTP</button>
                 <div class="my-2 mx-3 py-3"><div class="text-center pt-4" id="loginlink">Already have an account? <a id="forget" routerLink="/login" routerLinkActive="active">Login</a></div></div>
@@ -80,12 +80,6 @@
     </section>
 
 
-    <script>
-        $(window).scroll(function()
-        {
-          $(".container-fluid").css("opacity", 1-$(window).scrollTop()/250)
-        });
-    </script>
       
     
   <!-- </div> -->

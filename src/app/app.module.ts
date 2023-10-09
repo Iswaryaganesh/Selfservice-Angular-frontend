@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { Acct1Component } from './acct1/acct1.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PlansComponent } from './plans/plans.component';
+import { RouterComponent } from './router/router.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProfileComponent } from './profile/profile.component';
     RegComponent,
     HomepageComponent,
     Acct1Component,
-    ProfileComponent
+    ProfileComponent,
+    PlansComponent,
+    RouterComponent
 
   ],
   imports: [
