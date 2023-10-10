@@ -38,11 +38,11 @@
       </div>
       <div class="container-fluid" id="plandiv">
         <div class="dailyusage">
-        <div class="plancard" *ngFor="let i of planlist">
+        <div class="plancard" *ngFor="let i of plans">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <div class="card-title"><h5 style="display: inline-block; font-size: 33px;
-                    font-weight: bold">{{i.left}}  &nbsp; </h5><p style="display: inline-block; right: 0; position: absolute; padding-right: 9px; margin-top: 6px;">left of {{i.data}}</p></div>
+                    font-weight: bold">{{i.planName}}  &nbsp; </h5><p style="display: inline-block; right: 0; position: absolute; padding-right: 9px; margin-top: 6px;">left of {{i.speed}}</p></div>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <button class="paybtn">PAY</button>
                 </div>
