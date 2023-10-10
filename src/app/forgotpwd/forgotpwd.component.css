@@ -1,4 +1,4 @@
-.panel{
+.panel, .card{
   right: 0;
   min-height: 300px;
   width: 400px;
@@ -72,7 +72,7 @@ input[type='text'], input[type='password']
     box-shadow: none;
     outline: none;
     width: 100%;
-    border: none;
+    border-bottom: 1px solid;
     margin: 3px;
     padding: 4px;
     
@@ -109,4 +109,74 @@ color: black;
 .btn:hover{
 background-color: #ff543c;
   color: white;
+}
+
+    /* margin-bottom: 50px;
+    width: 25rem;
+    height: 25rem;
+    /* position: absolute; */
+    /* top: 70%;
+    border-style: solid;
+    border-radius: 10px;  */
+    /* .card 
+    {
+    right: 0;
+    min-height: 360px;
+    width: 400px;
+    box-shadow: 0px 5px 5px;
+    border-radius: 12px;
+    margin-top: 50px;
+    float: right;
+    margin-right: 120px;
+    margin-bottom: 50px;
+   
+} */
+
+.card-img-top
+{
+    /* max-width: 100%; */
+    top: 50%;
+}
+#loginimage
+{
+    top: 170px;
+    left: 150px;
+    height: 330px;
+    width: 330px;
+    background-position: center;
+}
+
+
+.card-title
+{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#otp
+{
+    border-bottom-color: gray;
+    border-radius: 1px;
+    width: 280px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#otpsubmit
+{
+    margin-top: 40px;
+    margin-left: 120px;
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 30px;
+    transition-duration: 0.5s;
+}
+#otpsubmit:hover
+{
+    background-color: #ff543c;
+    color: white;
+}
+#otpsection
+{
+    margin-top: 200px;
 }

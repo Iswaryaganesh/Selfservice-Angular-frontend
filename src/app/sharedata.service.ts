@@ -12,6 +12,7 @@ export class SharedataService {
   private acctnumber:number;
   private email:String;
   private acctnum:String;
+  private phone:String;
 
 
   constructor() { }
@@ -44,6 +45,16 @@ export class SharedataService {
 
   setRegAccoutNumber(acctnum:String){
     this.acctnum=acctnum;
+  }
+
+  setPhoneNumber(phone:String)
+  {
+    this.phone = phone;
+  }
+
+  getPhoneNumber()
+  {
+    return this.phone;
   }
 
   // setEmailandphone(email:String, phone:String)

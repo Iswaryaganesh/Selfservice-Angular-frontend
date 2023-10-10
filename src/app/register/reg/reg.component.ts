@@ -174,6 +174,7 @@ export class RegComponent {
       }
       else{
         console.log('wrong otp')
+        this.userservice.Showerror("Invalid OTP","Invalid");
       }
       
     }

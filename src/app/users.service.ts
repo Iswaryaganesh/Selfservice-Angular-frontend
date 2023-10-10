@@ -15,9 +15,11 @@ export class UsersService {
   private signuplink = "signup";
   private preparesignup = "signup1"
   private otplink = "otp";
+  private otpcheckforforgotpwd = "otpcheck";
+  private changepwd = "changepwd";
   private profilelink = "profile";
   private CustomerURL = "http://localhost:8080/api/v1/customers";
-  private forgotlink = "forgot";
+  private forgotlink = "forgotPassword";
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
 
@@ -32,6 +34,11 @@ export class UsersService {
    return this.httpClient.post(`${this.CustomerURL}`,customers,{responseType: 'text'}); 
   }
 
+  Changepwd(users:Users):Observable<String>{
+    //console.log(customers)
+    return this.httpClient.post(`${this.baseURL}`+this.changepwd,users,{responseType: 'text'}); 
+   }
+
 
   CustomerSignup(users:Users):Observable<String>{
     console.log(users)
@@ -44,6 +51,12 @@ export class UsersService {
     return this.httpClient.post(`${this.baseURL}`+this.otplink,users,{responseType: 'text'});
   }
 
+  Checkotpforforgotpwd(users:Users):Observable<String>{
+    console.log('hello by otp observ');
+    console.log(users)
+    return this.httpClient.post(`${this.baseURL}`+this.otpcheckforforgotpwd,users,{responseType: 'text'});
+  }
+
   ProfilePage(users:Users):Observable<Users>{
     return this.httpClient.post<Users>(`${this.baseURL}`+this.profilelink,users);
   }
@@ -53,9 +66,9 @@ export class UsersService {
     return this.httpClient.post<Customers>(`${this.baseURL}`+this.preparesignup,customers);
   }
 
-  forgot(mobile:String):Observable<String>
+  forgot(user:Users):Observable<String>
   {
-    return this.httpClient.post<String>(`${this.baseURL}`+this.forgotlink,mobile);
+    return this.httpClient.post(`${this.baseURL}`+this.forgotlink,user,{responseType: 'text'});
   }
 
   Showsuccess(title:any, message:any)
