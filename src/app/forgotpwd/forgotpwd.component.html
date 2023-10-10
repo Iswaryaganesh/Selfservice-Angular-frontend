@@ -5,6 +5,7 @@
         <img id="loginimage" src="/assets/images/undraw_login1.png">
     </div>
   <div id="col2" class=" col-lg-6">
+    <ng-container *ngIf="!showotp; else elseblock">
     <div class="panel border"  style= "margin-left: 30px;">
       <div class="panel-heading">
         <h3 class="pt-3 font-weight-bold" style="color: black;font-size: 24px;">FORGOT PASSWORD</h3>
@@ -14,7 +15,7 @@
               <div class="form-group pt-3">
                 <div class="input-field" [class.error]="forgotpwd.controls['mobile'].dirty && forgotpwd.hasError('required','mobile')">
                   <span class="fa fa-user p-2"></span>
-                  <input  type="text" id="mobile" name="mobile" class="form-control" placeholder="Phone number (add +91)" ng-model="mobile" required>
+                  <input  type="text" id="mobile" name="mobile" formControlName="mobile" placeholder="Phone number (add +91)" [(ngModel)]="user.phonenumber" required>
               </div>
           </div>
           <small *ngIf="forgotpwd.controls['mobile'].dirty && forgotpwd.hasError('required','mobile')" class="text-danger">*Mobile number is required</small>
@@ -22,5 +23,53 @@
         
           </form>
       </div>
-  
+  </div>
+</ng-container>
+  </div>
+<ng-template #elseblock>
+    <div class="container" id="cardcont">
+    <div class="card" style="margin-left: 60%;" >
+      <div class="text-center" id="cardimg">
+        <img src="/assets/images/shield.gif" class="card-img-top" style="width: 55px; height: 65px;">
+      </div>
+        <h4 class="card-title">Enter the otp sent to your mobilenumber</h4>
+        <div class="card-body">
+        <input id="otp" type="text" [(ngModel)]="otpfromfrontend" >
+        <button id="otpsubmit" type="submit" (click)="otpverify()" >SUBMIT</button>
+      </div>
+    </div>
+    </div>
+  <!-- </ng-container> -->
+</ng-template>
+
+<ng-container *ngIf="showotp && showchangepwd">
+  <div class="panel border"  style= "margin-left: 30px;">
+    <div class="panel-heading">
+      <h3 class="pt-3 font-weight-bold" style="color: black;font-size: 24px;">FORGOT PASSWORD</h3>
+    </div>
+    <div class="panel-body p-3">
+        <form [formGroup]="newpwd" (ngSubmit)="setpwd()">
+            <div class="form-group pt-3">
+              <div class="input-field" >
+                <span class="fa fa-user p-2"></span>
+                <input  type="text" id="password" name="password" formControlName="password" placeholder="New password" [(ngModel)]="user.password" required>
+            </div>
+        </div>
+        <small *ngIf="newpwd.controls['password'].dirty && newpwd.hasError('required','password')" class="text-danger">*Password is required</small>
+
+        <div class="form-group pt-3">
+          <div class="input-field">
+            <span class="fa fa-user p-2"></span>
+            <input  type="text" id="Repassword" name="Repassword" formControlName="Repassword" placeholder="Repassword" [(ngModel)]="Repassword" required>
+        </div>
+    </div>
+    <small *ngIf="newpwd.controls['Repassword'].dirty && newpwd.hasError('required','Repassword')" class="text-danger">*Re-enter the password</small>
+
+        <button type="submit" class="btn btn-outline-primary mt-4 w-100">SUBMIT</button> 
+      
+        </form>
+    </div>
+</div>
+</ng-container>
+  </div>
 </div>
