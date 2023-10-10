@@ -60,8 +60,7 @@ export class ForgotpwdComponent {
               this.showotp = !this.showotp;
               
               this.userservice.Checkotpforforgotpwd(this.user).subscribe(
-                response =>{
-                  
+                response =>{               
                   let Response = response;
                   this.otpfrombackend = response;
                   console.log(Response);      
@@ -83,7 +82,6 @@ export class ForgotpwdComponent {
   {
     if(this.otpfromfrontend===this.otpfrombackend){
       console.log('user can change password')
-      this.userservice.Showinfo("","Enter new password");
       this.showchangepwd = !this.showchangepwd;
     }
     else{
@@ -112,10 +110,10 @@ export class ForgotpwdComponent {
             else
             {
               this.userservice.Showsuccess("Success","Password has been changed successfully");
-              this.router.navigate(['/login'])
             }
           }  
           );
+          this.router.navigate(['/login'])
         }
         else
         {
