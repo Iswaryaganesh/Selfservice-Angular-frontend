@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
 import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { RouterpageComponent } from './routerpage/routerpage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
     ProfileComponent,
     PlansComponent,
     RouterComponent,
-    ForgotpwdComponent
+    ForgotpwdComponent,
+    RouterpageComponent
 
   ],
   imports: [
