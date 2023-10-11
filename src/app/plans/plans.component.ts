@@ -11,10 +11,11 @@ import { Plans } from '../plans';
   styleUrls: ['./plans.component.css']
 })
 export class PlansComponent {
-
+  //clickedIndex:number;
   email:String;
   customer:Customers = new Customers();
   plans:Plans[];
+  selected:Plans = new Plans();
   constructor(private router:Router, private userservice:UsersService, private sharedata:SharedataService)
   {
 
@@ -25,7 +26,7 @@ export class PlansComponent {
 
   ngOnInit():void
   {
-   
+    //this.clickedIndex;
     let value:string=localStorage.getItem("active")!
     console.log(value)
     console.log(typeof(value))
@@ -40,6 +41,13 @@ export class PlansComponent {
           console.log(this.plans);
       }
      )
+  }
+
+  getDetails(i:any){
+    console.log(i)
+      //this.selected= this.plans[i];
+      // console.log(this.selected.planName)
+      // console.log(this.selected.speed)
   }
 
   planlist = [{"data":"30GB","left":"6.67GB","cost":"401"},{"data":"15GB","left":"7.90GB","cost":"275"},{"data":"70GB","left":"34.34GB","cost":"701"}];
