@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
 import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
+import { RouterpageComponent } from './routerpage/routerpage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'plans',component:PlansComponent},
   {path:'router',component:RouterComponent},
-  {path:'forgotPassword',component:ForgotpwdComponent}
+  {path:'forgotPassword',component:ForgotpwdComponent},
+  {path:'routerpage',component:RouterpageComponent}
 
 ];
 const routerOptions:ExtraOptions = {

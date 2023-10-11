@@ -5,7 +5,7 @@ import { Users } from 'src/app/users';
 import { Customers } from './customers';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Plans } from './plans';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class UsersService {
   private CustomerURL = "http://localhost:8080/api/v1/customers";
   private forgotlink = "forgotPassword";
   private getrouter = "routerdetails"
-  private getplanlink = "getplans";
+
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
 
@@ -77,15 +77,6 @@ export class UsersService {
 
   getRouterDetails(r:Router):Observable<Router>  //get router details
 
-  {
-
-    return this.httpClient.post<Router>(`${this.CustomerURL}`+this.getrouter,Router);
-
-  }
-
-  getPlans(customers:Customers):Observable<Plans[]> //to get plans of a customer
-  {
-    return this.httpClient.post<Plans[]>(`${this.baseURL}`+this.getplanlink,customers);
   }
 
   Showsuccess(title:any, message:any)

@@ -1,0 +1,106 @@
+<div class="container-fluid">
+
+            <div class="dailyusage">
+            <div class="plancard" *ngFor="let i of planlist">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <div class="card-title"><h5 style="display: inline-block; font-size: 33px; font-weight: bold">{{i.left}}  &nbsp; </h5><p style="display: inline-block; right: 0; position: absolute; padding-right: 9px; margin-top: 6px;">left of {{i.data}}</p></div>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <button class="paybtn">PAY</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <h1 id="activeplanhead">ACTIVE PLANS</h1>
+    
+        <div class="plandetails">
+            <div class="plancard2" *ngFor="let i of planlist">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <div class="card-title" id="plancarddetails"><h5 style="display: inline-block;">&#8377; {{i.cost}}  &nbsp; </h5><p>per month</p></div>
+                      <div class="plan-benefits">
+                            <div class="benefit-icons">
+                                <img src="/assets/images/callicon.png">
+                            </div>
+                            <div class="benefit-desc">
+                                <p>Unlimited calls</p>
+                            </div>
+                      </div>
+                      <div class="plan-benefits">
+                        <div class="benefit-icons">
+                            <img src="/assets/images/msgicon.png">
+                        </div>
+                        <div class="benefit-desc">
+                            <p>100 SMS/day</p>
+                        </div>
+                  </div>
+                  <div class="plan-benefits">
+                    <div class="benefit-icons">
+                        <img src="/assets/images/signalicon.png">
+                    </div>
+                    <div class="benefit-desc">
+                        <p>{{i.data}}/month</p>
+                    </div>
+              </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    
+
+<div class="profilebox">
+    <div class=" profile-left">
+<form [formGroup]="routerform" (ngSubmit)="onsubmit()">
+    <div class="input-row">
+        <div class="input-group">
+            <label>SSID</label>
+            <input type="text" placeholder="SSID" formControlName="routerobj.ssid">        
+            <small *ngIf="routerform.controls['ssid'].dirty && routerform.hasError('required','ssid')" class="text-danger">*SSID should not be empty</small>          
+            </div>
+        <div class="input-group"> 
+            <label style="display: block;">PASSWORD</label>
+            <input type="text" placeholder="Password" formControlName="routerobj.password">
+            <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Password should not be empty</small> 
+        </div>
+        <div class="input-group"> 
+            <label style="display: block;">IPV4</label>
+            <input type="text" placeholder="ipv4" formControlName="routerobj.ipv4">
+        </div>
+        
+    </div>
+        <div class="input-row">
+        <div class="input-group">
+            <label>FIRMWARE</label>
+            <select name="firmware" id="firmware" formControlName="routerobj.firmwareVersion">
+                <option style="font-weight: 300; font-size: 15px;" value="V2.0.1">V2.0.1</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V2.0.2">V2.0.2</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V2.1.1">V2.1.1</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V2.1.2">V2.1.2</option>
+            </select>
+            </div>
+        <div class="input-group">
+            <label>SERIAL NUMBER</label>
+            <input type="text" placeholder="Serial Number" formControlName="routerobj.serialNumber"  readonly>
+    </div>
+    <div class="input-group"> 
+        <label style="display: block;">MODEL NAME</label>
+        <input type="text" placeholder="Model name" formControlName="routerobj.model" readonly>
+    </div>
+    </div>
+    <button type="submit" id="updatebtn">UPDATE</button>
+</form>
+</div>
+</div>
+<div class="display">
+<!-- <button id="listbtn">Connected</button>
+<button id="listbtn">Blocked</button> -->
+<div class="select-dropdown">
+<p>Select a router type</p>
+        <select #teams (change)="onSelected(teams.value)" style="width: 300px; font-size: 15px; font-weight: 300;">
+            <option default style="font-weight: 300;">select</option>
+            <option style="font-weight: 300;">Available</option>
+            <option style="font-weight: 300;">Blocked</option>
+        </select>
+    </div>
+</div>
+</div>
