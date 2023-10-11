@@ -75,8 +75,8 @@ export class UsersService {
     return this.httpClient.post(`${this.baseURL}`+this.forgotlink,user,{responseType: 'text'});
   }
 
-  getRouterDetails(r:Router):Observable<Router>  //get router details
-
+  getRouterDetails(r:Router):Observable<Router>{  //get router details
+    return this.httpClient.post<Router>(`${this.CustomerURL}`+this.getrouter,Router);
   }
 
   Showsuccess(title:any, message:any)
