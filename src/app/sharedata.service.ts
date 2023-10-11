@@ -19,7 +19,12 @@ export class SharedataService {
 
   setprofileusers(emailsent:String){
       this.email=emailsent
-      console.log(emailsent)
+      //console.log(emailsent)
+      const key = 'active'
+      const login_email:string = JSON.stringify(this.email)
+      // console.log(`JSON stringify`)
+      // console.log(login_email)
+      localStorage.setItem(key,login_email)
   } 
 
 

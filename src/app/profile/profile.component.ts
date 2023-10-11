@@ -22,9 +22,16 @@ export class ProfileComponent  {
   constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService){
       // this.hellotxt = "initial value"
   }
+
   ngOnInit():void{
 
-    this.emailProfile=this.sharedata.getprofileusers()
+    //this.emailProfile=this.sharedata.getprofileusers()
+    //this.emailProfile = JSON.stringify(localStorage.getItem("active"))
+    let value:string=localStorage.getItem("active")!
+    console.log(value)
+    console.log(typeof(value))
+    this.emailProfile= JSON.parse(value)
+
     //console.log('hello by profile')
     //console.log(this.emailProfile);
     this.users.email= this.emailProfile

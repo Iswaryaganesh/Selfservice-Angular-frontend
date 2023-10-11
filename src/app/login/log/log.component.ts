@@ -45,6 +45,7 @@ export class LogComponent {
               this.userservice.Showsuccess("Login Successful","Welcome");
               this.sharedata.setprofileusers(this.users.email);
               this.router.navigate(['/home'])
+              
             }
             else if(Response==='password does not match')
             {
