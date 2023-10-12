@@ -5,7 +5,8 @@ import Validateform from '../helpers/validateform';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import { RouterComponent } from '../router/router.component';
-import { Routers } from '../router';
+import { Routerdetails } from '../routerdetails';
+import { Customers } from '../customers';
 
 @Component({
   selector: 'app-routerpage',
@@ -15,11 +16,14 @@ import { Routers } from '../router';
 export class RouterpageComponent {
   planlist = [{"data":"30GB","left":"6.67GB","cost":"401","firmware":"V2.0.1"},{"data":"15GB","left":"7.90GB","cost":"275","firmware":"V2.0.2"},{"data":"70GB","left":"34.34GB","cost":"701","firmware":"V2.1.1"}];
   // routerobj:Routers = new Routers();
-  routerlist = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"PREMIUM","serial":"0691","firmware":"V2.0.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.0"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.1"}]
+  //routerlist = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"PREMIUM","serial":"0691","firmware":"V2.0.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.0"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.1"}]
   acctno:String;
-  showdescription:Boolean = false
+  rout:Routerdetails[];
+  showdescription:Boolean = false;
+  email:String;
+  customer:Customers = new Customers();
 
-  constructor(private router:Router, private fb:FormBuilder, private sharedata: SharedataService, private userservice: UsersService)
+  constructor(private router:Router, private fb:FormBuilder, private userservice: UsersService)
   {
 
   }
@@ -32,7 +36,23 @@ export class RouterpageComponent {
     })
     console.log(this.planlist);
   
-    this.acctno = this.sharedata.getRegAccountNumber();
+    let value:string=localStorage.getItem("active")!
+    console.log(value)
+    console.log(typeof(value))
+    this.email= JSON.parse(value)
+    this.customer.email = this.email;
+    console.log(this.customer.email)
+    //this.acctno = this.sharedata.getRegAccountNumber();
+
+
+    this.userservice.getRouterDetails(this.customer).subscribe(
+      response => 
+      { 
+          console.log(`hello`)
+          this.rout = response;
+          console.log(this.rout);
+      }
+     )
   }
   
   
@@ -56,8 +76,9 @@ export class RouterpageComponent {
         console.log(this.selectedTeam);
     }
 
-    displayconfig()
+    displayconfig(j:any)
     {
+      console.log(j)
       this.showdescription = !this.showdescription
     }
     
