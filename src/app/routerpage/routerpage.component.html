@@ -1,77 +1,98 @@
-<div class="container-fluid">
 
-            <div class="dailyusage">
-            <div class="plancard" *ngFor="let i of planlist">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <div class="card-title"><h5 style="display: inline-block; font-size: 33px; font-weight: bold">{{i.left}}  &nbsp; </h5><p style="display: inline-block; right: 0; position: absolute; padding-right: 9px; margin-top: 6px;">left of {{i.data}}</p></div>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <button class="paybtn">PAY</button>
-                    </div>
-                  </div>
-            </div>
-        </div>
-        <h1 id="activeplanhead">ACTIVE PLANS</h1>
-    
-        <div class="plandetails">
-            <div class="plancard2" *ngFor="let i of planlist">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <div class="card-title" id="plancarddetails"><h5 style="display: inline-block;">&#8377; {{i.cost}}  &nbsp; </h5><p>per month</p></div>
-                      <div class="plan-benefits">
-                            <div class="benefit-icons">
-                                <img src="/assets/images/callicon.png">
-                            </div>
-                            <div class="benefit-desc">
-                                <p>Unlimited calls</p>
-                            </div>
-                      </div>
-                      <div class="plan-benefits">
-                        <div class="benefit-icons">
-                            <img src="/assets/images/msgicon.png">
-                        </div>
-                        <div class="benefit-desc">
-                            <p>100 SMS/day</p>
-                        </div>
-                  </div>
-                  <div class="plan-benefits">
-                    <div class="benefit-icons">
-                        <img src="/assets/images/signalicon.png">
-                    </div>
-                    <div class="benefit-desc">
-                        <p>{{i.data}}/month</p>
-                    </div>
+<div class="container-fluid" id="cont">
+    <nav class="navbar fixed-top navbar-expand-lg " >
+        <div class="container-fluid">
+          <a class="navbar-brand">S E L F - S E R V I C E</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item px-3">
+                <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#324271}</style><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                <a class="nav-link active" routerLink="/home" aria-current="page" style="display: inline-block;">HOME</a>
+                <router-outlet></router-outlet>
+              </li>
+              <li class="nav-item px-3">
+                <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f58c14}</style><path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
+                <a class="nav-link" style="display: inline-block;" routerLink="/plans">PLANS</a>
+              </li>
+              <li class="nav-item">
+                <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                <a style="display: inline-block; padding-left: 0;" class="nav-link px-3" href="home#about">ABOUT US</a>
+              </li>
+              <div class="dropdown" style="padding-left: 7px;">
+                <li class="dropbtn"><svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fdb10d}</style><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+                  CONTACT
+                  <i class="fa fa-caret-down"></i>
+                </li>
+                <div class="dropdown-content">
+                  <a href="#" style="font-size: 14px;">FAQ</a>
+                  <a href="/home#review" style="font-size: 14px;">REVIEW</a>
+                  <a href="#" style="font-size: 14px;">Link 3</a>
+                </div>
               </div>
-                    </div>
-                  </div>
+              <div class="dropdown" style="padding-left: 7px;">
+              <a class="navbar-brand px-3" href="#" id="profileicon"><svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><style>svg{fill:#235286}</style><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg></a>
+              <div class="dropdown-content" style="right: 0;">
+                <a href="/profile" style="font-size: 14px;">VIEW PROFILE</a>
+                <a href="/home#review" style="font-size: 14px;">LOGOUT</a>
+              </div>
+            </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      </div>
+
+<div class="container-fluid">
+  
+    <div class="plancard" *ngFor="let j of routerlist">
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+              <div class="card-title">
+                <img height="90px" style="margin-left: 5px; margin-top: 5px;" src="/assets/images/routerimg.jpg">
+                <h5 style="display: inline-block; font-size: 24px; font-weight: bold">{{j.model}} </h5>
+            </div>
+            <div class="routerdesc">
+            <div class="router-details">
+                <h5 class="card-text" style="margin-bottom: 3px; font-size: 18px;">{{j.planname}}</h5>
+                    <p class="card-text" style="margin-bottom: 3px; ">{{j.ssid}}</p>
+                    <p class="card-text" style="margin-bottom: 3px; ">{{j.serial}}</p>
+                    <p class="card-text" style="margin-bottom: 3px; ">{{j.firmware}}</p>
             </div>
         </div>
-    
+        <a style="text-decoration: none;" href="/routerpage#contentsection"><button (click)="displayconfig()" class="paybtn">CONFIGURE</button></a>
+            </div>
+          </div>
+    </div>
 
-<div class="profilebox">
+    <ng-container *ngIf="showdescription">
+        <!-- <div class="description"> -->
+<section class="profilebox" id="contentsection">
     <div class=" profile-left">
 <form [formGroup]="routerform" (ngSubmit)="onsubmit()">
     <div class="input-row">
         <div class="input-group">
             <label>SSID</label>
-            <input type="text" placeholder="SSID" formControlName="routerobj.ssid">        
+            <input type="text" placeholder="SSID" >        
             <small *ngIf="routerform.controls['ssid'].dirty && routerform.hasError('required','ssid')" class="text-danger">*SSID should not be empty</small>          
             </div>
         <div class="input-group"> 
             <label style="display: block;">PASSWORD</label>
-            <input type="text" placeholder="Password" formControlName="routerobj.password">
+            <input type="text" placeholder="Password">
             <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Password should not be empty</small> 
         </div>
         <div class="input-group"> 
             <label style="display: block;">IPV4</label>
-            <input type="text" placeholder="ipv4" formControlName="routerobj.ipv4">
+            <input type="text" placeholder="ipv4" >
         </div>
         
     </div>
         <div class="input-row">
         <div class="input-group">
             <label>FIRMWARE</label>
-            <select name="firmware" id="firmware" formControlName="routerobj.firmwareVersion">
+            <select name="firmware" id="firmware">
                 <option style="font-weight: 300; font-size: 15px;" value="V2.0.1">V2.0.1</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.0.2">V2.0.2</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.1">V2.1.1</option>
@@ -80,18 +101,18 @@
             </div>
         <div class="input-group">
             <label>SERIAL NUMBER</label>
-            <input type="text" placeholder="Serial Number" formControlName="routerobj.serialNumber"  readonly>
+            <input type="text" placeholder="Serial Number" readonly>
     </div>
     <div class="input-group"> 
         <label style="display: block;">MODEL NAME</label>
-        <input type="text" placeholder="Model name" formControlName="routerobj.model" readonly>
+        <input type="text" placeholder="Model name" readonly>
     </div>
     </div>
     <button type="submit" id="updatebtn">UPDATE</button>
 </form>
 </div>
-</div>
-<div class="display">
+</section>
+<div class="display" style="margin-bottom: 50px;">
 <!-- <button id="listbtn">Connected</button>
 <button id="listbtn">Blocked</button> -->
 <div class="select-dropdown">
@@ -103,4 +124,6 @@
         </select>
     </div>
 </div>
+<!-- </div> -->
+</ng-container>
 </div>

@@ -110,10 +110,10 @@ export class ForgotpwdComponent {
             else
             {
               this.userservice.Showsuccess("Success","Password has been changed successfully");
+              this.router.navigate(['/login'])
             }
           }  
           );
-          this.router.navigate(['/login'])
         }
         else
         {
