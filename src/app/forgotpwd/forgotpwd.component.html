@@ -55,7 +55,7 @@
             <div class="form-group pt-3">
               <div class="input-field" >
                 <span class="fa fa-user p-2"></span>
-                <input  type="text" id="password" name="password" formControlName="password" placeholder="New password" [(ngModel)]="user.password" required>
+                <input  type="password" id="password" name="password" formControlName="password" placeholder="New password" [(ngModel)]="user.password" required>
             </div>
         </div>
         <small *ngIf="newpwd.controls['password'].dirty && newpwd.hasError('required','password')" class="text-danger">*Password is required</small>
@@ -63,7 +63,7 @@
         <div class="form-group pt-3">
           <div class="input-field">
             <span class="fa fa-user p-2"></span>
-            <input  type="text" id="Repassword" name="Repassword" formControlName="Repassword" placeholder="Re-enter password" [(ngModel)]="Repassword" required>
+            <input  type="password" id="Repassword" name="Repassword" formControlName="Repassword" placeholder="Re-enter password" [(ngModel)]="Repassword" required>
         </div>
     </div>
     <small *ngIf="newpwd.controls['Repassword'].dirty && newpwd.hasError('required','Repassword')" class="text-danger">*Re-enter the password</small>
