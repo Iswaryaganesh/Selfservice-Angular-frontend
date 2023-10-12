@@ -45,8 +45,30 @@
       </div>
 
 <div class="container-fluid">
-  
-    <div class="plancard" *ngFor="let j of routerlist">
+
+
+    <!--
+firmwareVersion
+: 
+"V1.0.0"
+model
+: 
+"TP_link"
+planID
+: 
+3
+routerID
+: 
+3
+serialNumber
+: 
+"22034F5000440"
+ssid
+: 
+"Batman's Cave2"
+add plan name later
+    -->
+    <div class="plancard" *ngFor="let j of rout">
         <div class="card" style="width: 22rem;">
             <div class="card-body">
               <div class="card-title">
@@ -55,13 +77,13 @@
             </div>
             <div class="routerdesc">
             <div class="router-details">
-                <h5 class="card-text" style="margin-bottom: 3px; font-size: 18px;">{{j.planname}}</h5>
+                <h5 class="card-text" style="margin-bottom: 3px; font-size: 18px;">{{j.planName}}</h5>
                     <p class="card-text" style="margin-bottom: 3px; ">{{j.ssid}}</p>
-                    <p class="card-text" style="margin-bottom: 3px; ">{{j.serial}}</p>
-                    <p class="card-text" style="margin-bottom: 3px; ">{{j.firmware}}</p>
+                    <p class="card-text" style="margin-bottom: 3px; ">{{j.serialNumber}}</p>
+                    <p class="card-text" style="margin-bottom: 3px; ">{{j.firmwareVersion}}</p>
             </div>
         </div>
-        <a style="text-decoration: none;" href="/routerpage#contentsection"><button (click)="displayconfig()" class="paybtn">CONFIGURE</button></a>
+        <a style="text-decoration: none;" href="/routerpage#contentsection"><button (click)="displayconfig(j)"  class="paybtn">CONFIGURE</button></a>
             </div>
           </div>
     </div>

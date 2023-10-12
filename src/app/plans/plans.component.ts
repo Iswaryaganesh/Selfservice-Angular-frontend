@@ -15,10 +15,10 @@ export class PlansComponent {
   email:String;
   customer:Customers = new Customers();
   plans:Plans[];
-  selected:Plans = new Plans();
+  //selected:Plans = new Plans();   ///You removed this without any indication watch out for any errors while clicking the button
   constructor(private router:Router, private userservice:UsersService, private sharedata:SharedataService)
   {
-
+    
   }
   
 
