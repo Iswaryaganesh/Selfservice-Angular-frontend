@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Validateform from '../helpers/validateform';
 import { SharedataService } from '../sharedata.service';
@@ -28,6 +28,8 @@ export class RouterpageComponent {
   ipv4comapre:String;
   firmwarecomapre:String;
   
+  show:Boolean=false;
+  password:String;
  
   constructor(private router:Router, private fb:FormBuilder, private userservice: UsersService)
   {
@@ -36,11 +38,11 @@ export class RouterpageComponent {
 
   routerform!:FormGroup;
   ngOnInit():void{
+    this.password = 'password';
     this.routerform = this.fb.group({
       ssid:['',Validators.required],
       password:['',Validators.required],
-      ipv4:[],
-      firmware:[],serialNumber:[],modelName:[]
+      ipv4:[],firmware:[],serialNumber:[],modelName:[]
     })
     console.log(this.planlist);
   
@@ -95,6 +97,16 @@ export class RouterpageComponent {
       //console.log(ng.model)
       this.showdescription = true
     }
+
+    closeform()
+    {
+      this.showdescription = false;
+    }
+    onClick() {
+      this.show = !this.show;
+    }
+    
+    
 
 
     updaterouter(){
