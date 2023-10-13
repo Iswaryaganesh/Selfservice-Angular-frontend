@@ -23,6 +23,11 @@ export class RouterpageComponent {
   email:String;
   customer:Customers = new Customers();
   ng:Routerdetails;
+  passwordcompare:String;
+  ssidcompare:String;
+  ipv4comapre:String;
+  firmwarecomapre:String;
+  
   show:Boolean=false;
   password:String;
  
@@ -35,10 +40,9 @@ export class RouterpageComponent {
   ngOnInit():void{
     this.password = 'password';
     this.routerform = this.fb.group({
-      ssid:new FormControl('',[Validators.required]),
-      password:new FormControl('',[Validators.required, Validators.minLength(6)]),
-      ipv4:new FormControl('',[Validators.required, Validators.pattern('^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])')]),
-      firmware:[],serialNumber:[],modelName:[]
+      ssid:['',Validators.required],
+      password:['',Validators.required],
+      ipv4:[],firmware:[],serialNumber:[],modelName:[]
     })
     console.log(this.planlist);
   
@@ -86,16 +90,30 @@ export class RouterpageComponent {
     {
       //console.log(j)
       this.ng=j;
+      this.passwordcompare=this.ng.password;
+      this.firmwarecomapre=this.ng.firmwareVersion;
+      this.ssidcompare = this.ng.ssid;
+      this.ipv4comapre = this.ng.ipv4;   
       //console.log(ng.model)
-
       this.showdescription = true
     }
-    closeform()
-    {
-      this.showdescription = false;
-    }
-    onClick() {
-      this.show = !this.show;
+
+
+    updaterouter(){
+      console.log(this.ng.ipv4)
+      console.log(this.ng.ssid)
+      console.log(this.ng.password)
+      console.log(this.ng.serialNumber)
+      console.log(this.ng.firmwareVersion)
+
+      if(this.ng.password === this.passwordcompare && this.ng.firmwareVersion ===this.firmwarecomapre && this.ng.ipv4 === this.ipv4comapre && this.ng.ssid === this.ssidcompare ){
+        console.log(this.ng.password)
+       
+        console.log('no changes')
+      }
+      else{
+        console.log(`chenges can be done`)
+      }
     }
     
     }
