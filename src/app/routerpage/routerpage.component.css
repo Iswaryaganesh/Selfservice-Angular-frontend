@@ -268,7 +268,7 @@ html{
 }
 .profilebox
  {
-    display: flex;
+    display: relative flex;
     border: 1px solid;
     border-radius: 20px;
     align-items: center;

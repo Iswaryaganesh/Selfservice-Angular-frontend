@@ -92,6 +92,7 @@ add plan name later
         <!-- <div class="description"> -->
         <!---->
 <section class="profilebox" id="contentsection">
+  <a (click)="closeform()" style="position: absolute; height: 20px; right: 5%; margin-top: 15px; cursor: pointer; z-index: 1;"><img style=" height: 20px;" src="/assets/images/cancelbtn.png"></a>
     <div class=" profile-left">
 <form [formGroup]="routerform" (ngSubmit)="onsubmit()">
     <div class="input-row">
@@ -102,12 +103,18 @@ add plan name later
             </div>
         <div class="input-group"> 
             <label style="display: block;">PASSWORD</label>
-            <input type="text" formControlName="password" placeholder="Password" [(ngModel)]="ng.password" >
-            <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Password should not be empty</small> 
+            <input [type]="show? 'text' : 'password'" formControlName="password" placeholder="Password" [(ngModel)]="ng.password" >
+            <a (click)="onClick()" style="display: inline-block; cursor: pointer;">
+              <i class="fa fa-eye" aria-hidden="true" *ngIf="!show" style="display: inline-block; margin-top:13px; position: absolute; right: 10%;"></i>
+              <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" style="display: inline-block;margin-top:13px; position: absolute; right: 10%;"></i>
+            </a>
+            <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Invalid password</small> 
         </div>
         <div class="input-group"> 
             <label style="display: block;">IPV4</label>
             <input type="text" placeholder="ipv4" formControlName="ipv4" [(ngModel)]="ng.ipv4">
+            <small *ngIf="routerform.controls['ipv4'].invalid && routerform.controls['ipv4'].touched"  class="text-danger">Invalid</small>
+            <small style="display: block;" *ngIf="routerform.controls['ipv4'].dirty && routerform.hasError('required','ipv4')" class="text-danger">*Invalid ipv4</small> 
         </div>
         
     </div>
