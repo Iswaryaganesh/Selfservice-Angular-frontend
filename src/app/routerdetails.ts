@@ -1,6 +1,6 @@
 export class Routerdetails {
     // PlanID:number;
-    planName : string;
+    planName : String;
     routerID:number;
     accountNumber:number;
     serialNumber:String;
