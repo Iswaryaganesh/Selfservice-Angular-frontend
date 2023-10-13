@@ -22,7 +22,8 @@ export class RouterpageComponent {
   showdescription:Boolean = false;
   email:String;
   customer:Customers = new Customers();
-
+  ng:Routerdetails;
+ 
   constructor(private router:Router, private fb:FormBuilder, private userservice: UsersService)
   {
 
@@ -78,7 +79,10 @@ export class RouterpageComponent {
 
     displayconfig(j:any)
     {
-      console.log(j)
+      //console.log(j)
+      this.ng=j;
+      //console.log(ng.model)
+
       this.showdescription = !this.showdescription
     }
     
