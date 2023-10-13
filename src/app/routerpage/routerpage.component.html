@@ -68,7 +68,7 @@ ssid
 "Batman's Cave2"
 add plan name later
     -->
-    <div class="plancard" *ngFor="let j of routerlist">
+    <div class="plancard" *ngFor="let j of rout">
         <div class="card" style="width: 22rem;">
             <div class="card-body">
               <div class="card-title">
@@ -115,8 +115,8 @@ add plan name later
         <div class="input-group">
             <label>FIRMWARE</label>
             <select name="firmware" id="firmware" formControlName="firmware" [(ngModel)]="ng.firmwareVersion">
-                <option style="font-weight: 300; font-size: 15px;" value="V2.0.1">V2.0.1</option>
-                <option style="font-weight: 300; font-size: 15px;" value="V2.0.2">V2.0.2</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V1.0.0">V1.0.0</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V1.1.0">V1.1.0</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.0">V2.1.0</option>                
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.1">V2.1.1</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.2">V2.1.2</option>
