@@ -90,23 +90,24 @@ add plan name later
 
     <ng-container *ngIf="showdescription">
         <!-- <div class="description"> -->
+        <!---->
 <section class="profilebox" id="contentsection">
     <div class=" profile-left">
 <form [formGroup]="routerform" (ngSubmit)="onsubmit()">
     <div class="input-row">
         <div class="input-group">
             <label>SSID</label>
-            <input type="text" placeholder="SSID" >        
+            <input type="text" formControlName="ssid" placeholder="SSID" [(ngModel)]="ng.ssid" >        
             <small *ngIf="routerform.controls['ssid'].dirty && routerform.hasError('required','ssid')" class="text-danger">*SSID should not be empty</small>          
             </div>
         <div class="input-group"> 
             <label style="display: block;">PASSWORD</label>
-            <input type="text" placeholder="Password">
+            <input type="text" formControlName="password" placeholder="Password" [(ngModel)]="ng.password" >
             <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Password should not be empty</small> 
         </div>
         <div class="input-group"> 
             <label style="display: block;">IPV4</label>
-            <input type="text" placeholder="ipv4" >
+            <input type="text" placeholder="ipv4"  >
         </div>
         
     </div>
@@ -122,11 +123,12 @@ add plan name later
             </div>
         <div class="input-group">
             <label>SERIAL NUMBER</label>
-            <input type="text" placeholder="Serial Number" readonly>
+            <input type="text" formControlName="serialNumber" placeholder="Serial Number"  [(ngModel)]="ng.serialNumber" readonly>
+            <small style="display: block;" *ngIf="routerform.controls['serialNumber'].dirty && routerform.hasError('required','serialNumber')" class="text-danger">*Password should not be empty</small>
     </div>
     <div class="input-group"> 
         <label style="display: block;">MODEL NAME</label>
-        <input type="text" placeholder="Model name" readonly>
+        <input type="text" formControlName="modelName" placeholder="Model name" readonly [(ngModel)]="ng.serialNumber" >
     </div>
     </div>
     <button type="submit" id="updatebtn">UPDATE</button>
