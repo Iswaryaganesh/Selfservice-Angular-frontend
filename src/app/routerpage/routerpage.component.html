@@ -68,7 +68,7 @@ ssid
 "Batman's Cave2"
 add plan name later
     -->
-    <div class="plancard" *ngFor="let j of rout">
+    <div class="plancard" *ngFor="let j of routerlist">
         <div class="card" style="width: 22rem;">
             <div class="card-body">
               <div class="card-title">
@@ -107,16 +107,17 @@ add plan name later
         </div>
         <div class="input-group"> 
             <label style="display: block;">IPV4</label>
-            <input type="text" placeholder="ipv4"  >
+            <input type="text" placeholder="ipv4" formControlName="ipv4" [(ngModel)]="ng.ipv4">
         </div>
         
     </div>
         <div class="input-row">
         <div class="input-group">
             <label>FIRMWARE</label>
-            <select name="firmware" id="firmware">
+            <select name="firmware" id="firmware" formControlName="firmware" [(ngModel)]="ng.firmwareVersion">
                 <option style="font-weight: 300; font-size: 15px;" value="V2.0.1">V2.0.1</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.0.2">V2.0.2</option>
+                <option style="font-weight: 300; font-size: 15px;" value="V2.1.0">V2.1.0</option>                
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.1">V2.1.1</option>
                 <option style="font-weight: 300; font-size: 15px;" value="V2.1.2">V2.1.2</option>
             </select>
@@ -128,7 +129,7 @@ add plan name later
     </div>
     <div class="input-group"> 
         <label style="display: block;">MODEL NAME</label>
-        <input type="text" formControlName="modelName" placeholder="Model name" readonly [(ngModel)]="ng.serialNumber" >
+        <input type="text" formControlName="modelName" placeholder="Model name" readonly [(ngModel)]="ng.model" >
     </div>
     </div>
     <button type="submit" id="updatebtn">UPDATE</button>

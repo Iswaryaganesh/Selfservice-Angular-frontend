@@ -19,6 +19,7 @@ import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RouterpageComponent } from './routerpage/routerpage.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

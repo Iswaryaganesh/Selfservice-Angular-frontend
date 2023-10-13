@@ -16,7 +16,7 @@ import { Customers } from '../customers';
 export class RouterpageComponent {
   planlist = [{"data":"30GB","left":"6.67GB","cost":"401","firmware":"V2.0.1"},{"data":"15GB","left":"7.90GB","cost":"275","firmware":"V2.0.2"},{"data":"70GB","left":"34.34GB","cost":"701","firmware":"V2.1.1"}];
   // routerobj:Routers = new Routers();
-  //routerlist = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"PREMIUM","serial":"0691","firmware":"V2.0.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.0"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planname":"BASIC","serial":"0691","firmware":"V2.1.1"}]
+  routerlist = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"PREMIUM","serialNumber":"0691","firmwareVersion":"V2.0.1","ipv4":"168.12.1.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.0","ipv4":"168.12.1.2"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.1","ipv4":"168.12.1.1"}]
   acctno:String;
   rout:Routerdetails[];
   showdescription:Boolean = false;
@@ -33,7 +33,8 @@ export class RouterpageComponent {
   ngOnInit():void{
     this.routerform = this.fb.group({
       ssid:['',Validators.required],
-      password:['',Validators.required]
+      password:['',Validators.required],
+      ipv4:[],firmware:[],serialNumber:[],modelName:[]
     })
     console.log(this.planlist);
   
