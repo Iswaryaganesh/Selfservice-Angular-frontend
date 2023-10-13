@@ -98,6 +98,16 @@ export class RouterpageComponent {
       this.showdescription = true
     }
 
+    closeform()
+    {
+      this.showdescription = false;
+    }
+    onClick() {
+      this.show = !this.show;
+    }
+    
+    
+
 
     updaterouter(){
       console.log(this.ng.ipv4)
