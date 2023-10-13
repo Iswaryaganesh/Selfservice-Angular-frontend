@@ -50,5 +50,5 @@ export class PlansComponent {
       // console.log(this.selected.speed)
   }
 
-  planlist = [{"data":"30GB","left":"6.67GB","cost":"401"},{"data":"15GB","left":"7.90GB","cost":"275"},{"data":"70GB","left":"34.34GB","cost":"701"}];
+  planlist = [{"data":"30GB","left":"6.67GB","cost":"401","daysleft":"15","planname":"BASIC"},{"data":"15GB","left":"7.90GB","cost":"275","daysleft":"25","planname":"BASIC"},{"data":"70GB","left":"34.34GB","cost":"701","daysleft":"12","planname":"PREMIUM"}];
 }
