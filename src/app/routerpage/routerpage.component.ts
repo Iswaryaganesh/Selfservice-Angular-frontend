@@ -84,7 +84,7 @@ export class RouterpageComponent {
       this.ng=j;
       //console.log(ng.model)
 
-      this.showdescription = !this.showdescription
+      this.showdescription = true
     }
     
     }
