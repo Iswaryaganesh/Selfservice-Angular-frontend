@@ -250,16 +250,34 @@
 {
     margin-bottom: 0;
 }
-.paybtn
+
+
+.paybtn 
 {
     width: 115px;
     height: 35px;
-    margin-left: 65px;
-    margin-top: 15px;
-    background-color: rgb(146, 228, 228);
-    color: black;
+    /* margin-top: 15px; */
+    /* margin-bottom: -1px; */
+    position: absolute;
+    bottom: 5%;
+    left: 28%;
     border-radius: 30px;
-    border: none;
+    border: 1px solid;
+    border-color: rgb(7, 96, 135);
+    /* background-color: rgb(105, 157, 174); */
+    /* margin-top: 10px; */
+    transition-duration: 0.5s;
+    font-size: 15px;
+    font-weight: 30%;
     font-family: 'Poppins', sans-serif;
-    box-shadow: 5px 5px 5px rgb(143, 148, 166);
+    box-shadow: 5px 5px 5px rgb(137, 145, 174);
+    color: rgb(232, 235, 240);
+    background-color: rgb(16, 127, 212);
+    padding: 5px;
+}
+.paybtn:hover, .paybtn a:hover
+{
+  transform: translateY(-10px);
+  background-color: whitesmoke;
+  color: rgba(4, 6, 8, 0.747);
 }

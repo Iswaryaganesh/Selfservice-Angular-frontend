@@ -92,14 +92,14 @@ add plan name later
         <!-- <div class="description"> -->
         <!---->
 <section class="profilebox" id="contentsection">
-  <a (click)="closeform()" style="position: absolute; height: 20px; right: 5%; margin-top: 15px; cursor: pointer; z-index: 1;"><img style=" height: 20px;" src="/assets/images/cancelbtn.png"></a>
+  <a id="closebtn" (click)="closeform()" style="position: absolute; height: 20px; right: 5%; margin-top: 15px; cursor: pointer; z-index: 1;"><img style=" height: 20px;" src="/assets/images/cancelbtn.png"></a>
     <div class=" profile-left">
 <form [formGroup]="routerform" (ngSubmit)="onsubmit()">
     <div class="input-row">
         <div class="input-group">
             <label>SSID</label>
             <input type="text" formControlName="ssid" placeholder="SSID" [(ngModel)]="ng.ssid" >        
-            <small *ngIf="routerform.controls['ssid'].dirty && routerform.hasError('required','ssid')" class="text-danger">*SSID should not be empty</small>          
+            <small *ngIf="routerform.controls['ssid'].dirty && routerform.hasError('required','ssid')" class="text-danger">!</small>          
             </div>
         <div class="input-group"> 
             <label style="display: block;">PASSWORD</label>
@@ -108,13 +108,14 @@ add plan name later
               <i class="fa fa-eye" aria-hidden="true" *ngIf="!show" style="display: inline-block; margin-top:13px; position: absolute; right: 10%;"></i>
               <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" style="display: inline-block;margin-top:13px; position: absolute; right: 10%;"></i>
             </a>
-            <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">*Invalid password</small> 
+            <small style="display: block;" *ngIf="routerform.controls['password'].dirty && routerform.hasError('required','password')" class="text-danger">!</small> 
         </div>
         <div class="input-group"> 
             <label style="display: block;">IPV4</label>
             <input type="text" placeholder="ipv4" formControlName="ipv4" [(ngModel)]="ng.ipv4">
-            <small *ngIf="routerform.controls['ipv4'].invalid && routerform.controls['ipv4'].touched"  class="text-danger">Invalid</small>
-            <small style="display: block;" *ngIf="routerform.controls['ipv4'].dirty && routerform.hasError('required','ipv4')" class="text-danger">*Invalid ipv4</small> 
+            <small *ngIf="routerform.controls['ipv4'].dirty && routerform.hasError('required','ipv4')" class="text-danger"><small>!</small></small>
+            <!-- <ng-container *ngIf="routerform.controls['ipv4'].invalid && routerform.controls['ipv4'].touched; else elseblock"  class="text-danger"><small>Invalid</small></ng-container>
+            <ng-template #elseblock="routerform.controls['ipv4'].dirty && routerform.hasError('required','ipv4')" class="text-danger"><small  style="display: block;">*Invalid ipv4</small> </ng-template> -->
         </div>
         
     </div>
@@ -132,7 +133,7 @@ add plan name later
         <div class="input-group">
             <label>SERIAL NUMBER</label>
             <input type="text" formControlName="serialNumber" placeholder="Serial Number"  [(ngModel)]="ng.serialNumber" readonly>
-            <small style="display: block;" *ngIf="routerform.controls['serialNumber'].dirty && routerform.hasError('required','serialNumber')" class="text-danger">*Password should not be empty</small>
+            <small style="display: block;" *ngIf="routerform.controls['serialNumber'].dirty && routerform.hasError('required','serialNumber')" class="text-danger">!</small>
     </div>
     <div class="input-group"> 
         <label style="display: block;">MODEL NAME</label>
@@ -156,5 +157,37 @@ add plan name later
     </div>
 </div>
 <!-- </div> -->
+
+<div class="mattable">
+  <app-mattable></app-mattable>
+  <!-- <table mat-table [dataSource]="planlist" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef> Model </th>
+      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ssid">
+      <th mat-header-cell *matHeaderCellDef> SSID </th>
+      <td mat-cell *matCellDef="let element"> {{element.ssid}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="plan">
+      <th mat-header-cell *matHeaderCellDef> PLAN </th>
+      <td mat-cell *matCellDef="let element"> {{element.planName}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="firmwareVersion">
+      <th mat-header-cell *matHeaderCellDef> FIRMWARE </th>
+      <td mat-cell *matCellDef="let element"> {{element.firmwareVersion}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> -->
+</div>
+
 </ng-container>
+
 </div>
