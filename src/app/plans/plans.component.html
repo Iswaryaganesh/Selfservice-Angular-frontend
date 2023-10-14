@@ -45,27 +45,100 @@
     </div>
       <div class="container-fluid" id="plandiv">
         <div class="dailyusage">
+          <div *ngIf="show">
         <div class="plancard" *ngFor="let i of planlist">
+            {{setuseddata(i.data,i.left)}}
+          
             <div class="card" style="width: 20rem;">
                 <div class="card-body">
-                  <h3 style="display: inline-block;">{{i.left}} </h3><p style="display: inline-block;position: absolute; right: 10%;">left of {{i.data}}</p>
-                  <div class="progress" style="height: 12px; margin-top: 5px;">
-                    <div
+                  <div class="card-title">
+                  <h3 style="display: inline-block;">{{i.left}} </h3><p style="display: inline-block;position: absolute; right: 10%;">left of {{i.data}}</p></div>
+                  <div class="progress" style="height: 16px; margin-top: 5px; border-radius: 20px;">
+                    <ng-container *ngIf="val>23.0; else elseblock" >
+                    <div 
                       class="progress-bar"
                       role="progressbar"
-                      style="width: 25%"
-                      aria-valuenow="50"
+                      attr.aria-valuenow="{{val}}"
+                      [ngStyle]="{width: used+ '%'}"
                       aria-valuemin="0"
                       aria-valuemax="100"
-                    >
-                      50%
+                    > 
+                      
+                    </div>
+                  </ng-container>
+                    <ng-template #elseblock>
+                    <div 
+                      class="progress-bar bg-danger"
+                      role="progressbar"
+                      attr.aria-valuenow="{{val}}"
+                      [ngStyle]="{width: used+ '%'}"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    > 
+                      
+                    </div>
+                  </ng-template>
+                  </div>
+                  <a href="#"  style="display: inline-block; position: absolute; margin-top: 7px; text-decoration: none;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dummy(i)"><p style="font-size: 12px;">View details</p></a>
+                  <p style="margin-left: 62%; font-size: 13px; margin-top: 5px;">{{i.daysleft}} days remaining</p>
+                  
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content" style="border-radius: 40px;">
+                        <!-- <div class="modal-header"> -->
+
+                          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -20px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
+                        <!-- </div> -->
+                        <div class="modal-body">
+                          <!-- <div class="plandetails"> -->
+                                <div class="card" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <div class="planname">
+                                          <p>BASIC</p>
+                                          <p>{{popobj?.data}}</p>
+                                        </div>
+                                      <div class="card-title" id="plancarddetails"><h5 style="display: inline-block;">&#8377; {{popobj?.cost}}  &nbsp; </h5><p>per month</p></div>
+                                      <div class="plan-benefits">
+                                            <div class="benefit-icons">
+                                                <img src="/assets/images/callicon.png">
+                                            </div>
+                                            <div class="benefit-desc">
+                                                <p>Unlimited calls</p>
+                                            </div>
+                                      </div>
+                                      <div class="plan-benefits">
+                                        <div class="benefit-icons">
+                                            <img src="/assets/images/msgicon.png">
+                                        </div>
+                                        <div class="benefit-desc">
+                                            <p>100 SMS/day</p>
+                                        </div>
+                                  </div>
+                                  <div class="plan-benefits">
+                                    <div class="benefit-icons">
+                                        <img src="/assets/images/signalicon.png">
+                                    </div>
+                                    <div class="benefit-desc">
+                                        <p>{{i.data}}/month</p>
+                                    </div>
+                              </div>
+                                    </div>
+                                  </div>
+                        <!-- </div>   -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <p style="margin-left: 62%; font-size: 13px; margin-top: 5px;">{{i.daysleft}} days remaining</p>
+
                   <button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)">PAY</button>
                   
 
-                  <div class="modal fade" id="myModal" role="dialog">
+                  <!-- <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -104,52 +177,10 @@
                         </div>
                         </div>
                         </div>
-                        </div></div></div>
+                        </div></div></div> -->
                         
                 </div>
               </div>
         </div>
     </div>
-    
-
-    <h1 id="activeplanhead">ACTIVE PLANS</h1>
-
-    <div class="plandetails">
-        <div class="plancard2" *ngFor="let i of planlist">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <div class="planname">
-                      <p>BASIC</p>
-                    </div>
-                  <div class="card-title" id="plancarddetails"><h5 style="display: inline-block;">&#8377; {{i.cost}}  &nbsp; </h5><p>per month</p></div>
-                  <div class="plan-benefits">
-                        <div class="benefit-icons">
-                            <img src="/assets/images/callicon.png">
-                        </div>
-                        <div class="benefit-desc">
-                            <p>Unlimited calls</p>
-                        </div>
-                  </div>
-                  <div class="plan-benefits">
-                    <div class="benefit-icons">
-                        <img src="/assets/images/msgicon.png">
-                    </div>
-                    <div class="benefit-desc">
-                        <p>100 SMS/day</p>
-                    </div>
-              </div>
-              <div class="plan-benefits">
-                <div class="benefit-icons">
-                    <img src="/assets/images/signalicon.png">
-                </div>
-                <div class="benefit-desc">
-                    <p>{{i.data}}/month</p>
-                </div>
-          </div>
-                </div>
-              </div>
-        </div>
-    </div>
-    
-
     </div>

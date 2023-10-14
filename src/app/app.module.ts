@@ -15,9 +15,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { Acct1Component } from './acct1/acct1.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
-import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RouterpageComponent } from './routerpage/routerpage.component';
+import { MattableComponent } from './mattable/mattable.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 
 @NgModule({
@@ -29,9 +31,8 @@ import { RouterpageComponent } from './routerpage/routerpage.component';
     Acct1Component,
     ProfileComponent,
     PlansComponent,
-    RouterComponent,
-    ForgotpwdComponent,
-    RouterpageComponent
+    RouterpageComponent,
+    ForgotpwdComponent
 
   ],
   imports: [
@@ -39,7 +40,9 @@ import { RouterpageComponent } from './routerpage/routerpage.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    MattableComponent,
     HttpClientModule,
+    MatProgressBarModule,
     ToastrModule.forRoot({// positionClass:"toast-bottom-center",
     preventDuplicates:true,
     timeOut:2000,

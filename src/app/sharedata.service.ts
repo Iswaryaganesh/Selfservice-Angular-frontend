@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Users } from './users';
 import { Observable } from 'rxjs';
+import { Routerdetails } from './routerdetails';
 
 
 
@@ -13,6 +14,8 @@ export class SharedataService {
   private email:String;
   private acctnum:String;
   private phone:String;
+  private routers:any; //entire router object
+  private routerEach:[];
 
 
   constructor() { }
@@ -62,6 +65,25 @@ export class SharedataService {
     return this.phone;
   }
 
+  setRouterList(routerlist:any)  //sending entire router object
+  {
+    this.routers = routerlist;
+  }
+
+  getRouterList()     // getting entire router object
+  {
+    return this.routers;
+  }
+
+  getrouterEach()
+  {
+    return this.routerEach;
+  }
+
+  setrouterEach(eachrouter:[])
+  {
+    this.routerEach = eachrouter;
+  }
   // setEmailandphone(email:String, phone:String)
   // {
   //     this.email = email;

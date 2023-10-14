@@ -9,6 +9,7 @@ import { PlansComponent } from './plans/plans.component';
 import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RouterpageComponent } from './routerpage/routerpage.component';
+import { MattableComponent } from './mattable/mattable.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'plans',component:PlansComponent},
   {path:'router',component:RouterComponent},
   {path:'forgotPassword',component:ForgotpwdComponent},
-  {path:'routerpage',component:RouterpageComponent}
+  {path:'routerpage',component:RouterpageComponent},
+  {path:'mattable',component:MattableComponent}
 
 ];
 const routerOptions:ExtraOptions = {
