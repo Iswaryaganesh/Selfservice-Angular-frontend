@@ -26,6 +26,7 @@ export class UsersService {
   private forgotlink = "forgotPassword";
   private getplanspage = "getplans"
   private getrouter = "getrouter"
+  private UpdateRouter = "updateRouter";
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
@@ -87,6 +88,24 @@ export class UsersService {
     //get router details
     return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.getrouter,customer);
   }
+
+  // UpdateRouterDetails(router:Routerdetails,serialNumber:String){
+  //   console.log('hello by router update')
+  //   console.log(`${this.baseURL}`+serialNumber)
+  //   console.log(router.password)
+  //   return this.httpClient.put('${this.baseURL}'+'${serialNumber}',router)
+  // }
+
+
+  UpdateRouterDetails(router:Routerdetails):Observable<String>{  
+    //get router details
+
+    console.log('hello by router update')
+    console.log(router.password)
+    return this.httpClient.post<String>(`${this.baseURL}`+this.UpdateRouter,router);
+  }
+
+
 
   Showsuccess(title:any, message:any)
   {

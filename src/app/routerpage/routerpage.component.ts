@@ -118,11 +118,25 @@ export class RouterpageComponent {
 
       if(this.ng.password === this.passwordcompare && this.ng.firmwareVersion ===this.firmwarecomapre && this.ng.ipv4 === this.ipv4comapre && this.ng.ssid === this.ssidcompare ){
         console.log(this.ng.password)
-       
+        this.userservice.Showwarning("No changes Done","Make changes");
         console.log('no changes')
       }
       else{
         console.log(`chenges can be done`)
+        /*
+        
+        this.userservice.CustomerSignup(this.users).subscribe(
+        response =>{
+          console.log('good job');
+        }  
+        );
+        
+        */ 
+        this.userservice.UpdateRouterDetails(this.ng).subscribe(
+          response=>{
+            
+          }
+        );
       }
     }
     
