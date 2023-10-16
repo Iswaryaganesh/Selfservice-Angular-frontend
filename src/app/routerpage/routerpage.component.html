@@ -34,8 +34,8 @@
               <a class="navbar-brand px-3" href="#" id="profileicon"><svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><style>svg{fill:#235286}</style><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg></a>
               <div class="dropdown-content" style="right: 0;">
                 <a href="/profile" style="font-size: 14px;">VIEW PROFILE</a>
-                <a href="#" style="font-size: 14px;">FAQ</a>
-                <a href="/home#review" style="font-size: 14px;">LOGOUT</a>
+                <a href="/faq" style="font-size: 14px;">FAQ</a>
+                <a (click)="logout()" style="font-size: 14px;">LOGOUT</a>
               </div>
             </div>
             </ul>
@@ -144,12 +144,12 @@ add plan name later
 </form>
 </div>
 </section>
-<div class="display" style="margin-bottom: 50px;">
+<div class="display" style="padding-bottom: 70px;">
 <!-- <button id="listbtn">Connected</button>
 <button id="listbtn">Blocked</button> -->
 <div class="select-dropdown">
 <p>Select a router type</p>
-        <select #teams (change)="onSelected(teams.value)" style="width: 300px; font-size: 15px; font-weight: 300;">
+      <select #teams (change)="onSelected(teams.value)" style="width: 300px; font-size: 15px; font-weight: 300;">
             <option default style="font-weight: 300;">select</option>
             <option style="font-weight: 300;">Available</option>
             <option style="font-weight: 300;">Blocked</option>
@@ -158,7 +158,8 @@ add plan name later
 </div>
 <!-- </div> -->
 
-<div class="mattable">
+<section id="viewtable">
+<ng-container *ngIf="showavailable==true && showblocked==false">
   <app-mattable></app-mattable>
   <!-- <table mat-table [dataSource]="planlist" class="mat-elevation-z8">
 
@@ -186,7 +187,11 @@ add plan name later
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table> -->
-</div>
+</ng-container>
+<ng-container *ngIf="showavailable==false && showblocked==true">
+  <app-blockedtable></app-blockedtable>
+</ng-container>
+</section>
 
 </ng-container>
 

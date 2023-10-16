@@ -15,7 +15,7 @@ export class SharedataService {
   private acctnum:String;
   private phone:String;
   private routers:any; //entire router object
-  private routerEach:[];
+  private routerEach:Routerdetails;
 
 
   constructor() { }
@@ -80,7 +80,7 @@ export class SharedataService {
     return this.routerEach;
   }
 
-  setrouterEach(eachrouter:[])
+  setrouterEach(eachrouter:Routerdetails)
   {
     this.routerEach = eachrouter;
   }
@@ -89,6 +89,7 @@ export class SharedataService {
   //     this.email = email;
   //     this.phone = phone;
   // }
+
 
 
 

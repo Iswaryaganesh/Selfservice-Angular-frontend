@@ -19,6 +19,8 @@ import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RouterpageComponent } from './routerpage/routerpage.component';
 import { MattableComponent } from './mattable/mattable.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BlockedtableComponent } from './blockedtable/blockedtable.component';
+import { FaqComponent } from './faq/faq.component';
 
 
 
@@ -32,7 +34,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ProfileComponent,
     PlansComponent,
     RouterpageComponent,
-    ForgotpwdComponent
+    ForgotpwdComponent,
+    FaqComponent
 
   ],
   imports: [
@@ -41,6 +44,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ReactiveFormsModule,
     FormsModule,
     MattableComponent,
+    BlockedtableComponent,
     HttpClientModule,
     MatProgressBarModule,
     ToastrModule.forRoot({// positionClass:"toast-bottom-center",

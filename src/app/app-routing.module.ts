@@ -6,10 +6,11 @@ import { HomepageComponent } from './home/homepage/homepage.component';
 import { Acct1Component } from './acct1/acct1.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlansComponent } from './plans/plans.component';
-import { RouterComponent } from './router/router.component';
 import { ForgotpwdComponent } from './forgotpwd/forgotpwd.component';
 import { RouterpageComponent } from './routerpage/routerpage.component';
 import { MattableComponent } from './mattable/mattable.component';
+import { BlockedtableComponent } from './blockedtable/blockedtable.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,10 +26,11 @@ const routes: Routes = [
   },
   {path:'profile',component:ProfileComponent},
   {path:'plans',component:PlansComponent},
-  {path:'router',component:RouterComponent},
   {path:'forgotPassword',component:ForgotpwdComponent},
   {path:'routerpage',component:RouterpageComponent},
-  {path:'mattable',component:MattableComponent}
+  {path:'mattable',component:MattableComponent},
+  {path:'blockedtable',component:BlockedtableComponent},
+  {path:'faq',component:FaqComponent}
 
 ];
 const routerOptions:ExtraOptions = {

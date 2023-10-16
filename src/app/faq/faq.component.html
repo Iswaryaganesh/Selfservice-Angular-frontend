@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="container" id="faqpage">
+    <div id="faq-content" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+    <div id="faq-head">
+    <h3>
+        Why should I switch from 4G to 5G?
+    </h3>
+    <a (click)="displaypara(i)" ><img *ngIf="!display[i]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[i]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+    </div>
+    <p *ngIf="display[i]" >
+        India's only True 5G network provides an unparalleled combination of coverage, capacity, quality, and affordability compared to other networks. Here’s how 5G will revolutionise your experience:
+        Standalone 5G architecture:
+        World's most advanced 5G network with zero dependencies on 4G network
+        Low latency, machine-to-machine communication, 5G calls, edge computing, and network slicing
+        Far superior to 4G-based non-standalone networks being launched by other operators
+        Largest and best mix of spectrum:
+        Largest and the most appropriate mix of wireless spectrum for 5G across 700 MHz, 3500 MHz, and 26 GHz bands, giving Jio True 5G a distinct advantage over other operators
+        Jio is the only operator that has a 700 MHz low-band spectrum to ensure deep indoor coverage
+        Carrier Aggregation:
+        Seamlessly combines 5G frequencies into a powerful “data highway” using advanced technology
+        Enables users to enjoy 5G speed, up to 1 Gbps with ultra-low latency, and the best indoor and outdoor experience.
+    </p>
+</div>
+
+
+</div>
+</div>
