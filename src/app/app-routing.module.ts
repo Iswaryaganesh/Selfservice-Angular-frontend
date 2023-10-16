@@ -11,6 +11,7 @@ import { RouterpageComponent } from './routerpage/routerpage.component';
 import { MattableComponent } from './mattable/mattable.component';
 import { BlockedtableComponent } from './blockedtable/blockedtable.component';
 import { FaqComponent } from './faq/faq.component';
+import { authGuard } from './Guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,14 +23,14 @@ const routes: Routes = [
   },
   {path: 'home', component: HomepageComponent},
   {
-    path:'acct1', component: Acct1Component
+    path:'acct1', component: Acct1Component, canActivate:[authGuard]
   },
-  {path:'profile',component:ProfileComponent},
-  {path:'plans',component:PlansComponent},
-  {path:'forgotPassword',component:ForgotpwdComponent},
-  {path:'routerpage',component:RouterpageComponent},
-  {path:'mattable',component:MattableComponent},
-  {path:'blockedtable',component:BlockedtableComponent},
+  {path:'profile',component:ProfileComponent, canActivate:[authGuard]},
+  {path:'plans',component:PlansComponent, canActivate:[authGuard]},
+  {path:'forgotPassword',component:ForgotpwdComponent, canActivate:[authGuard]},
+  {path:'routerpage',component:RouterpageComponent, canActivate:[authGuard]},
+  {path:'mattable',component:MattableComponent, canActivate:[authGuard]},
+  {path:'blockedtable',component:BlockedtableComponent, canActivate:[authGuard]},
   {path:'faq',component:FaqComponent}
 
 ];
