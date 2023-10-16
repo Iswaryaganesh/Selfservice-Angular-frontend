@@ -9,4 +9,5 @@ export class Routerdetails {
     ipv4:String;
     ssid:String;
     password:String;
+    deviceId:String;
 }
