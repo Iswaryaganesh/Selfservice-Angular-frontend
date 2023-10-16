@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -8,4 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomepageComponent {
 
+  constructor(private router:Router)
+  {
+    
+  }
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 }

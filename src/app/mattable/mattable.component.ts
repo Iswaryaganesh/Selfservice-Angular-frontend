@@ -4,18 +4,12 @@ import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import { Routerdetails } from '../routerdetails';
-
-export interface Routerdetailsinterface {
-  planName : String;
-    serialNumber:String;
-    model:String;
-    firmwareVersion:String;
-    ipv4:String;
-    ssid:String;
-    password:String;
-}
-
-//const ELEMENT_DATA: Routerdetailsinterface = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"PREMIUM","serialNumber":"0691","firmwareVersion":"V2.0.1","ipv4":"168.12.1.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.0","ipv4":"168.12.1.2"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.1","ipv4":"168.12.1.1"}]
+// export class PeriodicElement {
+//   name: string;
+//   position: number;
+//   weight: number;
+//   symbol: string;
+// }
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -30,6 +24,10 @@ export interface Routerdetailsinterface {
 //   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 // ];
 
+//const ELEMENT_DATA: Routerdetailsinterface = [{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"PREMIUM","serialNumber":"0691","firmwareVersion":"V2.0.1","ipv4":"168.12.1.1"},{"model":"AIRTEL","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.0","ipv4":"168.12.1.2"},{"model":"TP-LINK","ssid":"WIFI-home1","password":"hello","planName":"BASIC","serialNumber":"0691","firmwareVersion":"V2.1.1","ipv4":"168.12.1.1"}]
+
+
+
 @Component({
   selector: 'app-mattable',
   templateUrl: './mattable.component.html',
@@ -42,12 +40,47 @@ export class MattableComponent {
   {
       
   }
+  rout:Routerdetails;
+
+  public displayedColumns: string[] = ['deviceId','mac','deviceType','connectedDevice','isBlocked'];
+  public dataSource:any;
+
+  getallmethod(){
+    this.rout = this.sharedata.getrouterEach();
+    console.log(this.rout);
+    this.userservice.getconnectedDetails(this.rout).subscribe(
+
+      response=>{
+
+        console.log(response)
+        this.dataSource = response;
+
+      }  
+
+    );
+  }
+
   
   // ELEMENT_DATA:Routerdetailsinterface[] = this.sharedata.getRouterList();
-  displayedColumns: string[] = ['ssid', 'model', 'firmwareVersion', 'serialNumber'];
-  // dataSource = this.ELEMENT_DATA;
+  
   ngOnInit():void{
-    // console.log(this.dataSource);
+    // this.getjson = this.sharedata.getRouterList();
+    // this.dataSource = this.getjson;
+    // console.log(this.dataSource);  
+    this.getallmethod()
+  }
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
  
 }
+
+// export class Device
+// {
+//   deviceType:String;
+//   mac:String;
+//   deviceId:String;
+// }
+

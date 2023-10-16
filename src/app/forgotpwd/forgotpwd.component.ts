@@ -5,7 +5,7 @@ import { UsersService } from '../users.service';
 import { Users } from '../users';
 import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
-import { RouterComponent } from '../router/router.component';
+
 
 @Component({
   selector: 'app-forgotpwd',

@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import Validateform from '../helpers/validateform';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
-import { RouterComponent } from '../router/router.component';
 import { Routerdetails } from '../routerdetails';
 import { Customers } from '../customers';
 import { FormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
+// import {MatTableModule} from '@angular/material/table';
 
 
 // export interface routerlist {
@@ -46,7 +45,8 @@ export class RouterpageComponent {
   ssidcompare:String;
   ipv4comapre:String;
   firmwarecomapre:String;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  showavailable:boolean=false;
+  showblocked:boolean = false;
   // dataSource = ELEMENT_DATA;
   
   show:Boolean=false;
@@ -103,17 +103,36 @@ export class RouterpageComponent {
       }
     }
 
-    selectedTeam:String;
+    selectedItem:String;
     onSelected(value:String)
     {
-        this.selectedTeam = value;
-        console.log(this.selectedTeam);
+        this.selectedItem = value;
+        console.log(this.selectedItem);
+        if(this.selectedItem == 'Available')
+        {
+          this.showavailable = true
+          this.showblocked = false;
+          this.router.navigateByUrl('/routerpage#viewtable')
+        }
+        else if(this.selectedItem == 'Blocked')
+        {
+          this.showblocked = true;
+          this.showavailable = false;
+          this.router.navigateByUrl('/routerpage#viewtable')
+        }
+        else if(this.selectedItem == 'select')
+        {
+          this.showavailable = false;
+          this.showblocked = false;
+        }
     }
 
     displayconfig(j:any)
     {
       //console.log(j)
       this.ng=j;
+      this.sharedata.setrouterEach(this.ng);
+      console.log(this.ng)
       this.passwordcompare=this.ng.password;
       this.firmwarecomapre=this.ng.firmwareVersion;
       this.ssidcompare = this.ng.ssid;
@@ -164,6 +183,11 @@ export class RouterpageComponent {
         );
       }
     }
+    logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
     
     }
 

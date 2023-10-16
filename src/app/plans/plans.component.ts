@@ -61,6 +61,11 @@ export class PlansComponent {
      )
      
   }
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 
   getDetails(i:any){
     console.log(i)

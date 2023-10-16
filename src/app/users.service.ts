@@ -7,12 +7,14 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Plans } from './plans';
 import { Routerdetails } from './routerdetails';
+import { Device } from './devices';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+  
   //private baseURL = "http://localhost:8080/api/v1/users";
   private baseURL = "http://localhost:8080/api/v1/";
   private userlink = "users";
@@ -27,6 +29,10 @@ export class UsersService {
   private getplanspage = "getplans"
   private getrouter = "getrouter"
   private UpdateRouter = "updateRouter";
+  private connected = "getconnecteddevices";
+  private blocked = "getblockeddevices"
+
+ 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
@@ -103,6 +109,19 @@ export class UsersService {
     console.log('hello by router update')
     console.log(router.password)
     return this.httpClient.post<String>(`${this.baseURL}`+this.UpdateRouter,router);
+  }
+
+  getconnectedDetails(router:Routerdetails):Observable<Device[]>{  
+
+    //get router details
+
+    return this.httpClient.post<Device[]>(`${this.baseURL}`+this.connected,router);
+
+  }
+
+  getBlockedDetails(router:Routerdetails):Observable<Device[]>
+  {
+    return this.httpClient.post<Device[]>(`${this.baseURL}`+this.blocked,router);
   }
 
 

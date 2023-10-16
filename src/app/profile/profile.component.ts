@@ -43,6 +43,7 @@ export class ProfileComponent  {
         console.log(this.profileusers);
       }
     );
+    
 
 
     
@@ -57,6 +58,11 @@ export class ProfileComponent  {
 
 
     
+  }
+  logout()
+  {
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 
 
