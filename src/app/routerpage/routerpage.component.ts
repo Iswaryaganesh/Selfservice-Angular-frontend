@@ -7,7 +7,7 @@ import { UsersService } from '../users.service';
 import { Routerdetails } from '../routerdetails';
 import { Customers } from '../customers';
 import { FormsModule } from '@angular/forms';
-// import {MatTableModule} from '@angular/material/table';
+
 
 
 // export interface routerlist {
@@ -177,10 +177,28 @@ export class RouterpageComponent {
         
         */ 
         this.userservice.UpdateRouterDetails(this.ng).subscribe(
-          response=>{
+          Response=>{
             
           }
+
+        )
+
+
+        this.userservice.getconnectedDetails(this.ng).subscribe(
+          response=>{
+            console.log(response)
+          }  
         );
+
+        this.userservice.getblocked(this.ng).subscribe(
+          Resp=>{
+            console.log(Resp)
+          }
+
+        )
+
+
+
       }
     }
     logout()
