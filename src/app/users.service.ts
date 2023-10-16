@@ -27,6 +27,8 @@ export class UsersService {
   private getplanspage = "getplans"
   private getrouter = "getrouter"
   private UpdateRouter = "updateRouter";
+  private connected = "getconnecteddevices";
+  private blocked = "getblockeddevices";
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
@@ -97,12 +99,22 @@ export class UsersService {
   // }
 
 
-  UpdateRouterDetails(router:Routerdetails):Observable<String>{  
+  UpdateRouterDetails(router:Routerdetails){  
     //get router details
-
     console.log('hello by router update')
     console.log(router.password)
-    return this.httpClient.post<String>(`${this.baseURL}`+this.UpdateRouter,router);
+    return this.httpClient.post(`${this.baseURL}`+this.UpdateRouter,router);
+  }
+
+  
+  getconnectedDetails(router:Routerdetails):Observable<Routerdetails[]>{  
+    //get router details
+    return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.connected,router);
+  }
+
+  getblocked(router:Routerdetails):Observable<Routerdetails[]>{  
+    //get router details
+    return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.blocked,router);
   }
 
 
