@@ -243,12 +243,47 @@
 }
 .benefit-desc
 {
-    flex-basis: 1;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 1;
+  width: 100%;
 }
 .benefit-desc p
 {
     margin-bottom: 0;
+    color: black
+}
+#separator
+{
+  height: 0.5px;
+  width: 100%;
+  background-color: rgb(190, 196, 213);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#popupcardtitle
+{
+ margin: 30px;
+}
+#popupcardtitle p
+{
+  font-weight: lighter;
+  color: red;
+}
+#benefitsheader
+{
+  background-color: rgb(237, 237, 237);
+}
+#exampleModal
+{
+  position: fixed;
+}
+.modalcontent 
+{
+  margin: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
 }
 
 
@@ -280,4 +315,9 @@
   transform: translateY(-10px);
   background-color: whitesmoke;
   color: rgba(4, 6, 8, 0.747);
+}
+
+#bgcard
+{
+  position: relative;
 }
