@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    LogComponent
+    //LogComponent
   ],
   imports: [
     CommonModule,
