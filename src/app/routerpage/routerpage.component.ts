@@ -184,18 +184,18 @@ export class RouterpageComponent {
         )
 
 
-        this.userservice.getconnectedDetails(this.ng).subscribe(
-          response=>{
-            console.log(response)
-          }  
-        );
+        // this.userservice.getconnectedDetails(this.ng).subscribe(
+        //   response=>{
+        //     console.log(response)
+        //   }  
+        // );
 
-        this.userservice.getblocked(this.ng).subscribe(
-          Resp=>{
-            console.log(Resp)
-          }
+        // this.userservice.getblocked(this.ng).subscribe(
+        //   Resp=>{
+        //     console.log(Resp)
+        //   }
 
-        )
+        // )
 
 
 

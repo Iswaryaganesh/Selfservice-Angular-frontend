@@ -15,6 +15,7 @@ import { Device } from './devices';
 })
 export class UsersService {
   
+  
   //private baseURL = "http://localhost:8080/api/v1/users";
   private baseURL = "http://localhost:8080/api/v1/";
   private userlink = "users";
@@ -30,6 +31,8 @@ export class UsersService {
   private getrouter = "getrouter"
   private UpdateRouter = "updateRouter";
   private connected = "getconnecteddevices";
+  private blocked = "getblockeddevices"
+  private blockDeviceurl = "blockDevice";
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
@@ -109,16 +112,6 @@ export class UsersService {
   }
 
   
-  getconnectedDetails(router:Routerdetails):Observable<Routerdetails[]>{  
-    //get router details
-    return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.connected,router);
-  }
-
-  getblocked(router:Routerdetails):Observable<Routerdetails[]>{  
-    //get router details
-    return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.blocked,router);
-  }
-
   getconnectedDetails(router:Routerdetails):Observable<Device[]>{  
 
     //get router details
@@ -132,6 +125,11 @@ export class UsersService {
     return this.httpClient.post<Device[]>(`${this.baseURL}`+this.blocked,router);
   }
 
+
+  blockDevice(router:Routerdetails):Observable<String>{
+    return this.httpClient.post<String>(`${this.baseURL}`+this.blockDeviceurl,router);
+
+  }
 
 
   Showsuccess(title:any, message:any)

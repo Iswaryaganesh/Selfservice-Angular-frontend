@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MatTableModule} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
@@ -41,9 +42,12 @@ export class MattableComponent {
       
   }
   rout:Routerdetails;
+  deleteRows:any;
 
-  public displayedColumns: string[] = ['deviceId','mac','deviceType','connectedDevice','isBlocked'];
-  public dataSource:any;
+  devicescoming:Device[];
+
+  public displayedColumns: string[] = ['deviceId','mac','deviceType','blockdetails','deldetails'];
+  public dataSource:any=[];
 
   getallmethod(){
     this.rout = this.sharedata.getrouterEach();
@@ -53,7 +57,10 @@ export class MattableComponent {
       response=>{
 
         console.log(response)
-        this.dataSource = response;
+        this.devicescoming=response;
+        console.log(this.devicescoming)
+        this.dataSource = new MatTableDataSource<any>(this.devicescoming);
+        console.log(this.devicescoming[0].deviceId)
 
       }  
 
@@ -74,13 +81,48 @@ export class MattableComponent {
     localStorage.clear();
     this.router.navigate(['/login'])
   }
+
+
+  deleteRecord(i:any){
+    console.log(`hello`)
+    this.deleteRows= this.dataSource.data.splice(i,1)
+    this.dataSource.data.splice(i, 0);
+    this.dataSource._updateChangeSubscription(); // <-- Refresh the datasource
+    console.log(this.deleteRows[i].deviceId)
+  }
+
+  blockRecord(i:any){
+    console.log(`hello`)
+    this.deleteRows= this.dataSource.data.splice(i,1)
+    this.dataSource.data.splice(i, 0);
+    this.dataSource._updateChangeSubscription(); // <-- Refresh the datasource
+    console.log(this.deleteRows[i].deviceId)
+
+    console.log(this.rout.deviceId)
+    this.rout.deviceId = this.deleteRows[i].deviceId;
+    console.log(this.rout.deviceId)
+
+
+    this.userservice.blockDevice(this.rout).subscribe(
+      response =>{
+        console.log(response)
+      }
+
+
+    );
+  }
  
 }
 
-// export class Device
-// {
-//   deviceType:String;
-//   mac:String;
-//   deviceId:String;
-// }
+export class Device
+{
+  deviceType:String;
+  mac:String;
+  deviceId:String;
+  // connectedDevice:number;
+  // isBlocked:Boolean;
+}
+
+
+
 
