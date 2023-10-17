@@ -6,5 +6,6 @@ export class Plans {
  dataLimit:String;
  price:number;
  dataLeft:String;
+ dayLeft:number;
 
 }
