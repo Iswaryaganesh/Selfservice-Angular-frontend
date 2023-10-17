@@ -1,24 +1,25 @@
+<div class="container">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
    <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- Position Column -->
-    <ng-container matColumnDef="deviceId">
-      <th mat-header-cell *matHeaderCellDef> deviceId </th>
-      <td mat-cell *matCellDef="let element"> {{element.deviceId}} </td>
+    <ng-container matColumnDef="deviceId" class="columnclass">
+      <th  class="columnclass" mat-header-cell *matHeaderCellDef> DEVICE ID </th>
+      <td class="columnclass" mat-cell *matCellDef="let element"> {{element.deviceId}} </td>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="mac">
-      <th mat-header-cell *matHeaderCellDef> mac </th>
-      <td mat-cell *matCellDef="let element"> {{element.mac}} </td>
+    <ng-container class="columnclass" matColumnDef="mac">
+      <th class="columnclass" mat-header-cell *matHeaderCellDef> MAC </th>
+      <td class="columnclass" mat-cell *matCellDef="let element"> {{element.mac}} </td>
     </ng-container>
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="deviceType">
-      <th mat-header-cell *matHeaderCellDef> deviceType </th>
-      <td mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
+    <ng-container class="columnclass" matColumnDef="deviceType">
+      <th class="columnclass" mat-header-cell *matHeaderCellDef> DEVICE TYPE </th>
+      <td class="columnclass" mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
     </ng-container>
 
     <!-- <ng-container matColumnDef="connectedDevice">
@@ -43,7 +44,7 @@
 
         <td mat-cell *matCellDef="let i = index">
 
-        <button mat-raised-button color="none" (click)="unblockRecord(i)">Unblock</button> </td>
+        <button mat-raised-button color="none" (click)="unblockRecord(i)" style="border: none; border-radius: 10px; width: 100px; height: 30px;" class="blockbtn">Unblock</button> </td>
 
     </ng-container>
 
@@ -53,11 +54,12 @@
 
       <td mat-cell *matCellDef="let i = index">
 
-      <button mat-raised-button color="none" (click)="deleteRecord(i)">Delete</button> </td>
+        <a (click)="deleteRecord(i)" style="cursor: pointer;"><img src="/assets/images/deleteicon.png" class="deletebtn"></a> </td>
 
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div>
 

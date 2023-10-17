@@ -138,6 +138,9 @@ export class RouterpageComponent {
       this.ssidcompare = this.ng.ssid;
       this.ipv4comapre = this.ng.ipv4;   
       //console.log(ng.model)
+      this.showavailable=false;
+      this.showblocked=false;
+      this.selectedItem='select';
       this.showdescription = true
 
     }

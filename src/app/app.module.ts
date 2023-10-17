@@ -21,6 +21,7 @@ import { MattableComponent } from './mattable/mattable.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BlockedtableComponent } from './blockedtable/blockedtable.component';
 import { FaqComponent } from './faq/faq.component';
+import { BillComponent } from './bill/bill.component';
 
 
 
@@ -35,7 +36,8 @@ import { FaqComponent } from './faq/faq.component';
     PlansComponent,
     RouterpageComponent,
     ForgotpwdComponent,
-    FaqComponent
+    FaqComponent,
+    BillComponent
 
   ],
   imports: [

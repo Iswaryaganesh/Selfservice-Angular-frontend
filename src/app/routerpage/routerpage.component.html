@@ -149,7 +149,7 @@ add plan name later
 <button id="listbtn">Blocked</button> -->
 <div class="select-dropdown">
 <p>Select a router type</p>
-      <select #teams (change)="onSelected(teams.value)" style="width: 300px; font-size: 15px; font-weight: 300;">
+      <select #teams (change)="onSelected(teams.value)" style="width: 300px; font-size: 15px; font-weight: 300;"  [(ngModel)]="selectedItem">
             <option default style="font-weight: 300;">select</option>
             <option style="font-weight: 300;">Available</option>
             <option style="font-weight: 300;">Blocked</option>
@@ -158,7 +158,7 @@ add plan name later
 </div>
 <!-- </div> -->
 
-<section id="viewtable">
+<section id="viewtable" style="height: 250px;">
 <ng-container *ngIf="showavailable==true && showblocked==false">
   <app-mattable></app-mattable>
   <!-- <table mat-table [dataSource]="planlist" class="mat-elevation-z8">
