@@ -33,6 +33,8 @@ export class UsersService {
   private connected = "getconnecteddevices";
   private blocked = "getblockeddevices"
   private blockDeviceurl = "blockDevice";
+  private unblockDeviceurl = "unblockDevice"
+  private deleteDeviceurl = "deleteDevice";
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
@@ -127,10 +129,18 @@ export class UsersService {
 
 
   blockDevice(router:Routerdetails):Observable<String>{
-    return this.httpClient.post<String>(`${this.baseURL}`+this.blockDeviceurl,router);
+    return this.httpClient.post(`${this.baseURL}`+this.blockDeviceurl,router,{responseType: 'text'});
 
   }
 
+  unblockDevice(router:Routerdetails):Observable<String>{
+    return this.httpClient.post(`${this.baseURL}`+this.unblockDeviceurl,router,{responseType: 'text'});
+
+  }
+
+  deleteDevice(router:Routerdetails):Observable<String>{
+    return this.httpClient.post(`${this.baseURL}`+this.deleteDeviceurl,router,{responseType: 'text'});
+  }
 
   Showsuccess(title:any, message:any)
   {
