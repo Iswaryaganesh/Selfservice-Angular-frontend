@@ -1,0 +1,53 @@
+.billbox
+{
+    width: 100%;
+    position: relative;
+}
+.panel
+{
+    position: absolute;
+    width: 50%;
+    margin-top: 10%;
+    left: 22%;
+    
+}
+.input-row
+{
+    display: flex;
+    
+}
+.submit
+{
+    width: 90px;
+}
+.panel-heading
+{
+    display: flex;
+    justify-content: center;
+}
+.flex-items
+{
+    display: flex;
+}
+.part1
+{
+    flex: 10px;
+}
+.part2
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: -15px;
+}
+input 
+{
+    margin-bottom: 15px;
+    border: 1px solid;
+    padding: 3px;
+}
+.input-group 
+{
+    display: flex;
+    justify-content: space-evenly;
+}

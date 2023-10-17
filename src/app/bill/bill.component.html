@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="billbox">
+    <div class="panel border"  style= "margin-left: 30px;">
+        <div class="panel-heading">
+          <h1 class="pt-3 font-weight-bold" style="color: black;">PAYMENT </h1>
+        </div>
+        <div class="panel-body p-3">
+            <form (ngSubmit)="onsubmit()">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>PLAN ID</label>&nbsp;
+                        <input type="text" readonly>                  
+                        </div>
+                    <div class="input-group">  
+                        <label>PLAN NAME</label>&nbsp;
+                        <input type="text" readonly>
+                    </div>
+            </div>
+            <div class="input-row">
+                <div class="input-group">
+                    <label>NAME</label>&nbsp;&nbsp;
+                    <input type="text" readonly>                  
+                    </div>
+                <div class="input-group">  
+                    <label>NEXT DUE</label>&nbsp;&nbsp;
+                    <input type="text" readonly>
+                </div>
+        </div>
+        <div class="input-row">
+            <div class="input-group"></div>
+            <div class="input-group">  
+                <label>AMOUNT</label>&nbsp;&nbsp;
+                <input type="text" readonly>
+            </div>
+    </div>
+
+                
+            <button type="submit" class=" submit btn btn-outline-primary mt-4" style="margin-left: 40%;">PAY</button> 
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

@@ -272,8 +272,9 @@ html{
 .profilebox
  {
     display: relative flex;
-    border: 1px solid;
-    border-radius: 20px;
+    border: 0.5px solid;
+    border-color: rgb(195, 202, 205);
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     padding-bottom: 20px;

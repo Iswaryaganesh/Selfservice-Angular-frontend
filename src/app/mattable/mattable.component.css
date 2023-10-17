@@ -1,0 +1,43 @@
+*
+{
+    font-family: 'Montserrat', sans-serif;
+}
+.container 
+{
+    width: 90%; padding-bottom: 100px;
+}
+table
+{
+    background-color: rgb(199, 209, 214); border-radius: 10px;
+}
+.blockbtn 
+{
+    border: none; border-radius: 10px; width: 100px; height: 30px;
+    transition-duration: 0.25s;
+    transition-delay: 0.15s;
+}
+.blockbtn:hover
+{
+    background-color: black;
+    color: white;
+}
+.deletebtn 
+{
+    height: 25px; margin: 15px;
+    transition-duration: 0.25s;
+    transition-delay: 0.15s;
+}
+.columnclass 
+{
+    color: black;
+}
+.deletebtn 
+{
+    padding: 3px;
+}
+.deletebtn:hover
+{
+    border-radius: 10px;
+    border: none;
+    background-color: whitesmoke;
+}

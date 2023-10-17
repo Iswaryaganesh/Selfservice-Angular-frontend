@@ -12,6 +12,7 @@ import { MattableComponent } from './mattable/mattable.component';
 import { BlockedtableComponent } from './blockedtable/blockedtable.component';
 import { FaqComponent } from './faq/faq.component';
 import { authGuard } from './Guard/auth.guard';
+import { BillComponent } from './bill/bill.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path:'routerpage',component:RouterpageComponent, canActivate:[authGuard]},
   {path:'mattable',component:MattableComponent, canActivate:[authGuard]},
   {path:'blockedtable',component:BlockedtableComponent, canActivate:[authGuard]},
-  {path:'faq',component:FaqComponent}
+  {path:'faq',component:FaqComponent},
+  {path:'payment',component:BillComponent}
 
 ];
 const routerOptions:ExtraOptions = {
