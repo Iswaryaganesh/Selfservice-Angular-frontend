@@ -14,7 +14,7 @@ import { Plans } from '../plans';
 })
 export class PlansComponent {
   //clickedIndex:number;
-  planlist = [{"data":"30GB","left":"10.30GB","cost":"401","daysleft":"15","planname":"BASIC"},{"data":"15GB","left":"7.90GB","cost":"275","daysleft":"25","planname":"BASIC"},{"data":"70GB","left":"34.34GB","cost":"701","daysleft":"12","planname":"PREMIUM"}];
+  //planlist = [{"data":"30GB","left":"10.30GB","cost":"401","daysleft":"15","planname":"BASIC"},{"data":"15GB","left":"7.90GB","cost":"275","daysleft":"25","planname":"BASIC"},{"data":"70GB","left":"34.34GB","cost":"701","daysleft":"12","planname":"PREMIUM"}];
   email:String;
   popobj:any;
   used:number
