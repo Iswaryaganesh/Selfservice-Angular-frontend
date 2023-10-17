@@ -44,7 +44,7 @@ export class MattableComponent {
   rout:Routerdetails;
   deleteRows:any;
 
-  devicescoming:Device[];
+  //devicescoming:Device[];
 
   public displayedColumns: string[] = ['deviceId','mac','deviceType','blockdetails','deldetails'];
   public dataSource:any=[];
@@ -55,12 +55,12 @@ export class MattableComponent {
     this.userservice.getconnectedDetails(this.rout).subscribe(
 
       response=>{
-
+        console.log(`welcome`)
         console.log(response)
-        this.devicescoming=response;
-        console.log(this.devicescoming)
-        this.dataSource = new MatTableDataSource<any>(this.devicescoming);
-        console.log(this.devicescoming[0].deviceId)
+        // this.devicescoming=response;
+        // console.log(this.devicescoming)
+        this.dataSource = new MatTableDataSource<any>(response);
+        //console.log(this.devicescoming[0].deviceId)
 
       }  
 
@@ -74,6 +74,7 @@ export class MattableComponent {
     // this.getjson = this.sharedata.getRouterList();
     // this.dataSource = this.getjson;
     // console.log(this.dataSource);  
+    console.log('hello')
     this.getallmethod()
   }
   logout()
@@ -84,22 +85,37 @@ export class MattableComponent {
 
 
   deleteRecord(i:any){
-    console.log(`hello`)
+    console.log(`hello delete`)
     this.deleteRows= this.dataSource.data.splice(i,1)
+    console.log(i);
     this.dataSource.data.splice(i, 0);
     this.dataSource._updateChangeSubscription(); // <-- Refresh the datasource
-    console.log(this.deleteRows[i].deviceId)
+    //console.log(this.deleteRows[i].deviceId)
+    console.log(this.deleteRows)
+    this.rout.deviceId = this.deleteRows[0].deviceId;
+    console.log(this.rout.deviceId)
+
+    this.userservice.deleteDevice(this.rout).subscribe(
+      response =>{
+        console.log(response)
+        this.ngOnInit();
+      }
+
+    );
+
   }
 
   blockRecord(i:any){
+   //window.location.reload;
     console.log(`hello`)
     this.deleteRows= this.dataSource.data.splice(i,1)
     this.dataSource.data.splice(i, 0);
     this.dataSource._updateChangeSubscription(); // <-- Refresh the datasource
-    console.log(this.deleteRows[i].deviceId)
+    //console.log(this.deleteRows[i].deviceId)
+    console.log(this.deleteRows);
 
     console.log(this.rout.deviceId)
-    this.rout.deviceId = this.deleteRows[i].deviceId;
+    this.rout.deviceId = this.deleteRows[0].deviceId;
     console.log(this.rout.deviceId)
 
 
