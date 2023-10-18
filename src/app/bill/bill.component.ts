@@ -92,6 +92,7 @@ export class BillComponent {
 
       )
 
+      this.userservice.Showsuccess("Success","Payment done successfully")
       this.router.navigate(['/plans'])
       console.log(`hello`)
 
