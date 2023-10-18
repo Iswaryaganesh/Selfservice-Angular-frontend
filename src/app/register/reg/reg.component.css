@@ -131,6 +131,10 @@ img{
     left: 50%;
     top: 50;
 }
+#cardcont 
+{
+  
+}
 .card 
 {
     /* margin-bottom: 50px;
@@ -140,15 +144,16 @@ img{
     /* top: 70%;
     border-style: solid;
     border-radius: 10px;  */
-    right: 0;
     min-height: 360px;
     width: 400px;
-    box-shadow: 0px 5px 5px;
+    box-shadow: 0px 3px 5px;
     border-radius: 12px;
-    margin-top: 50px;
-    float: right;
-    margin-right: 120px;
-    margin-bottom: 50px;
+    margin-top: 300px;
+    margin-left: 120px;
+    margin-bottom: 150px;
+    top: 40%;
+    left: -25%;
+    bottom: 60px;
    
 }
 
@@ -178,8 +183,16 @@ img{
     border-bottom-color: gray;
     border-radius: 1px;
     width: 280px;
+    border: none;
+    border-bottom: 1px solid;
+    height: 38px;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 0;
+}
+#otp:active
+{
+    border: none;
+    border-bottom: 1px solid;
 }
 #otpsubmit
 {
@@ -187,6 +200,7 @@ img{
     margin-left: 120px;
     width: 120px;
     height: 40px;
+    border: 1px solid;
     background-color: transparent;
     border-radius: 30px;
     transition-duration: 0.5s;
@@ -198,5 +212,9 @@ img{
 }
 #otpsection
 {
-    margin-top: 200px;
+    margin-top: 280px;
+}
+#otpsection h4
+{
+    font-family: 'Montserrat', sans-serif;
 }
