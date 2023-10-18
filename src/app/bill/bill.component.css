@@ -97,11 +97,16 @@ input
     justify-content: space-between;
     align-items: center;
 }
+.row2 
+{
+    display: flex;
+    justify-content: center;
+}
 .paybtn 
 {
     width: 100px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: black;
     color: #d4c2d2;
     margin-left: 35%;
@@ -120,4 +125,8 @@ label{
 {
     height: 35px;
     font-weight: bold;
+}
+.panel
+{
+    box-shadow: -1px -1px 3px;
 }
