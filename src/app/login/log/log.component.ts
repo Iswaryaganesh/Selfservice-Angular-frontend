@@ -30,6 +30,7 @@ export class LogComponent {
     username:['',Validators.required],
     password:['',Validators.required]
   })}
+  show:boolean=false;
 
   onsubmit()
   {
@@ -72,5 +73,9 @@ export class LogComponent {
       //throw error using toaster
       Validateform.validateform(this.loginForm);
     }
+  }
+  onClick()
+  {
+  this.show = !this.show;
   }
 }

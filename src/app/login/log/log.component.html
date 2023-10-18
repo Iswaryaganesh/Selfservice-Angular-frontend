@@ -22,7 +22,11 @@
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error] = "loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
                         <span class="fa fa-lock p-2"></span>
-                        <input formControlName="password" type="password" placeholder="Password" [(ngModel)]="users.password">
+                        <input [type]="show? 'text' : 'password'" formControlName="password" type="password" placeholder="Password" [(ngModel)]="users.password">
+                        <a (click)="onClick()" style="display: inline-block; cursor: pointer;">
+                          <i class="fa fa-eye" aria-hidden="true" *ngIf="!show" style="display: inline-block; size: 45px;"></i>
+                          <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" style="display: inline-block;"></i>
+                        </a>
                     </div>
                 </div>
                 <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>

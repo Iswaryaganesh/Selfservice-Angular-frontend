@@ -38,18 +38,17 @@
             <div class="input-group">  
                 <label>AMOUNT</label>&nbsp;&nbsp;
                 <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
-                <input type="text" readonly>
+                <input type="text" id="amtid" value="1600" readonly>
             </div>
     </div>
 
     <label>Payment method&nbsp;&nbsp;</label>
-    <select #teams (change)="onSelected(teams.value)" name="paymenttype" id="paymenttype"style="width: 100px; height: 30px;"> 
-        <option style="font-weight: 300; font-size: 13px;" value="select" selected>select</option>
+    <select #teams (change)="onSelected(teams.value)" name="paymenttype" id="paymenttype"style="width: 100px; height: 30px;" [(ngModel)]="selecteditem"> 
         <option style="font-weight: 300; font-size: 13px; height: 40px;" value="card">CARD</option>
         <option style="font-weight: 300; font-size: 13px;" value="upi">UPI</option>
     </select>
                 
-    <button type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
+    <button (click)="navigate()" type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
    
             
             </form>

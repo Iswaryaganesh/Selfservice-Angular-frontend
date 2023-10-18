@@ -38,6 +38,7 @@ export class RegComponent {
   // public show2:boolean = true;
   public buttonName:any = 'Show';
   otpvalid:boolean = false
+  show:boolean=false
   acctnum:String;
   constructor(private fb: FormBuilder, private router:Router,private userservice :UsersService,private sharedata:SharedataService) //inject formbuilder
   {
@@ -178,6 +179,11 @@ export class RegComponent {
       }
       
     }
+  }
+
+  onClick()
+  {
+    this.show = !this.show;
   }
 
 
