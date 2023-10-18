@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Plans } from '../plans';
+import { SharedataService } from '../sharedata.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-bill',
@@ -8,10 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent {
+
+  payplan:Plans
+  resp:any;
   selectedItem: String;
   showcard:boolean;
   showupi:boolean;
-  constructor(private fb: FormBuilder, private router:Router)
+  constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService)
   {
     
   }
@@ -20,7 +26,20 @@ export class BillComponent {
     this.payForm = this.fb.group({
       name:['',Validators.required],
       amt:['',Validators.required]
-    })}
+    })
+  
+    this.payplan = this.sharedata.getPaymentPlan()
+    console.log(this.payplan)
+
+    // this.userservice.getPaymentDetails(this.payplan).subscribe(
+    //  (res:any)=>{
+    //   this.resp = res;
+    //   console.log(this.resp);
+    //  }
+    //  )
+  
+  
+  }
     onsubmit()
     {
 

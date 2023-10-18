@@ -35,6 +35,7 @@ export class UsersService {
   private blockDeviceurl = "blockDevice";
   private unblockDeviceurl = "unblockDevice"
   private deleteDeviceurl = "deleteDevice";
+  private payBillDetails = "paybills";
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
@@ -140,6 +141,10 @@ export class UsersService {
 
   deleteDevice(router:Routerdetails):Observable<String>{
     return this.httpClient.post(`${this.baseURL}`+this.deleteDeviceurl,router,{responseType: 'text'});
+  }
+
+  getPaymentDetails(plan:Plans):Observable<any>{
+    return this.httpClient.post<any>(`${this.baseURL}`+this.payBillDetails,plan);
   }
 
   Showsuccess(title:any, message:any)
