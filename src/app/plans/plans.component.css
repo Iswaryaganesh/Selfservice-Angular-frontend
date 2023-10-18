@@ -28,116 +28,117 @@
 	font-family: 'Lato', sans-serif;
   }
 
- #cont
- {
-     /* min-height: 100vh; */
-     /* min-width: 100%; */
-     background-size: cover;
-     background-position: center;
-     font-family: 'Montserrat', sans-serif;
-     font-weight: 500;	
-     height: 30px;
- }
- .navbar
- {
-     background:  rgb(220, 224, 235);
-     backdrop-filter: blur(3px);
-     opacity: 0.9;
-     position: fixed;
-     box-shadow: 10px 3px 15px black;
-     height: 65px;
-     padding-right: 5px;
- }
- .navbar-brand
- {
-     padding: 5px;
-     color: black;
- }
- ul
- {
-     padding: 3px;
- }
- li a, .dropbtn{
-     text-decoration: none;
-     font-size: 15px;
-     color: black;
-     transition: transform;
-     transition-duration: 0.25s;
-     
- }
- li a:hover
- {
-     transform: scale(1.1);
-     transition-delay: 0.5s;
-     transition-duration: 0.5s;
- }
- 
- li a::after{
-     content: '';
-     background: #ff543c;
-     width: 0%;
-     height: 2px;
-     display: block;
-     transition-delay: 0.3s;
-     transition-duration: 0.5s;
- }
- 
- li a:hover::after{
-     width: 100%;
- }
- 
-   
-   .dropdown {
-     position: relative;
-     display: inline-block;
-     
-   }
-   .dropdown:hover
-   {
-     cursor: pointer;
-   }
-   .dropbtn
-   {
-     margin-top: 8px;
-   }
-   
-   .dropdown-content {
-     display: none;
-     position: absolute;
-     background:  rgb(201, 209, 233);
-     /* backdrop-filter: blur(33px); */
-     /* opacity: 0.8; */
-     min-width: 160px;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     z-index: 1;
-   }
-   
-   .dropdown-content a {
-     color: rgb(0, 0, 0);
-     padding: 12px 16px;
-     text-decoration: none;
-     display: block;
-     transition-duration: 0.25s;
-     transition-delay: 0.15s;
-   }
-   
-   .dropdown-content a:hover {
-     background-color:black; 
-     color: whitesmoke;
-     transform: translate(3%,-5%);
- }
-   
-   .dropdown:hover .dropdown-content {display: block;}
-   
-   ol, li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-  }
-  #profileicon
+  #cont
   {
-	padding-top: 0;
+      /* min-height: 100vh; */
+      /* min-width: 100%; */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;	
+      height: 30px;
   }
+  .navbar
+  {
+      background:  rgb(220, 224, 235);
+      backdrop-filter: blur(3px);
+      opacity: 0.9;
+      position: fixed;
+      box-shadow: 10px 3px 15px black;
+      height: 65px;
+      padding-right: 5px;
+  }
+  .navbar-brand
+  {
+      padding: 5px;
+      color: black;
+  }
+  ul
+  {
+      padding: 3px;
+  }
+  li a, .dropbtn{
+      text-decoration: none;
+      font-size: 15px;
+      color: black;
+      transition: transform;
+      transition-duration: 0.25s;
+      
+  }
+  li a:hover
+  {
+      transform: scale(1.1);
+      transition-delay: 0.5s;
+      transition-duration: 0.5s;
+  }
+  
+  li a::after{
+      content: '';
+      background: #ff543c;
+      width: 0%;
+      height: 2px;
+      display: block;
+      transition-delay: 0.3s;
+      transition-duration: 0.5s;
+  }
+  
+  li a:hover::after{
+      width: 100%;
+  }
+  
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      
+    }
+    .dropdown:hover
+    {
+      cursor: pointer;
+    }
+    .dropbtn
+    {
+      margin-top: 8px;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background:  rgb(201, 209, 233);
+      /* backdrop-filter: blur(33px); */
+      /* opacity: 0.8; */
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: rgb(0, 0, 0);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition-duration: 0.25s;
+      transition-delay: 0.15s;
+    }
+    
+    .dropdown-content a:hover {
+      background-color:black; 
+      color: whitesmoke;
+      transform: translate(3%,-5%);
+  }
+    
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    ol, li {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   }
+   #profileicon
+   {
+   padding-top: 0;
+   }
+ 
 .plandiv
 {
     margin: 0;
@@ -320,4 +321,55 @@
 #bgcard
 {
   position: relative;
+}
+#historycard
+{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 170px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.card-title1
+{
+  display: flex;
+  width: 15%;
+  height: 130px;
+  flex-direction: column;
+  background-color: rgb(138, 138, 193);
+  align-items: center;
+  justify-content: center;
+}
+.card-desc
+{
+  flex:1;
+  padding: 20px;
+}
+.scrollablehistory
+{
+  height: 400px;
+  overflow-y: auto;
+  align-items: center;
+  box-shadow: 3px 1px 5px;
+  background-color: rgb(245, 246, 246); 
+  width: 100%;
+  margin-bottom: 0;
+}
+.historysection
+{
+  
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 0;
+}
+#historycard
+{
+  left: 10%;
+}
+.dropdown1
+{
+  margin-left: 40%;
 }

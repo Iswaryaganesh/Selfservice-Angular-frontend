@@ -20,6 +20,7 @@ export class PlansComponent {
   used:number
   show:boolean=true
   val:number
+  showhistory:boolean=false;
   
   setuseddata(a:any,b:any)
   {
@@ -79,9 +80,12 @@ export class PlansComponent {
        console.log(this.resp.planName)
        if(this.resp.billStatus === "Bill was paid today"){
         console.log(`bill was paid today`);
+        this.userservice.Showwarning("Bill was paid today","!");
        }
        else if(this.resp.billStatus === "You have to wait for minimum 25 days to pay bill"){
         console.log(`wait for 25 days`)
+        this.userservice.Showwarning("Bill can be paid only after 25 days","!");
+
        }
        else{
         this.sharedata.setPaymentPlan(this.resp);
@@ -101,6 +105,10 @@ export class PlansComponent {
     console.log(i)
     console.log(this.popobj)
     this.popobj = i;
+  }
+  showhist()
+  {
+    this.showhistory = !this.showhistory
   }
   
   
