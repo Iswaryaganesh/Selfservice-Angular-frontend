@@ -14,7 +14,7 @@
     width: 50%;
     margin-top: 10%;
     left: 22%;
-    height: 350px;
+    height: 400px;
     padding: 30px;
     
 }
@@ -77,6 +77,7 @@ input
 {
     padding-top: 10px;
     padding-left: 5px;
+    padding-right: 5px;
     width: 90%;
     left: 4%;
     padding-bottom: 20px;
