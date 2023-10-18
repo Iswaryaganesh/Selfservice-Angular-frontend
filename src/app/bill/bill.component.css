@@ -1,5 +1,10 @@
+.container-fluid
+{
+    
+}
 .billbox
 {
+    background-color: rgb(146, 119, 84);
     width: 100%;
     position: relative;
 }
@@ -9,6 +14,8 @@
     width: 50%;
     margin-top: 10%;
     left: 22%;
+    height: 350px;
+    padding: 30px;
     
 }
 .input-row
@@ -19,6 +26,7 @@
 .submit
 {
     width: 90px;
+    display: block;
 }
 .panel-heading
 {
@@ -50,4 +58,59 @@ input
 {
     display: flex;
     justify-content: space-evenly;
+}
+.submit
+{
+    width: 90px;
+    background-color: gray;
+    color: white;
+    border: none;
+    height: 30px;
+}
+.modal-head
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.modal-content
+{
+    padding-top: 10px;
+    padding-left: 5px;
+    width: 90%;
+    left: 4%;
+    padding-bottom: 20px;
+}
+.modal-content label
+{
+    margin-bottom: 8px;
+}
+.cardnum 
+{
+    width: 100%;
+}
+.row1 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.paybtn 
+{
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: black;
+    color: #d4c2d2;
+    margin-left: 35%;
+    transition-duration: 0.25s;
+    transition-delay: 0.15s;
+}
+.paybtn:hover
+{
+    background-color: black;
+    color: rgb(212, 194, 210);
+}
+label{
+    color: gray;
 }

@@ -16,28 +16,119 @@
                         <input type="text" readonly>
                     </div>
             </div>
-            <div class="input-row">
+            <div class="input-row"  style="margin-bottom: 17px;">
                 <div class="input-group">
                     <label>NAME</label>&nbsp;&nbsp;
                     <input type="text" readonly>                  
                     </div>
                 <div class="input-group">  
                     <label>NEXT DUE</label>&nbsp;&nbsp;
-                    <input type="text" readonly>
+                    <input type="text" readonly >
                 </div>
         </div>
         <div class="input-row">
             <div class="input-group"></div>
             <div class="input-group">  
                 <label>AMOUNT</label>&nbsp;&nbsp;
+                <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
                 <input type="text" readonly>
             </div>
     </div>
 
+    <label>Payment method&nbsp;&nbsp;</label>
+    <select #teams (change)="onSelected(teams.value)" name="paymenttype" id="paymenttype" formControlName="paymenttype" style="width: 100px; height: 30px;"> 
+        <option style="font-weight: 300; font-size: 13px; height: 40px;" value="card">CARD</option>
+        <option style="font-weight: 300; font-size: 13px;" value="upi">UPI</option>
+    </select>
                 
-            <button type="submit" class=" submit btn btn-outline-primary mt-4" style="margin-left: 40%;">PAY</button> 
+    <button type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
+   
+            
             </form>
         </div>
       </div>
     </div>
-</div>
+    <div *ngIf="showcard" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="border-radius: 10px;">
+            <!-- <div class="modal-header"> -->
+                <div class="cardmodel">
+                    <div class="modal-head">
+                        <h1>TOTAL AMOUNT</h1>
+                        <input type="text" class="amt" readonly>
+                    </div>
+                    <div class="modal-content">
+                        <div class="input-field">
+                        <label style="display: block;">CARD NUMBER</label>
+                        <input type="text" placeholder="Card number" class="cardnum">
+                    </div>
+                    <div class="row1">
+                    <div class="input-field"  style="display: inline-block;">
+                        <label style="display: block;">EXPIRY DATE</label>
+                        <input type="date" placeholder="Validity" class="carddate">
+                    </div>
+                    <div class="input-field" style="display: inline-block;">
+                        <label style="display: block;">CCV</label>
+                        <input type="password" placeholder="CVV" class="cardcvv" >
+                    </div>
+                </div>
+                
+                    </div>
+                    <button class="paybtn">PAY</button>
+                </div>
+              <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
+            <!-- </div> -->
+            <div class="modal-body" style="padding: 30px;">
+              <!-- <div class="plandetails"> -->
+              
+        
+                     
+            <!-- </div>   -->
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="showupi" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="border-radius: 10px;">
+            <!-- <div class="modal-header"> -->
+                <div class="cardmodel">
+                    <div class="modal-head">
+                        <h1>TOTAL AMOUNT</h1>
+                        <input type="text" class="amt" readonly>
+                    </div>
+                    <div class="modal-content">
+                        <div class="input-field" style="width: 100%;">
+                        <label style="display: block;">MOBILE NUMBER</label>
+                        <input type="text" placeholder="Mobile number" class="upimob" style="width: 300px;" readonly>
+                    </div>
+                    <div class="row1">
+                    <div class="input-field" style="display: inline-block;">
+                        <label style="display: block;">OTP</label>
+                        <input type="password" placeholder="OTP" class="upiOTP" >
+                    </div>
+                    <img src="/assets/images/qrcode.jpg">
+                </div>
+                
+                    </div>
+                    <button class="paybtn">PAY</button>
+                </div>
+              <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
+            <!-- </div> -->
+            <div class="modal-body" style="padding: 30px;">
+              <!-- <div class="plandetails"> -->
+              
+        
+                     
+            <!-- </div>   -->
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+      </div>

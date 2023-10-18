@@ -24,11 +24,11 @@ const routes: Routes = [
   },
   {path: 'home', component: HomepageComponent},
   {
-    path:'acct1', component: Acct1Component, canActivate:[authGuard]
+    path:'acct1', component: Acct1Component
   },
   {path:'profile',component:ProfileComponent, canActivate:[authGuard]},
   {path:'plans',component:PlansComponent, canActivate:[authGuard]},
-  {path:'forgotPassword',component:ForgotpwdComponent, canActivate:[authGuard]},
+  {path:'forgotPassword',component:ForgotpwdComponent},
   {path:'routerpage',component:RouterpageComponent, canActivate:[authGuard]},
   {path:'mattable',component:MattableComponent, canActivate:[authGuard]},
   {path:'blockedtable',component:BlockedtableComponent, canActivate:[authGuard]},
