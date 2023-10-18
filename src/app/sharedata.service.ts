@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Users } from './users';
 import { Observable } from 'rxjs';
 import { Routerdetails } from './routerdetails';
+import { Plans } from './plans';
 
 
 
@@ -10,6 +11,9 @@ import { Routerdetails } from './routerdetails';
 })
 export class SharedataService {
 
+
+
+  private paymentPlan:any;
   private acctnumber:number;
   private email:String;
   private acctnum:String;
@@ -90,6 +94,14 @@ export class SharedataService {
   //     this.phone = phone;
   // }
 
+
+  setPaymentPlan(i:any){
+    this.paymentPlan= i;
+  }
+
+  getPaymentPlan(){
+    return this.paymentPlan;
+  }
 
 
 

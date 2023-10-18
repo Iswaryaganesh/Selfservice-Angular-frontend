@@ -27,11 +27,12 @@ export class PlansComponent {
     b = b.substring(0, b.length - 2);
     this.used = (+a - +b)/a*100;
     this.val = +b*100/+a
-    console.log("used:" +this.val)
+    //console.log("used:" +this.val)
   }
   
   customer:Customers = new Customers();
   plans:Plans[];
+  resp:any;
   //selected:Plans = new Plans();   ///You removed this without any indication watch out for any errors while clicking the button
   constructor(private router:Router, private userservice:UsersService, private sharedata:SharedataService)
   {
@@ -69,6 +70,28 @@ export class PlansComponent {
 
   getDetails(i:any){
     console.log(i)
+   
+
+    this.userservice.getPaymentDetails(i).subscribe(
+      (res:any)=>{
+       this.resp = res;
+       console.log(this.resp);
+       console.log(this.resp.planName)
+       if(this.resp.billStatus === "Bill was paid today"){
+        console.log(`success`);
+       }
+       else if(this.resp.billStatus === "You have to wait for minimum 25 days to pay bill"){
+        console.log(`wait`)
+       }
+       else{
+        this.sharedata.setPaymentPlan(this.resp);
+        this.router.navigate(['/payment'])
+       }
+      }
+      )
+
+
+    
       //this.selected= this.plans[i];
       // console.log(this.selected.planName)
       // console.log(this.selected.speed)
