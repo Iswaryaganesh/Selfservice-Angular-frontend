@@ -9,28 +9,28 @@
                 <div class="input-row">
                     <div class="input-group">
                         <label>PLAN ID</label>&nbsp;
-                        <input type="text" readonly>                  
+                        <input type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>                  
                         </div>
                     <div class="input-group">  
                         <label>PLAN NAME</label>&nbsp;
-                        <input type="text" readonly>
+                        <input type="text" [(ngModel)]="payplan.planName" [ngModelOptions]="{standalone: true}" readonly>
                     </div>
             </div>
             <div class="input-row"  style="margin-bottom: 17px;">
                 <div class="input-group">
                     <label>NAME</label>&nbsp;&nbsp;
-                    <input type="text" readonly>                  
+                    <input type="text" [(ngModel)]="payplan.customerName" [ngModelOptions]="{standalone: true}" readonly>                  
                     </div>
                 <div class="input-group">  
                     <label>NEXT DUE</label>&nbsp;&nbsp;
-                    <input type="text" readonly style="margin-left: 8px;" >
+                    <input type="text"  [(ngModel)]="payplan.dueDate" [ngModelOptions]="{standalone: true}" readonly style="margin-left: 8px;" >
                 </div>
         </div>
         <div class="input-row" style="margin-top: -14px;">
             <div class="input-group"></div>
             <div class="input-group">  
                 <label>DATE</label>
-                <input type="text" style="margin-left: 20%;"  readonly>
+                <input type="text"  [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" style="margin-left: 20%;"  readonly>
             </div>
     </div>
         <div class="input-row" style="margin-top: 15px;">
@@ -38,7 +38,7 @@
             <div class="input-group">  
                 <label>AMOUNT</label>&nbsp;&nbsp;
                 <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
-                <input type="text" readonly>
+                <input type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
             </div>
     </div>
 
@@ -82,7 +82,7 @@
                 </div>
                 
                     </div>
-                    <button class="paybtn">PAY</button>
+                    <button class="paybtn"  data-bs-dismiss="modal" (click)="paybills()" >PAY</button>
                 </div>
               <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
@@ -106,7 +106,7 @@
                 <div class="cardmodel">
                     <div class="modal-head">
                         <h1>TOTAL AMOUNT</h1>
-                        <input type="text" class="amt" readonly>
+                        <input type="text" class="amt"  readonly>
                     </div>
                     <div class="modal-content">
                         <div class="input-field" style="width: 100%;">
@@ -122,7 +122,7 @@
                 </div>
                 
                     </div>
-                    <button class="paybtn">PAY</button>
+                    <button class="paybtn" data-dismiss="modal" (click)="paybills()"  >PAY</button>
                 </div>
               <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>

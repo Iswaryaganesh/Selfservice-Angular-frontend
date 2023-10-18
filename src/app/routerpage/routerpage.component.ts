@@ -170,7 +170,6 @@ export class RouterpageComponent {
       }
       else{
         console.log(`changes can be done`)
-        this.userservice.Showsuccess("Success","Updated successfully");
         /*
         
         this.userservice.CustomerSignup(this.users).subscribe(
@@ -186,6 +185,9 @@ export class RouterpageComponent {
           }
 
         )
+        
+
+        this.userservice.Showsuccess("Success","Updated successfully");
 
 
         // this.userservice.getconnectedDetails(this.ng).subscribe(

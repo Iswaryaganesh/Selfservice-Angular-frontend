@@ -12,7 +12,7 @@ import { UsersService } from '../users.service';
 })
 export class BillComponent {
 
-  payplan:Plans
+  payplan:any;
   resp:any;
   selectedItem: String;
   showcard:boolean;
@@ -30,20 +30,27 @@ export class BillComponent {
   
     this.payplan = this.sharedata.getPaymentPlan()
     console.log(this.payplan)
-
+    console.log('printing details')
+    console.log(this.payplan.planID);
+    console.log(this.payplan.planName)
+    console.log(this.payplan.dueDate);
+    console.log(this.payplan.billStatus);
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
     //   this.resp = res;
     //   console.log(this.resp);
     //  }
     //  )
-  
-  
   }
+
     onsubmit()
     {
 
     }
+
+
+
+
     onSelected(value:String)
     {
         this.selectedItem = value;
@@ -63,5 +70,26 @@ export class BillComponent {
           this.showcard = false;
           this.showupi = false;
         }
+    }
+
+
+    paybills(){
+      this.userservice.paybills(this.payplan).subscribe(
+          response=>{
+            console.log(`hello`)
+            console.log(response)
+          
+          }
+
+
+      )
+
+      this.router.navigate(['/plans'])
+      console.log(`hello`)
+
+
+
+      
+       
     }
 }

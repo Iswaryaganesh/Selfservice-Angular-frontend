@@ -8,7 +8,7 @@ import { Acct1Component } from '../acct1/acct1.component';
 
 @NgModule({
   declarations: [
-    RegComponent,
+    //RegComponent,
     Acct1Component
   ],
   imports: [
