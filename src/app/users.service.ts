@@ -36,6 +36,7 @@ export class UsersService {
   private unblockDeviceurl = "unblockDevice"
   private deleteDeviceurl = "deleteDevice";
   private payBillDetails = "paybills";
+  private paymoney = "payamount";
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
@@ -99,11 +100,13 @@ export class UsersService {
     return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.getrouter,customer);
   }
 
-  // UpdateRouterDetails(router:Routerdetails,serialNumber:String){
+  // private updateurl:String = "http://localhost:8080/api/v1/update/"
+
+  // UpdateRouterDetails(serialNumber:String,router:Routerdetails){
   //   console.log('hello by router update')
   //   console.log(`${this.baseURL}`+serialNumber)
   //   console.log(router.password)
-  //   return this.httpClient.put('${this.baseURL}'+'${serialNumber}',router)
+  //   return this.httpClient.put(`${this.updateurl}/${serialNumber}`,router)
   // }
 
 
@@ -116,11 +119,8 @@ export class UsersService {
 
   
   getconnectedDetails(router:Routerdetails):Observable<Device[]>{  
-
     //get router details
-
     return this.httpClient.post<Device[]>(`${this.baseURL}`+this.connected,router);
-
   }
 
   getBlockedDetails(router:Routerdetails):Observable<Device[]>
@@ -145,6 +145,11 @@ export class UsersService {
 
   getPaymentDetails(plan:Plans):Observable<any>{
     return this.httpClient.post<any>(`${this.baseURL}`+this.payBillDetails,plan);
+  }
+
+
+  paybills(details:any):Observable<String>{
+    return this.httpClient.post(`${this.baseURL}`+this.paymoney,details,{responseType: 'text'});
   }
 
   Showsuccess(title:any, message:any)

@@ -78,10 +78,10 @@ export class PlansComponent {
        console.log(this.resp);
        console.log(this.resp.planName)
        if(this.resp.billStatus === "Bill was paid today"){
-        console.log(`success`);
+        console.log(`bill was paid today`);
        }
        else if(this.resp.billStatus === "You have to wait for minimum 25 days to pay bill"){
-        console.log(`wait`)
+        console.log(`wait for 25 days`)
        }
        else{
         this.sharedata.setPaymentPlan(this.resp);
