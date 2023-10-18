@@ -37,6 +37,7 @@ export class UsersService {
   private deleteDeviceurl = "deleteDevice";
   private payBillDetails = "paybills";
   private paymoney = "payamount";
+  private paymentHistory = "getpaymenthistory";
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
@@ -150,6 +151,12 @@ export class UsersService {
 
   paybills(details:any):Observable<String>{
     return this.httpClient.post(`${this.baseURL}`+this.paymoney,details,{responseType: 'text'});
+  }
+
+
+  ////////////////payment history part/////////////////////////////////////////
+  getpaymentHistory(customers:Customers):Observable<any>{
+    return this.httpClient.post<any>(`${this.baseURL}`+this.paymentHistory,customers);
   }
 
   Showsuccess(title:any, message:any)
