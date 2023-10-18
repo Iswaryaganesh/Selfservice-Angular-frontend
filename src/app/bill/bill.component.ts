@@ -12,7 +12,8 @@ import { UsersService } from '../users.service';
 })
 export class BillComponent {
 
-  payplan:any;
+  selecteditem:String;
+  payplan:any
   resp:any;
   selectedItem: String;
   showcard:boolean;
@@ -65,11 +66,18 @@ export class BillComponent {
           this.showupi = true;
           this.showcard = false;
         }
-        else if(this.selectedItem == 'select')
+        else
         {
           this.showcard = false;
           this.showupi = false;
         }
+    }
+    navigate()
+    {
+      if(this.selecteditem != 'card' && this.selecteditem!='upi')
+      {
+      this.userservice.Showwarning("Please select a payment type","!")
+      }
     }
 
 
