@@ -13,7 +13,7 @@ import { UsersService } from '../users.service';
 export class BillComponent {
 
   selecteditem:String;
-  payplan:Plans
+  payplan:any
   resp:any;
   selectedItem: String;
   showcard:boolean;
