@@ -30,7 +30,8 @@ export class BillComponent {
     this.payform = this.fb.group({
       cardnum:['',Validators.required],
       expiry:['',Validators.required],
-      cvv:['',Validators.required]
+      cvv:['',Validators.required],
+      mobile:['',Validators.required]
     })
   
     this.payplan = this.sharedata.getPaymentPlan()
@@ -93,7 +94,7 @@ export class BillComponent {
       console.log(payfailed)
       if(payfailed === true)
       {
-        this.userservice.Showwarning("ENter all the fields","")
+        this.userservice.Showwarning("Enter all the fields","")
       }
     }
     paybills(){

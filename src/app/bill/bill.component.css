@@ -63,10 +63,12 @@ input
 .submit
 {
     width: 90px;
-    background-color: gray;
-    color: white;
+    background-color: rgb(228, 234, 239);
+    color: black;
     border: none;
     height: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px;
 }
 .modal-head
 {

@@ -4,6 +4,7 @@ import { UsersService } from '../users.service';
 import { Customers } from '../customers';
 import { SharedataService } from '../sharedata.service';
 import { Plans } from '../plans';
+import { formatDate } from '@angular/common';
 
 
 
@@ -22,6 +23,8 @@ export class PlansComponent {
   val:number
   showhistory:boolean=false;
   history:any;
+  color:String="normal";
+  colorval:String;
   
   setuseddata(a:any,b:any)
   {
@@ -60,8 +63,24 @@ export class PlansComponent {
           console.log(`hello`)
           this.plans = response;
           console.log(this.plans);
+
+          for(let i of this.plans){
+              if(i.dayLeft<0)
+              {
+                i.dayLeft = 0 ;
+              }
+          }
       }
      )
+     if(this.color === 'expired')
+  {
+      this.colorval='gray'
+  }
+  else if(this.color === 'deadline')
+  {
+    this.colorval='red'
+  }
+
      
   }
   logout()
@@ -118,8 +137,19 @@ export class PlansComponent {
     this.userservice.getpaymentHistory(this.customer).subscribe(
       response => 
       { 
-          this.history = response
+
           
+          this.history = response
+          for(let i of this.history){
+            const format = 'dd/MM/yyyy';
+            const locale = 'en-US';
+
+            i.paymentDate= formatDate(i.paymentDate,format,locale)
+            i.dueDate= formatDate(i.dueDate,format,locale)
+
+              console.log(i.paymentDate)
+              console.log(i.dueDate)
+          }
           console.log(this.history[0].planID)
           console.log(`hello by history`)
           console.log(response[0])
@@ -128,10 +158,25 @@ export class PlansComponent {
           console.log(response[0].paymentDate)
           console.log(response[0].paymentType)
           console.log(response[0].dueDate)
+
+          const format = 'dd/MM/yyyy';
+          const locale = 'en-US';
+          const myDate = '2019-06-29';
+          
+          const formattedDate = formatDate(myDate, format, locale);
+
+          console.log(formattedDate)
   
       }
      )
   }
+
+  
+
+
+
+
+
 
 
 

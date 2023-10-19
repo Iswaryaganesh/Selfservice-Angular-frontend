@@ -46,28 +46,61 @@
 
 <div class="container-fluid" style="margin-top: 65px;">
     <div class="container" id="faqpage">
-    <div id="faq-content" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+    <div id="faq-content" >
     <div id="faq-head">
     <h3>
-        Why should I switch from 4G to 5G?
+      How does the billing cycle work?
     </h3>
-    <a (click)="displaypara(i)" ><img *ngIf="!display[i]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[i]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+    <a (click)="displaypara(0)" ><img *ngIf="!display[0]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[0]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
     </div>
-    <p *ngIf="display[i]" >
-        India's only True 5G network provides an unparalleled combination of coverage, capacity, quality, and affordability compared to other networks. Here’s how 5G will revolutionise your experience:
-        Standalone 5G architecture:
-        World's most advanced 5G network with zero dependencies on 4G network
-        Low latency, machine-to-machine communication, 5G calls, edge computing, and network slicing
-        Far superior to 4G-based non-standalone networks being launched by other operators
-        Largest and best mix of spectrum:
-        Largest and the most appropriate mix of wireless spectrum for 5G across 700 MHz, 3500 MHz, and 26 GHz bands, giving Jio True 5G a distinct advantage over other operators
-        Jio is the only operator that has a 700 MHz low-band spectrum to ensure deep indoor coverage
-        Carrier Aggregation:
-        Seamlessly combines 5G frequencies into a powerful “data highway” using advanced technology
-        Enables users to enjoy 5G speed, up to 1 Gbps with ultra-low latency, and the best indoor and outdoor experience.
+    <p *ngIf="display[0]" >
+      we follow a 30 day billing cycle you will be able to pay your bills from 25th day.
+      You will be charged on pro-rata basis from day 25 ,and your next due date will be increased by 30 days. 
     </p>
 </div>
-
-
+<div id="faq-content" >
+  <div id="faq-head">
+  <h3>
+    If usage has exceeded the chosen limit as per plan,would I be charged extra for my additional usage
+  </h3>
+  <a (click)="displaypara(1)" ><img *ngIf="!display[1]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[1]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+  </div>
+  <p *ngIf="display[1]" >
+    Yes the user will be charged additional 1₹ per 1 GB of additional usage from their respective plans
+  </p>
+</div>
+<div id="faq-content" >
+  <div id="faq-head">
+  <h3>
+    Can I change my router settings from my website
+  </h3>
+  <a (click)="displaypara(2)" ><img *ngIf="!display[2]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[2]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+  </div>
+  <p *ngIf="display[2]" >
+    Yes you can change some of your router settings from your website portal like wifi ssid,password,firmware update etc.
+  </p>
+</div>
+<div id="faq-content" >
+  <div id="faq-head">
+  <h3>
+    Would changing my router password in website remove all the devices connected to my router.
+  </h3>
+  <a (click)="displaypara(3)" ><img *ngIf="!display[3]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[3]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+  </div>
+  <p *ngIf="display[3]" >
+    Yes updation of password will automatically remove all the devices connected to your wifi.
+  </p>
+</div>    
+<div id="faq-content" >
+  <div id="faq-head">
+  <h3>
+    Do I Have to pay a fine if I fail to pay my plan bill within time.
+  </h3>
+  <a (click)="displaypara(4)" ><img *ngIf="!display[4]" src="/assets/images/plusicon.png" style="height: 28px;"><img *ngIf="display[4]" src="/assets/images/minusicon.png" style="height: 28px;"> </a> 
+  </div>
+  <p *ngIf="display[4]" >
+    The user will be charged a additional 100₹ fine if they fail to pay their bill.The user will have a 4 day window to pay their bills without the addtitonal fine after which 100₹ fine will be added to their bills.
+  </p>
+</div>
 </div>
 </div>

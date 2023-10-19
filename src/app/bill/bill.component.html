@@ -1,10 +1,12 @@
 <div class="container-fluid">
     <div class="billbox">
-    <div class="panel border"  style= "margin-left: 30px;">
+    <div class="panel border"  style= "margin-left: 30px; background-color: rgb(228, 234, 239);">
         <div class="panel-heading">
+            <img src="/assets/images/payicon.png" style="height: 50px; margin-right: 30px; margin-top: -5px;">
           <h1 style="color: black; font-weight: bold; font-size: 25px;  font-family: 'Montserrat', sans-serif;">PAYMENT </h1>
         </div>
-        <div class="panel-body p-3">
+        <div style="background-color: rgb(184, 188, 187);height: 5px; width: 100%;"></div>
+        <div class="panel-body p-3" style="background-color: white; border-color: rgb(228, 234, 239); border-width: 2px;">
             <form (ngSubmit)="onsubmit()">
                 <div class="input-row">
                     <div class="input-group">
@@ -66,22 +68,19 @@
                     </div>
                     <div class="modal-content">
                         <form [formGroup]="payform">
-                        <div class="input-field">
+                        <div class="input-field" [class.error]="payform.controls['cardnum'].dirty && payform.hasError('required','cardnum')">
                         <label style="display: block;">CARD NUMBER</label>
                         <input type="text" placeholder="Card number" formControlName="cardnum" class="cardnum">
                     </div>
-                    <small class="text-danger" *ngIf="payform.controls['cardnum'].dirty && payform.hasError('required','cardnum')">*Cardnumber is required</small>
                     <div class="row1">
-                    <div class="input-field"  style="display: inline-block;">
+                    <div class="input-field"  style="display: inline-block; " [class.error]="payform.controls['expiry'].dirty && payform.hasError('required','expiry')">
                         <label style="display: block;">EXPIRY DATE</label>
                         <input type="date" placeholder="Validity" formControlName="expiry" class="carddate">
                     </div>
-                    <small class="text-danger" *ngIf="payform.controls['expiry'].dirty && payform.hasError('required','expiry')">*Expiry date is required</small>
-                    <div class="input-field" style="display: inline-block;">
+                    <div class="input-field" style="display: inline-block;" [class.error]="payform.controls['cvv'].dirty && payform.hasError('required','cvv')">
                         <label style="display: block;">CVV</label>
                         <input type="password" placeholder="CVV" formControlName="cvv" class="cardcvv" >
                     </div>
-                    <small class="text-danger" *ngIf="payform.controls['cardcvv'].dirty && payform.hasError('required','cardcvv')">!</small>
                 </div>
             </form>
                     </div>
@@ -113,9 +112,9 @@
                     </div>
                     <div class="modal-content">
                         <form [formGroup]="payform">
-                        <div class="input-field" style="width: 100%;">
+                        <div class="input-field" style="width: 100%;" [class.error]="payform.controls['mobile'].dirty && payform.hasError('required','mobile')">
                         <label style="display: block;">MOBILE NUMBER</label>
-                        <input type="text" placeholder="Mobile number" class="upimob" style="width: 300px;" readonly>
+                        <input type="text" placeholder="Mobile number" formControlName="mobile" class="upimob" style="width: 300px;" readonly>
                     </div>
                     <div class="row2">
                     <img src="/assets/images/qrcode.jpg">
