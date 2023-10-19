@@ -30,9 +30,9 @@ export class BillComponent {
     this.payform = this.fb.group({
       cardnum:['',Validators.required],
       expiry:['',Validators.required],
-      cvv:['',Validators.required],
-      mobile:['',Validators.required]
+      cvv:['',Validators.required]
     })
+    
   
     this.payplan = this.sharedata.getPaymentPlan()
     console.log(this.payplan)
