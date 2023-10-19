@@ -13,7 +13,7 @@ export class FaqComponent {
     
   }
 
-  display:any=[false,false,false,false,false,false,false,false,false,false];
+  display:any=[false,false,false,false,false];
   displaypara(i:number)
   {
       this.display[i] = !this.display[i];
