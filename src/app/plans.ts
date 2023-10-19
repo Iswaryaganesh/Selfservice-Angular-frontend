@@ -7,5 +7,5 @@ export class Plans {
  price:number;
  dataLeft:String;
  dayLeft:number;
-
+ blinkLight:String;
 }

@@ -69,17 +69,28 @@ export class PlansComponent {
               {
                 i.dayLeft = 0 ;
               }
+
+              console.log(i.blinkLight)
+              if(i.blinkLight === "Blue"){
+                  this.color = `normal`
+              }
+              else if(i.blinkLight === "near expiry"){
+                  this.color = `deadline`
+              }
+              else if(i.blinkLight === "expiry"){
+                this.color = `deadline`
+              }
           }
       }
      )
-     if(this.color === 'expired')
-  {
-      this.colorval='gray'
-  }
-  else if(this.color === 'deadline')
-  {
-    this.colorval='red'
-  }
+      // if(this.color === 'expired')
+      // {
+      //     this.colorval='gray'
+      // }
+      // else if(this.color === 'deadline')
+      // {
+      //   this.colorval='red'
+      // }
 
      
   }

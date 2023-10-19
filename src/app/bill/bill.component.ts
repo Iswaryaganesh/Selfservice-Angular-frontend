@@ -31,7 +31,7 @@ export class BillComponent {
       cardnum:['',Validators.required],
       expiry:['',Validators.required],
       cvv:['',Validators.required],
-      mobile:['',Validators.required]
+      //mobile:['',Validators.required]
     })
   
     this.payplan = this.sharedata.getPaymentPlan()

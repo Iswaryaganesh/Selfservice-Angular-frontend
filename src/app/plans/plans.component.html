@@ -136,12 +136,13 @@
                     </div>
                   </div>
                   
-                  <div *ngIf="color=='normal'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)">PAY</button>  </div> 
-                  <div *ngIf="color=='deadline'"><button  class=" blink paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: red;">PAY</button> 
-                  <button *ngIf="color=='expired'" class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: gray;">PAY</button>    
+                  <div *ngIf="i.blinkLight=='Blue'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)">PAY</button>  </div> 
+                  <div *ngIf="i.blinkLight=='near expiry'"><button  class=" blink paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: red;">PAY</button> </div>
+                 <div  *ngIf="i.blinkLight=='expiry'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: gray;">PAY</button></div>
                 </div>
               </div>
         </div>
+    </div>
     </div>
 
     <div class="dropdown1">
