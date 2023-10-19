@@ -64,23 +64,12 @@ export class PlansComponent {
           this.plans = response;
           console.log(this.plans);
 
-          for(let i of this.plans){
-              if(i.dayLeft<0)
-              {
-                i.dayLeft = 0 ;
-              }
-
-              console.log(i.blinkLight)
-              if(i.blinkLight === "Blue"){
-                  this.color = `normal`
-              }
-              else if(i.blinkLight === "near expiry"){
-                  this.color = `deadline`
-              }
-              else if(i.blinkLight === "expiry"){
-                this.color = `deadline`
-              }
-          }
+          // for(let i of this.plans){
+          //     if(i.dayLeft<0)
+          //     {
+          //       i.dayLeft = 0 ;
+          //     }
+          // }
       }
      )
       // if(this.color === 'expired')
