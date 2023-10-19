@@ -1,6 +1,6 @@
 .container-fluid
 {
-    
+   
 }
 .billbox
 {
@@ -129,4 +129,5 @@ label{
 .panel
 {
     box-shadow: -1px -1px 3px;
+    border-radius: 20px;
 }

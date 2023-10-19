@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Plans } from '../plans';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
+import Validateform from '../helpers/validateform';
 
 @Component({
   selector: 'app-bill',
@@ -11,22 +12,25 @@ import { UsersService } from '../users.service';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent {
-
+  payfailed:boolean=false;
   selecteditem:String;
   payplan:any
+  paypopup:any;
   resp:any;
   selectedItem: String;
   showcard:boolean;
   showupi:boolean;
+  payform:FormGroup;
   constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService)
   {
     
   }
   payForm!: FormGroup
   ngOnInit():void{
-    this.payForm = this.fb.group({
-      name:['',Validators.required],
-      amt:['',Validators.required]
+    this.payform = this.fb.group({
+      cardnum:['',Validators.required],
+      expiry:['',Validators.required],
+      cvv:['',Validators.required]
     })
   
     this.payplan = this.sharedata.getPaymentPlan()
@@ -78,10 +82,23 @@ export class BillComponent {
       {
       this.userservice.Showwarning("Please select a payment type","!")
       }
+      else
+      {
+          this.paypopup = this.payplan;
+      }
     }
 
-
+    gototoast(payfailed:boolean)
+    {
+      console.log(payfailed)
+      if(payfailed === true)
+      {
+        this.userservice.Showwarning("ENter all the fields","")
+      }
+    }
     paybills(){
+      if(this.payform.valid)
+      {
       this.userservice.paybills(this.payplan).subscribe(
           response=>{
             console.log(`hello`)
@@ -95,10 +112,17 @@ export class BillComponent {
       this.userservice.Showsuccess("Success","Payment done successfully")
       this.router.navigate(['/plans'])
       console.log(`hello`)
-
-
+      }
+        else
+        {
+          this.payfailed = true;
+          Validateform.validateform(this.payform);
+          this.gototoast(this.payfailed);
+          console.log(this.payfailed)
+        }
 
       
        
     }
+   
 }
