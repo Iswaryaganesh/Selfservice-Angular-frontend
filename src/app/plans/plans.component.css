@@ -373,3 +373,21 @@
 {
   margin-left: 40%;
 }
+
+@keyframes glowing {
+  0% {
+    background-color: #a83305;
+    box-shadow: 0 0 5px #a83305;
+  }
+  50% {
+    background-color: #a83305;
+    box-shadow: 0 0 20px #a83305;
+  }
+  100% {
+    background-color: #a83305;
+    box-shadow: 0 0 5px #a83305;
+  }
+}
+.blink {
+  animation: glowing 1300ms infinite;
+}

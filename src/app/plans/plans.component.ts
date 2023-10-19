@@ -23,6 +23,8 @@ export class PlansComponent {
   val:number
   showhistory:boolean=false;
   history:any;
+  color:String="normal";
+  colorval:String;
   
   setuseddata(a:any,b:any)
   {
@@ -70,6 +72,15 @@ export class PlansComponent {
           }
       }
      )
+     if(this.color === 'expired')
+  {
+      this.colorval='gray'
+  }
+  else if(this.color === 'deadline')
+  {
+    this.colorval='red'
+  }
+
      
   }
   logout()
@@ -159,6 +170,13 @@ export class PlansComponent {
       }
      )
   }
+
+  
+
+
+
+
+
 
 
 
