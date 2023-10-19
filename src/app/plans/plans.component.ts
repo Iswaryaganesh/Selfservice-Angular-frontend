@@ -21,6 +21,7 @@ export class PlansComponent {
   show:boolean=true
   val:number
   showhistory:boolean=false;
+  history:any;
   
   setuseddata(a:any,b:any)
   {
@@ -110,6 +111,30 @@ export class PlansComponent {
   {
     this.showhistory = !this.showhistory
   }
+
+
+
+  gethistory(){
+    this.userservice.getpaymentHistory(this.customer).subscribe(
+      response => 
+      { 
+          this.history = response
+          
+          console.log(this.history[0].planID)
+          console.log(`hello by history`)
+          console.log(response[0])
+          console.log(response[0].planID)
+          console.log(response[0].final_amount)
+          console.log(response[0].paymentDate)
+          console.log(response[0].paymentType)
+          console.log(response[0].dueDate)
+  
+      }
+     )
+  }
+
+
+
   
   
 }

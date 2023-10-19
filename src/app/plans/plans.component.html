@@ -144,18 +144,18 @@
 
     <div class="dropdown1">
         <h3 style="display: inline-block; margin-right: 15px;">View history</h3>
-        <button *ngIf="!showhistory" (click)="showhist()" style="border-color: gray 1px; background-color: #f8f8f8; border-radius: 20px;"><img src="/assets/images/downarrow.png" style="height: 20px; display: inline-block;"></button>
+        <button *ngIf="!showhistory" (click)="showhist(); gethistory() " style="border-color: gray 1px; background-color: #f8f8f8; border-radius: 20px;"><img src="/assets/images/downarrow.png" style="height: 20px; display: inline-block;"></button>
           <button *ngIf="showhistory" (click)="showhist()" style="border-color: gray 1px; border-radius: 20px"><img src="/assets/images/uparrow.png" style="height: 15px; display: inline-block;"></button>
     </div>
     <div *ngIf="showhistory" class="historysection">
     <section class="scrollablehistory" id="scrollable">
-    <div *ngFor="let i of [0,1,2,3,4,5]" class="card" id="historycard">
+    <div *ngFor="let i of history" class="card" id="historycard">
       <div class="card-title1" style="background-color:rgb(37, 139, 190) ;">
           <h3>
-            PLAN ID:1
+            PLAN ID:{{i.planID}}
           </h3>
           <h3>
-            Basic
+            {{i.planName}}
           </h3>
       </div>
       <!-- <div *ngIf="popobj?.planName=='Premium'" class="card-title1" style="background-color: rgb(70, 82, 178);">
@@ -167,7 +167,7 @@
         </h3>
     </div> -->
       <div class="card-desc">
-        You have recharged for Basic plan of Rs. 1800 on 18/10/2023.<br> Your next payment due date is on 17/11/2023.
+        You have paid {{i.final_amount}}₹ for your {{i.planName}} plan on {{i.paymentDate}}.<br> Your next due date is on {{i.dueDate}} .
       </div>
     </div>
     </section>
