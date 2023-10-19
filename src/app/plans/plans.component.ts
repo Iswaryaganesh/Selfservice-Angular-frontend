@@ -64,12 +64,12 @@ export class PlansComponent {
           this.plans = response;
           console.log(this.plans);
 
-          for(let i of this.plans){
-              if(i.dayLeft<0)
-              {
-                i.dayLeft = 0 ;
-              }
-          }
+          // for(let i of this.plans){
+          //     if(i.dayLeft<0)
+          //     {
+          //       i.dayLeft = 0 ;
+          //     }
+          // }
       }
      )
      if(this.color === 'expired')
