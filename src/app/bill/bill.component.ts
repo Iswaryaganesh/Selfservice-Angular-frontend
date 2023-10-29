@@ -5,6 +5,7 @@ import { Plans } from '../plans';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import Validateform from '../helpers/validateform';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-bill',
@@ -33,14 +34,20 @@ export class BillComponent {
       cvv:['',Validators.required]
     })
     
+
   
     this.payplan = this.sharedata.getPaymentPlan()
+
     console.log(this.payplan)
     console.log('printing details')
     console.log(this.payplan.planID);
     console.log(this.payplan.planName)
     console.log(this.payplan.dueDate);
     console.log(this.payplan.billStatus);
+
+
+
+
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
     //   this.resp = res;
@@ -100,6 +107,7 @@ export class BillComponent {
     paybills(){
       if(this.payform.valid)
       {
+
       this.userservice.paybills(this.payplan).subscribe(
           response=>{
             console.log(`hello`)
