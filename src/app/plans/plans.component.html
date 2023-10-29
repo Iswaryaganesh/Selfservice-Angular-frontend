@@ -75,8 +75,7 @@
                   </div>
                   <a href="#"  style="display: inline-block; position: absolute; margin-top: 7px; text-decoration: none;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dummy(i)"><p style="font-size: 12px; display: inline-block;">View details</p>&nbsp;<img src="/assets/images/infoicon.png" style="height: 14px; margin-top: -1px; display: inline-block;"> </a>
                   <p *ngIf="i.dayLeft>0" style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.dayLeft}} days remaining</p>
-                 <div *ngIf="i.dayLeft < 0 && i.dayLeft>-5"> <p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.dayLeft*(-1)}} days exceeded</p></div>
-                  <div *ngIf="i.dayLeft <= -5" ><p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">Service expired</p></div>
+
                   
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">

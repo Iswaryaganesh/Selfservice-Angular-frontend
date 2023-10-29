@@ -33,6 +33,8 @@ export class BillComponent {
       expiry:['',Validators.required],
       cvv:['',Validators.required]
     })
+
+   
     
 
   
@@ -44,9 +46,6 @@ export class BillComponent {
     console.log(this.payplan.planName)
     console.log(this.payplan.dueDate);
     console.log(this.payplan.billStatus);
-
-
-
 
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
