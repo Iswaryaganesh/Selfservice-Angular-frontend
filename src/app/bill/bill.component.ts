@@ -47,6 +47,13 @@ export class BillComponent {
     console.log(this.payplan.dueDate);
     console.log(this.payplan.billStatus);
 
+
+
+    const format = 'dd/MM/yyyy';
+    const locale = 'en-US';
+    this.payplan.dueDate = formatDate(this.payplan.dueDate, format, locale);
+    this.payplan.paymentDate = formatDate(this.payplan.paymentDate, format, locale);
+
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
     //   this.resp = res;
