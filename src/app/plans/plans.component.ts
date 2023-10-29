@@ -72,14 +72,14 @@ export class PlansComponent {
           // }
       }
      )
-     if(this.color === 'expired')
-  {
-      this.colorval='gray'
-  }
-  else if(this.color === 'deadline')
-  {
-    this.colorval='red'
-  }
+      // if(this.color === 'expired')
+      // {
+      //     this.colorval='gray'
+      // }
+      // else if(this.color === 'deadline')
+      // {
+      //   this.colorval='red'
+      // }
 
      
   }

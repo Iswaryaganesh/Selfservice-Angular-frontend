@@ -327,7 +327,7 @@
   display: flex;
   flex-direction: row;
   width: 70%;
-  height: 170px;
+  height: 110px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -336,7 +336,8 @@
 {
   display: flex;
   width: 15%;
-  height: 130px;
+  height: 90px;
+  border-radius: 10px;
   flex-direction: column;
   background-color: rgb(138, 138, 193);
   align-items: center;
