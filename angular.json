@@ -25,10 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              
-              "node_modules/ngx-toastr/toastr.css",
-              "src/styles.css",
-              "@angular/material/prebuilt-themes/pink-bluegrey.css"
+
             ],
             "scripts": []
           },

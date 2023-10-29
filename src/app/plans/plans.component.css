@@ -355,7 +355,8 @@
   align-items: center;
   box-shadow: 3px 1px 5px;
   background-color: rgb(245, 246, 246); 
-  width: 100%;
+  margin-left: 10%;
+  width: 80%;
   margin-bottom: 0;
 }
 .historysection

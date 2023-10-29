@@ -36,18 +36,17 @@ export class BillComponent {
 
    
     
+
   
     this.payplan = this.sharedata.getPaymentPlan()
+
     console.log(this.payplan)
     console.log('printing details')
     console.log(this.payplan.planID);
     console.log(this.payplan.planName)
     console.log(this.payplan.dueDate);
     console.log(this.payplan.billStatus);
-    const format = 'dd/MM/yyyy';
-    const locale = 'en-US';
-    this.payplan.dueDate = formatDate(this.payplan.dueDate, format, locale);
-    this.payplan.paymentDate = formatDate(this.payplan.paymentDate, format, locale);
+
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
     //   this.resp = res;
@@ -107,6 +106,7 @@ export class BillComponent {
     paybills(){
       if(this.payform.valid)
       {
+
       this.userservice.paybills(this.payplan).subscribe(
           response=>{
             console.log(`hello`)

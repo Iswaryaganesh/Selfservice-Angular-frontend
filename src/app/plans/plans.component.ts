@@ -141,7 +141,7 @@ export class PlansComponent {
           
           this.history = response
           for(let i of this.history){
-            const format = 'dd/MM/yyyy';
+            const format = 'dd/MM/yyyy';  
             const locale = 'en-US';
 
             i.paymentDate= formatDate(i.paymentDate,format,locale)
