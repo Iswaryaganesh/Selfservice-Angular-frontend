@@ -49,10 +49,10 @@ export class BillComponent {
 
 
 
-    const format = 'dd/MM/yyyy';
-    const locale = 'en-US';
-    this.payplan.dueDate = formatDate(this.payplan.dueDate, format, locale);
-    this.payplan.paymentDate = formatDate(this.payplan.paymentDate, format, locale);
+    // const format = 'dd/MM/yyyy';
+    // const locale = 'en-US';
+    // this.payplan.dueDate = formatDate(this.payplan.dueDate, format, locale);
+    // this.payplan.paymentDate = formatDate(this.payplan.paymentDate, format, locale);
 
     // this.userservice.getPaymentDetails(this.payplan).subscribe(
     //  (res:any)=>{
