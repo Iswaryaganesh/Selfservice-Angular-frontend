@@ -96,6 +96,7 @@ export class PlansComponent {
 
     this.userservice.getPaymentDetails(i).subscribe(
       (res:any)=>{
+        console.log(i)
        this.resp = res;
        console.log(this.resp);
        console.log(this.resp.planName)
