@@ -7,6 +7,10 @@ html{
 	scroll-behavior: smooth;
 	/* font-family: 'Poppins', sans-serif;  */
 }
+#page
+{
+	min-width: 100%;
+}
 #cont
 {
     /* min-height: 100vh; */
@@ -427,4 +431,15 @@ li a:hover::after{
 	height: 250px;
 	width: 100%;
   }
+  @media only screen and (min-width: 760px) {
+   #page {
+	   width: 100%;
+   }
+}
+
+@media only screen and (max-width: 760px) {
+   #page {
+	   overflow: hidden;
+   }
+}
   

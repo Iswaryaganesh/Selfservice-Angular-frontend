@@ -25,6 +25,7 @@ export class PlansComponent {
   history:any;
   color:String="normal";
   colorval:String;
+  cycledate:String = "01/12/2023";
   
   setuseddata(a:any,b:any)
   {
