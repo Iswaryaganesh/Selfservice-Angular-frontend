@@ -31,8 +31,8 @@
         <div class="input-row" style="margin-top: -14px;">
                 <div class="input-group" style="align-content: flex-start;">  
                     <label>DURATION</label>
-                    <select>
-                        <option value="1 month">1 month</option>
+                    <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)">
+                        <option value="1 month" selected>1 month</option>
                         <option value="3 months">3 months</option>
                         <option value="6 months">6 months</option>
                     </select>

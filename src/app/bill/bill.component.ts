@@ -5,24 +5,35 @@ import { Plans } from '../plans';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import Validateform from '../helpers/validateform';
-import { formatDate } from '@angular/common';
+import { DatePipe,formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-bill',
   templateUrl: './bill.component.html',
-  styleUrls: ['./bill.component.css']
+  styleUrls: ['./bill.component.css'],
+  providers: [DatePipe]
 })
 export class BillComponent {
   payfailed:boolean=false;
   selecteditem:String;
   payplan:any
+  duration:String;
   paypopup:any;
   resp:any;
   selectedItem: String;
   showcard:boolean;
   showupi:boolean;
   payform:FormGroup;
-  constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService)
+  selectedValue: string;
+  today: Date = new Date();
+  formattedDate:string;
+  day: number;
+
+
+  count : number =0;
+
+  constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService,private datePipe: DatePipe)
   {
     
   }
@@ -94,10 +105,12 @@ export class BillComponent {
     {
       if(this.selecteditem != 'card' && this.selecteditem!='upi')
       {
+        console.log(this.duration);
       this.userservice.Showwarning("Please select a payment type","!")
       }
       else
       {
+          
           this.paypopup = this.payplan;
       }
     }
@@ -105,6 +118,7 @@ export class BillComponent {
     gototoast(payfailed:boolean)
     {
       console.log(payfailed)
+      
       if(payfailed === true)
       {
         this.userservice.Showwarning("Enter all the fields","")
@@ -113,6 +127,8 @@ export class BillComponent {
     paybills(){
       if(this.payform.valid)
       {
+
+       console.log(this.payplan.speed);
 
       this.userservice.paybills(this.payplan).subscribe(
           response=>{
@@ -138,6 +154,52 @@ export class BillComponent {
 
       
        
+    }
+
+
+
+    onSelectChange(selected: string) {
+      console.log('Selected value changed:', selected);
+      this.formattedDate = this.datePipe.transform(this.today, 'dd/MM/yyyy')!;
+      this.day = this.today.getDate();
+      console.log(this.formattedDate)
+      console.log(this.day);
+
+
+      if(this.day === 1 || this.day === 11 || this.day === 21 ){
+        console.log("yes");
+      }
+      else{
+        console.log("no");
+        const currentDate = new Date();
+        for (let i = 0; i < 10; i++) {
+          currentDate.setDate(this.today.getDate() + i);
+          this.day = currentDate.getDate();
+          if(this.day === 1 || this.day === 11 || this.day === 21 ){
+              break;
+          }
+        }
+        console.log(currentDate);
+        const dueDate = new Date(currentDate);
+
+        if(selected == '1 month'){
+          dueDate.setMonth(currentDate.getMonth() + 1)
+          console.log(dueDate);
+        }
+        else if(selected == '3 months'){
+          dueDate.setMonth(currentDate.getMonth() + 3)
+          console.log(dueDate);
+        }
+        else if(selected == '6 months'){
+          dueDate.setMonth(currentDate.getMonth() + 6)
+          console.log(dueDate);
+        }
+       
+      }
+
+
+      
+
     }
    
 }
