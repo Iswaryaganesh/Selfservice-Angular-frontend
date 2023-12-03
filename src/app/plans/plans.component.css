@@ -116,13 +116,18 @@ li a:hover::after{
   .dropdown:active .dropdown-content {display: block;}
 
  
-.plandiv
+/* .plandiv
 {
     margin: 0;
     padding: 0;
-    /* position: relative; */
+    
     margin-top: 95px;
     min-height: 100vh;
+} */
+#plandiv
+{
+  margin: 0;
+  padding: 0;
 }
 .plancard
 {

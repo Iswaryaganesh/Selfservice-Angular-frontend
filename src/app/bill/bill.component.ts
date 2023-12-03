@@ -29,6 +29,9 @@ export class BillComponent {
   today: Date = new Date();
   formattedDate:string;
   day: number;
+  dueDate:Date;
+   currentDate = new Date();
+   formatteddueDate:string;
 
 
   count : number =0;
@@ -171,32 +174,32 @@ export class BillComponent {
       }
       else{
         console.log("no");
-        const currentDate = new Date();
         for (let i = 0; i < 10; i++) {
-          currentDate.setDate(this.today.getDate() + i);
-          this.day = currentDate.getDate();
+          this.currentDate.setDate(this.today.getDate() + i);
+          this.day = this.currentDate.getDate();
           if(this.day === 1 || this.day === 11 || this.day === 21 ){
               break;
           }
         }
-        console.log(currentDate);
-        const dueDate = new Date(currentDate);
+        console.log(this.currentDate);
+         this.dueDate = new Date(this.currentDate);
 
         if(selected == '1 month'){
-          dueDate.setMonth(currentDate.getMonth() + 1)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 1)
+          console.log(this.dueDate);
         }
         else if(selected == '3 months'){
-          dueDate.setMonth(currentDate.getMonth() + 3)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 3)
+          console.log(this.dueDate);
         }
         else if(selected == '6 months'){
-          dueDate.setMonth(currentDate.getMonth() + 6)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 6)
+          console.log(this.dueDate);
         }
-       
+        
       }
-
+      this.formattedDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd')!;
+      this.formatteddueDate = this.datePipe.transform(this.dueDate,'yyyy-MM-dd')!;
 
       
 

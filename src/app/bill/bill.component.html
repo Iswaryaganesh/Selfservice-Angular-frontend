@@ -1,69 +1,151 @@
-<div class="container-fluid">
-    <div class="billbox">
-    <div class="panel border"  style= "margin-left: 30px; background-color: rgb(228, 234, 239);">
-        <div class="panel-heading">
-            <img src="/assets/images/payicon.png" style="height: 50px; margin-right: 30px; margin-top: -5px;">
-          <h1 style="color: black; font-weight: bold; font-size: 25px;  font-family: 'Montserrat', sans-serif;">PAYMENT </h1>
-        </div>
-        <div style="background-color: rgb(184, 188, 187);height: 5px; width: 100%;"></div>
-        <div class="panel-body p-3" style="background-color: white; border-color: rgb(228, 234, 239); border-width: 2px;">
-            <form (ngSubmit)="onsubmit()">
-                <div class="input-row">
-                    <div class="input-group">
-                        <label>PLAN ID</label>&nbsp;
-                        <input type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>                  
-                        </div>
-                    <div class="input-group">  
-                        <label>PLAN NAME</label>&nbsp;
-                        <input type="text" [(ngModel)]="payplan.planName" [ngModelOptions]="{standalone: true}" readonly>
-                    </div>
-            </div>
-            <div class="input-row"  style="margin-bottom: 17px;">
-                <div class="input-group">
-                    <label>NAME</label>&nbsp;&nbsp;
-                    <input type="text" [(ngModel)]="payplan.customerName" [ngModelOptions]="{standalone: true}" readonly>                  
-                    </div>
-                <div class="input-group">  
-                    <label>NEXT DUE</label>&nbsp;&nbsp;
-                    <input type="text"  [(ngModel)]="payplan.dueDate" [ngModelOptions]="{standalone: true}" readonly style="margin-left: 8px;" >
-                </div>
-        </div>
-        <div class="input-row" style="margin-top: -14px;">
-                <div class="input-group" style="align-content: flex-start;">  
-                    <label>DURATION</label>
-                    <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)">
-                        <option value="1 month" selected>1 month</option>
-                        <option value="3 months">3 months</option>
-                        <option value="6 months">6 months</option>
-                    </select>
-            </div>
-            <div class="input-group">  
-                <label>DATE</label>
-                <input type="text"  [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" style="margin-left: 20%;"  readonly>
-            </div>
-    </div>
-        <div class="input-row" style="margin-top: 15px;">
-            <div class="input-group"></div>
-            <div class="input-group">  
-                <label>AMOUNT</label>&nbsp;&nbsp;
-                <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
-                <input type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
-            </div>
-    </div>
+<script>
+    $(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn');
 
-    <label>Payment method&nbsp;&nbsp;</label>
-    <select #teams (change)="onSelected(teams.value)" name="paymenttype" id="paymenttype"style="width: 100px; height: 30px;" [(ngModel)]="selecteditem"> 
-        <option style="font-weight: 300; font-size: 13px; height: 40px;" value="card">CARD</option>
-        <option style="font-weight: 300; font-size: 13px;" value="upi">UPI</option>
-    </select>
-                
-    <button (click)="navigate()" type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
-   
-            
-            </form>
-        </div>
-      </div>
-    </div>
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-primary').addClass('btn-default');
+          $item.addClass('btn-primary');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+</script>
+<div class="container-fluid">
+    <div class="container">
+  
+        <div class="stepwizard col-md-offset-3">
+            <div class="stepwizard-row setup-panel">
+              <div class="stepwizard-step">
+                <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                <p>Step 1</p>
+              </div>
+              <div class="stepwizard-step">
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <p>Step 2</p>
+              </div>
+              <div class="stepwizard-step">
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <p>Step 3</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading">
+                <img src="/assets/images/payicon.png" style="height: 40px; margin-right: 2%; margin-top: -5px;">
+              <h3 style="color: black; font-weight: bold; font-size: 20px;  font-family: 'Montserrat', sans-serif;">PAYMENT </h3>
+            </div>
+            <div style="background-color: rgb(184, 188, 187);height: 5px; width: 100%; margin-bottom: 20px;"></div>
+          <form class="form-horizontal" (ngSubmit)="onsubmit()">
+            <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group" style="margin-bottom: 15px;">
+              <label class="control-label col-sm-4">PLAN NAME</label>
+              <div class="col-sm-6" style="display: inline-block;">
+                <input maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
+              </div>
+            </div>
+
+                <div class="form-group" style="margin-bottom: 15px;">
+                  <label class="control-label col-sm-4">NAME</label>
+                  <div class="col-sm-6" style="display: inline-block;">
+                    <input maxlength="100%" [(ngModel)]="payplan.customerName" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label class="control-label col-sm-4">PLAN ID</label>
+                        <div class="col-sm-6" style="display: inline-block;">
+                          <input maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 15px;">
+                        <label class="control-label col-sm-4">NEXT PLAN</label>
+                        <div class="col-sm-6" style="display: inline-block;">
+                          <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)" style="height: 25px; width: 150px;">
+                              <option value="1 month" selected>1 month</option>
+                              <option value="3 months">3 months</option>
+                              <option value="6 months">6 months</option>
+                          </select>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                          <label class="control-label col-sm-4">ACTIVATED ON</label>
+                          <div class="col-sm-6" style="display: inline-block;">
+                            <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                          </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label class="control-label col-sm-4">ENDED ON</label>
+                            <div class="col-sm-6" style="display: inline-block;">
+                              <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                              <label class="control-label col-sm-4">ACTIVATES ON</label>
+                              <div class="col-sm-6" style="display: inline-block;">
+                                <input maxlength="100%" [(ngModel)]="formattedDate" [ngModelOptions]="{standalone: true}" readonly>
+                              </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                              <label class="control-label col-sm-4">DUE DATE</label>
+                              <div class="col-sm-6" style="display: inline-block;">
+                                <input maxlength="100%" [(ngModel)]="formatteddueDate" [ngModelOptions]="{standalone: true}" readonly>
+                              </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label class="control-label col-sm-4">BILL AMOUNT
+                                    <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
+                                </label>
+                                <div class="col-sm-6" style="display: inline-block;">
+                                    
+                                    <input maxlength="100%" type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
+                                </div>
+                              </div>
+                              </div>
+                      </div>
+                      <button (click)="navigate()" type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
+                      </form>
+                    </div>
     <div *ngIf="showcard" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content" style="border-radius: 10px;">
