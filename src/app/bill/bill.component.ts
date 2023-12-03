@@ -22,7 +22,7 @@ export class BillComponent {
   paypopup:any;
   resp:any;
   selectedItem: String;
-  showcard:boolean;
+  showcard:boolean = false;
   showupi:boolean;
   payform:FormGroup;
   selectedValue: string;
@@ -84,37 +84,38 @@ export class BillComponent {
 
 
 
-    onSelected(value:String)
-    {
-        this.selectedItem = value;
-        console.log(this.selectedItem);
-        if(this.selectedItem == 'card')
-        {
-          this.showcard = true
-          this.showupi = false;
-        }
-        else if(this.selectedItem == 'upi')
-        {
-          this.showupi = true;
-          this.showcard = false;
-        }
-        else
-        {
-          this.showcard = false;
-          this.showupi = false;
-        }
-    }
+    // onSelected(value:String)
+    // {
+    //     this.selectedItem = value;
+    //     console.log(this.selectedItem);
+    //     if(this.selectedItem == 'card')
+    //     {
+    //       this.showcard = true
+    //       this.showupi = false;
+    //     }
+    //     else if(this.selectedItem == 'upi')
+    //     {
+    //       this.showupi = true;
+    //       this.showcard = false;
+    //     }
+    //     else
+    //     {
+    //       this.showcard = false;
+    //       this.showupi = false;
+    //     }
+    // }
     navigate()
     {
-      if(this.selecteditem != 'card' && this.selecteditem!='upi')
+      if(this.duration == null || this.payplan.planName==null)
       {
         console.log(this.duration);
-      this.userservice.Showwarning("Please select a payment type","!")
+      this.userservice.Showwarning("Please select a plan type","!")
       }
       else
       {
           
           this.paypopup = this.payplan;
+          this.showcard = true;
       }
     }
 
