@@ -1,66 +1,5 @@
-<script>
-    $(document).ready(function () {
-  var navListItems = $('div.setup-panel div a'),
-          allWells = $('.setup-content'),
-          allNextBtn = $('.nextBtn');
 
-  allWells.hide();
-
-  navListItems.click(function (e) {
-      e.preventDefault();
-      var $target = $($(this).attr('href')),
-              $item = $(this);
-
-      if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('btn-primary').addClass('btn-default');
-          $item.addClass('btn-primary');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
-      }
-  });
-
-  allNextBtn.click(function(){
-      var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='url']"),
-          isValid = true;
-
-      $(".form-group").removeClass("has-error");
-      for(var i=0; i<curInputs.length; i++){
-          if (!curInputs[i].validity.valid){
-              isValid = false;
-              $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
-      }
-
-      if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
-  });
-
-  $('div.setup-panel div a.btn-primary').trigger('click');
-});
-</script>
 <div class="container-fluid">
-  
-  
-        <div class="stepwizard col-md-offset-3">
-            <div class="stepwizard-row setup-panel">
-              <div class="stepwizard-step">
-                <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                <p>Step 1</p>
-              </div>
-              <div class="stepwizard-step">
-                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>Step 2</p>
-              </div>
-              <div class="stepwizard-step">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p>Step 3</p>
-              </div>
-            </div>
-          </div>
 
           <div class="panel">
             <div class="panel-heading">
@@ -68,7 +7,148 @@
               <h3 style="color: black; font-weight: bold; font-size: 20px;  font-family: 'Montserrat', sans-serif;">PAYMENT </h3>
             </div>
             <div style="background-color: rgb(184, 188, 187);height: 5px; width: 100%; margin-bottom: 20px;"></div>
-          <form class="form-horizontal" (ngSubmit)="onsubmit()">
+          
+            
+            <mat-stepper [linear]="false" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                  <ng-template matStepLabel>Fill out your name</ng-template>
+                 
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                        
+                          <mat-label class="control-label col-sm-4">PLAN NAME</mat-label>
+                          <div class="col-sm-6" style="display: inline-block;">
+                            <input matInput maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
+                          </div>
+                          
+                        </div>
+            
+                            <div class="form-group" style="margin-bottom: 15px;">
+                              
+                              <mat-label class="control-label col-sm-4">NAME</mat-label>
+                              <div class="col-sm-6" style="display: inline-block;">
+                                <input matInput maxlength="100%" [(ngModel)]="payplan.customerName" [ngModelOptions]="{standalone: true}">
+                              </div>
+                            
+                            </div>
+                            </div>
+            
+                            <div class="col-sm-6">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                              
+                                    <mat-label class="control-label col-sm-4">PLAN ID</mat-label>
+                                    <div class="col-sm-6" style="display: inline-block;">
+                                      <input maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
+                                    </div>
+                                
+                                  </div>
+                                  <div class="form-group" style="margin-bottom: 15px;">
+                              
+                                    <mat-label class="control-label col-sm-4">NEXT PLAN</mat-label>
+                                    <div class="col-sm-6" style="display: inline-block;">
+                                      <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)" style="height: 25px; width: 150px;">
+                                          <option value="1 month" selected>1 month</option>
+                                          <option value="3 months">3 months</option>
+                                          <option value="6 months">6 months</option>
+                                      </select>
+                                    </div>
+                            
+                                  </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-group" style="margin-bottom: 15px;">
+                            
+                                      <mat-label class="control-label col-sm-4">ACTIVATED ON</mat-label>
+                                      <div class="col-sm-6" style="display: inline-block;">
+                                        <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                                      </div>
+                      
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 15px;">
+                            
+                                        <mat-label class="control-label col-sm-4">ENDED ON</mat-label>
+                                        <div class="col-sm-6" style="display: inline-block;">
+                                          <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                                        </div>
+                                
+                                      </div>
+                                      </div>
+            
+                                      <div class="col-sm-6">
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                          <label class="control-label col-sm-4">ACTIVATES ON</label>
+                                          <div class="col-sm-6" style="display: inline-block;">
+                                            <input maxlength="100%" [(ngModel)]="formattedDate" [ngModelOptions]="{standalone: true}" readonly>
+                                          </div>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                          <label class="control-label col-sm-4">DUE DATE</label>
+                                          <div class="col-sm-6" style="display: inline-block;">
+                                            <input maxlength="100%" [(ngModel)]="formatteddueDate" [ngModelOptions]="{standalone: true}" readonly>
+                                          </div>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 15px;">
+                                            <label class="control-label col-sm-4">BILL AMOUNT
+                                                <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
+                                            </label>
+                                            <div class="col-sm-6" style="display: inline-block;">
+                                                
+                                                <input maxlength="100%" type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
+                                            </div>
+                                          </div>
+                                          </div>
+                                  </div>
+                  <div>
+                    <button mat-button matStepperNext (click)="navigate()" style="float: right; right: 20px;">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="secondFormGroup"  label="Fill out your address">
+                <form [formGroup]="payform">
+                  <div class="cardmodel">
+                    <div class="head">
+                        <h1 style="display: inline-block;">TOTAL AMOUNT: &nbsp;</h1>
+                        <p class="amt" style="font-size: 25px; font-weight: bold; display: inline-block;">{{payplan.amount}} </p>
+                    </div>
+                    <div class="content">
+                        <!-- <form [formGroup]="payform"> -->
+                        <div class="input-field" [class.error]="payform.controls['cardnum'].dirty && payform.hasError('required','cardnum')">
+                        <label style="display: block;">CARD NUMBER</label>
+                        <input type="text" placeholder="Card number" formControlName="cardnum" class="cardnum">
+                    </div>
+                    <div class="row1">
+                    <div class="input-field"  style="display: inline-block; " [class.error]="payform.controls['expiry'].dirty && payform.hasError('required','expiry')">
+                        <label style="display: block;">EXPIRY DATE</label>
+                        <input type="date" placeholder="Validity" formControlName="expiry" class="carddate">
+                    </div>
+                    <div class="input-field" style="display: inline-block;" [class.error]="payform.controls['cvv'].dirty && payform.hasError('required','cvv')">
+                        <label style="display: block;">CVV</label>
+                        <input type="password" placeholder="CVV" formControlName="cvv" class="cardcvv" >
+                    </div>
+                </div>
+            <!-- </form> -->
+                    </div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button class="paybtn" (click)="paybills()" >PAY</button>
+                </div>
+                </form>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious >Back</button>
+                 
+                </div>
+              </mat-step>
+            </mat-stepper>
+            
+            
+          
+            <!-- <form class="form-horizontal" (ngSubmit)="onsubmit()">
             <div class="row">
           <div class="col-sm-6">
             <div class="form-group" style="margin-bottom: 15px;">
@@ -144,13 +224,13 @@
                               </div>
                       </div>
                       <button (click)="navigate()" type="submit" class="submit" style="margin-left: 80%; margin-top: 15px;" data-bs-toggle="modal" data-bs-target="#exampleModal">NEXT</button> 
-                      </form>
+                      </form> -->
                     </div>
-    <div *ngIf="showcard" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div *ngIf="showcard" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content" style="border-radius: 10px;">
+          <div class="modal-content" style="border-radius: 10px;"> -->
             <!-- <div class="modal-header"> -->
-                <div class="cardmodel">
+                <!-- <div class="cardmodel">
                     <div class="modal-head">
                         <h1>TOTAL AMOUNT</h1>
                         <input type="text" class="amt" value="{{paypopup.amount}}" style="font-size: 17px; font-weight: bold;" readonly>
@@ -175,19 +255,19 @@
                     </div>
                     <button class="paybtn"  data-bs-dismiss="modal" (click)="paybills()" >PAY</button>
                 </div>
-              <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -45px; right: -28px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -45px; right: -28px;border: 1px solid; padding: 15px; border-radius: 30px;"></button> -->
             <!-- </div> -->
-            <div class="modal-body">
+            <!-- <div class="modal-body"> -->
               <!-- <div class="plandetails"> -->
               
         
                      
             <!-- </div>   -->
-            </div>
+            <!-- </div>
           </div>
         </div>
-    </div>
+    </div>  -->
 
 
     <div *ngIf="showupi" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

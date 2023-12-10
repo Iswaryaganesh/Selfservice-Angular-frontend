@@ -11,6 +11,7 @@
     left: 10%;
     max-height: 100vh;
     padding: 30px;
+    background-color: rgb(79, 127, 129);
     
 }
 
@@ -81,13 +82,12 @@
     border-radius: 10px;
     box-shadow: 3px 3px 4px;
 }
-.modal-head
+.head
 {
     margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+    float: right;
 }
-.modal-content
+.content
 {
     padding-top: 10px;
     padding-left: 5px;
@@ -102,7 +102,7 @@
 }
 .cardnum 
 {
-    width: 100%;
+    width: 20%;
 }
 .row1 
 {
@@ -145,7 +145,29 @@ label{
     box-shadow: -1px -1px 3px;
     border-radius: 20px;
 }
-input
+mat-stepper
 {
-    
+    background-color: rgb(157, 202, 203);
+}
+button 
+{
+    background-color: rgb(61, 122, 123);
+    width: 120px;
+    border-radius: 10px;
+    color: black;
+    transition-duration: 0.15s;
+    transition-delay: 0.15s;
+}
+button:hover
+{
+    background-color: black;
+    color: rgb(61, 122, 123);
+}
+label
+{
+    color: black;
+}
+.input-field
+{
+    margin-bottom: 15px;
 }

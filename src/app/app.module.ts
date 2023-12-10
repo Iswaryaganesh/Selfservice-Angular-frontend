@@ -22,6 +22,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BlockedtableComponent } from './blockedtable/blockedtable.component';
 import { FaqComponent } from './faq/faq.component';
 import { BillComponent } from './bill/bill.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { AsyncPipe } from '@angular/common';
 
 
 
@@ -38,6 +43,7 @@ import { BillComponent } from './bill/bill.component';
     ForgotpwdComponent,
     FaqComponent,
     BillComponent
+   
 
   ],
   imports: [
@@ -48,6 +54,11 @@ import { BillComponent } from './bill/bill.component';
     MattableComponent,
     BlockedtableComponent,
     HttpClientModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AsyncPipe,
     MatProgressBarModule,
     ToastrModule.forRoot({// positionClass:"toast-bottom-center",
     preventDuplicates:true,

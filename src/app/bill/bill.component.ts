@@ -6,6 +6,11 @@ import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import Validateform from '../helpers/validateform';
 import { DatePipe,formatDate } from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule, StepperOrientation} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -32,6 +37,16 @@ export class BillComponent {
   dueDate:Date;
    currentDate = new Date();
    formatteddueDate:string;
+   completed:boolean = false;
+
+   firstFormGroup = this.fb.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this.fb.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false;
+  stepperOrientation: Observable<StepperOrientation>;
 
 
   count : number =0;
@@ -116,6 +131,7 @@ export class BillComponent {
           
           this.paypopup = this.payplan;
           this.showcard = true;
+          this.completed = true;
       }
     }
 
