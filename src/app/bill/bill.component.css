@@ -2,27 +2,19 @@
 {
    
 }
-.billbox
-{
-    background-color: rgb(146, 119, 84);
-    width: 100%;
-    position: relative;
-}
+
 .panel
 {
     position: absolute;
-    width: 50%;
-    margin-top: 10%;
-    left: 22%;
-    height: 400px;
+    width: 80%;
+    margin-top: 2%;
+    left: 10%;
+    max-height: 100vh;
     padding: 30px;
+    background-color: rgb(79, 127, 129);
     
 }
-.input-row
-{
-    display: flex;
-    
-}
+
 .submit
 {
     width: 90px;
@@ -37,28 +29,48 @@
 {
     display: flex;
 }
-.part1
-{
-    flex: 10px;
+
+
+.stepwizard-step p {
+    margin-top: 10px;
 }
-.part2
-{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: -15px;
+.stepwizard-row {
+    display: table-row;
 }
-input 
-{
-    margin-bottom: 15px;
-    border: 1px solid;
-    padding: 3px;
+.stepwizard {
+    display: table;
+    width: 50%;
+    position: relative;
+    margin-top: 20px;
+    left: 25%;
 }
-.input-group 
-{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: stretch;
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
 }
 .submit
 {
@@ -70,13 +82,12 @@ input
     border-radius: 10px;
     box-shadow: 3px 3px 4px;
 }
-.modal-head
+.head
 {
     margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+    float: right;
 }
-.modal-content
+.content
 {
     padding-top: 10px;
     padding-left: 5px;
@@ -91,7 +102,7 @@ input
 }
 .cardnum 
 {
-    width: 100%;
+    width: 20%;
 }
 .row1 
 {
@@ -104,9 +115,9 @@ input
     display: flex;
     justify-content: center;
 }
-.paybtn 
+/* .paybtn 
 {
-    width: 100px;
+    width: 120px;
     height: 30px;
     margin-top: 20px;
     background-color: black;
@@ -119,9 +130,10 @@ input
 {
     background-color: black;
     color: rgb(212, 194, 210);
-}
+} */
 label{
     color: gray;
+    display: inline-block;
 }
 #amtid
 {
@@ -132,4 +144,32 @@ label{
 {
     box-shadow: -1px -1px 3px;
     border-radius: 20px;
+}
+mat-stepper
+{
+    background-color: rgb(157, 202, 203);
+}
+button 
+{
+    background-color: rgb(61, 122, 123);
+    width: 120px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    transition-duration: 0.15s;
+    transition-delay: 0.15s;
+}
+button:hover
+{
+    background-color: black;
+    color: rgb(61, 122, 123);
+}
+label
+{
+    color: black;
+}
+.input-field
+{
+    margin-bottom: 15px;
 }

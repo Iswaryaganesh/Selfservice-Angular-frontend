@@ -6,6 +6,11 @@ import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
 import Validateform from '../helpers/validateform';
 import { DatePipe,formatDate } from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule, StepperOrientation} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -22,13 +27,26 @@ export class BillComponent {
   paypopup:any;
   resp:any;
   selectedItem: String;
-  showcard:boolean;
+  showcard:boolean = false;
   showupi:boolean;
   payform:FormGroup;
   selectedValue: string;
   today: Date = new Date();
   formattedDate:string;
   day: number;
+  dueDate:Date;
+   currentDate = new Date();
+   formatteddueDate:string;
+   completed:boolean = false;
+
+   firstFormGroup = this.fb.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this.fb.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false;
+  stepperOrientation: Observable<StepperOrientation>;
 
 
   count : number =0;
@@ -81,37 +99,39 @@ export class BillComponent {
 
 
 
-    onSelected(value:String)
-    {
-        this.selectedItem = value;
-        console.log(this.selectedItem);
-        if(this.selectedItem == 'card')
-        {
-          this.showcard = true
-          this.showupi = false;
-        }
-        else if(this.selectedItem == 'upi')
-        {
-          this.showupi = true;
-          this.showcard = false;
-        }
-        else
-        {
-          this.showcard = false;
-          this.showupi = false;
-        }
-    }
+    // onSelected(value:String)
+    // {
+    //     this.selectedItem = value;
+    //     console.log(this.selectedItem);
+    //     if(this.selectedItem == 'card')
+    //     {
+    //       this.showcard = true
+    //       this.showupi = false;
+    //     }
+    //     else if(this.selectedItem == 'upi')
+    //     {
+    //       this.showupi = true;
+    //       this.showcard = false;
+    //     }
+    //     else
+    //     {
+    //       this.showcard = false;
+    //       this.showupi = false;
+    //     }
+    // }
     navigate()
     {
-      if(this.selecteditem != 'card' && this.selecteditem!='upi')
+      if(this.duration == null || this.payplan.planName==null)
       {
         console.log(this.duration);
-      this.userservice.Showwarning("Please select a payment type","!")
+      this.userservice.Showwarning("Please select a plan type","!")
       }
       else
       {
           
           this.paypopup = this.payplan;
+          this.showcard = true;
+          this.completed = true;
       }
     }
 
@@ -171,32 +191,32 @@ export class BillComponent {
       }
       else{
         console.log("no");
-        const currentDate = new Date();
         for (let i = 0; i < 10; i++) {
-          currentDate.setDate(this.today.getDate() + i);
-          this.day = currentDate.getDate();
+          this.currentDate.setDate(this.today.getDate() + i);
+          this.day = this.currentDate.getDate();
           if(this.day === 1 || this.day === 11 || this.day === 21 ){
               break;
           }
         }
-        console.log(currentDate);
-        const dueDate = new Date(currentDate);
+        console.log(this.currentDate);
+         this.dueDate = new Date(this.currentDate);
 
         if(selected == '1 month'){
-          dueDate.setMonth(currentDate.getMonth() + 1)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 1)
+          console.log(this.dueDate);
         }
         else if(selected == '3 months'){
-          dueDate.setMonth(currentDate.getMonth() + 3)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 3)
+          console.log(this.dueDate);
         }
         else if(selected == '6 months'){
-          dueDate.setMonth(currentDate.getMonth() + 6)
-          console.log(dueDate);
+          this.dueDate.setMonth(this.currentDate.getMonth() + 6)
+          console.log(this.dueDate);
         }
-       
+        
       }
-
+      this.formattedDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd')!;
+      this.formatteddueDate = this.datePipe.transform(this.dueDate,'yyyy-MM-dd')!;
 
       
 
