@@ -50,6 +50,7 @@ export class BillComponent {
 
 
   count : number =0;
+  plandetails: any;
 
   constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService,private datePipe: DatePipe)
   {
@@ -68,13 +69,14 @@ export class BillComponent {
 
   
     this.payplan = this.sharedata.getPaymentPlan()
-
+    this.plandetails = this.sharedata.getplandetails();
     console.log(this.payplan)
     console.log('printing details')
     console.log(this.payplan.planID);
     console.log(this.payplan.planName)
     console.log(this.payplan.dueDate);
     console.log(this.payplan.billStatus);
+    console.log(this.plandetails.price);
 
 
 
@@ -121,18 +123,14 @@ export class BillComponent {
     // }
     navigate()
     {
-      if(this.duration == null || this.payplan.planName==null)
-      {
-        console.log(this.duration);
-      this.userservice.Showwarning("Please select a plan type","!")
-      }
-      else
-      {
+      
+      // else
+      // {
           
-          this.paypopup = this.payplan;
-          this.showcard = true;
-          this.completed = true;
-      }
+      //     this.paypopup = this.payplan;
+      //     this.showcard = true;
+      //     this.completed = true;
+      // }
     }
 
     gototoast(payfailed:boolean)
@@ -145,7 +143,8 @@ export class BillComponent {
       }
     }
     paybills(){
-      if(this.payform.valid)
+      
+      if(this.duration != null && this.payplan.planName!=null && this.payform.valid)
       {
 
        console.log(this.payplan.speed);
