@@ -84,8 +84,8 @@
 }
 .head
 {
-    margin-top: 20px;
-    float: right;
+   
+    float: left;
 }
 .content
 {
@@ -94,6 +94,7 @@
     padding-right: 5px;
     width: 90%;
     left: 4%;
+    max-height: 100vh;
     padding-bottom: 20px;
 }
 .modal-content label
@@ -144,6 +145,7 @@ label{
 {
     box-shadow: -1px -1px 3px;
     border-radius: 20px;
+    max-height: 170vh;
 }
 mat-stepper
 {
@@ -172,4 +174,46 @@ label
 .input-field
 {
     margin-bottom: 15px;
+}
+.summary
+{
+    height: 250px;
+    width: 250px;
+    padding: 10px;
+    margin-top: -20px;
+}
+
+.summary-bg
+{
+    position: relative;
+    background-color: transparent;
+}
+.summary-content
+{
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+.summaryvalues
+{
+    display: flex;
+    justify-content: space-between;
+}
+.values 
+{
+    right: 0;
+    font-weight: bold;
+}
+.backbtn
+{
+    width: 50px;
+    height: 30px;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 27%;
+    right: 15%;
+}
+.backbtn:hover
+{
+    background-color: #ccc;
 }

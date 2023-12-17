@@ -72,7 +72,9 @@ export class PlansComponent {
           //     }
           // }
       }
+      
      )
+     
       // if(this.color === 'expired')
       // {
       //     this.colorval='gray'
@@ -92,7 +94,7 @@ export class PlansComponent {
 
   getDetails(i:any){
     console.log(i)
-   
+    this.sharedata.setplandetails(i);
 
     this.userservice.getPaymentDetails(i).subscribe(
       (res:any)=>{

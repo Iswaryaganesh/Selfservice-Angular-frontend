@@ -9,96 +9,91 @@
             <div style="background-color: rgb(184, 188, 187);height: 5px; width: 100%; margin-bottom: 20px;"></div>
           
             
-            <mat-stepper [linear]="false" #stepper>
+            <mat-stepper  linear="false">
               <mat-step [stepControl]="firstFormGroup">
                 <form [formGroup]="firstFormGroup">
-                  <ng-template matStepLabel>Fill out your name</ng-template>
+                  <ng-template matStepLabel>BILLING</ng-template>
                  
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-7">
                         <div class="form-group" style="margin-bottom: 15px;">
                         
-                          <mat-label class="control-label col-sm-4">PLAN NAME</mat-label>
+                          <label class="control-label col-sm-4">PLAN NAME &nbsp;</label>
                           <div class="col-sm-6" style="display: inline-block;">
-                            <input matInput maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
+                            <input matInput maxlength="100%" type="text"  [(ngModel)]="payplan.planName"  [ngModelOptions]="{standalone: true}" readonly>
                           </div>
                           
                         </div>
             
                             <div class="form-group" style="margin-bottom: 15px;">
                               
-                              <mat-label class="control-label col-sm-4">NAME</mat-label>
+                              <label class="control-label col-sm-4">NAME &nbsp;</label>
                               <div class="col-sm-6" style="display: inline-block;">
                                 <input matInput maxlength="100%" [(ngModel)]="payplan.customerName" [ngModelOptions]="{standalone: true}">
                               </div>
                             
                             </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                            
+                              <label class="control-label col-sm-4">ACTIVATED ON &nbsp;</label>
+                              <div class="col-sm-6" style="display: inline-block;">
+                                <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                              </div>
+              
+                            </div>
+                            <div class="form-group" style="margin-bottom: 15px;">
+                    
+                                <label class="control-label col-sm-4">ENDED ON &nbsp;</label>
+                                <div class="col-sm-6" style="display: inline-block;">
+                                  <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
+                                </div>
+                        
+                              </div>
+                              
+    
+                            
+                               
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label class="control-label col-sm-4">BILL AMOUNT &nbsp;
+                                        <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
+                                    </label>
+                                    <div class="col-sm-6" style="display: inline-block;">
+                                        
+                                        <input maxlength="100%" type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
+                                    </div>
+                                  </div>
                             </div>
             
-                            <div class="col-sm-6">
-                                <div class="form-group" style="margin-bottom: 15px;">
-                              
-                                    <mat-label class="control-label col-sm-4">PLAN ID</mat-label>
-                                    <div class="col-sm-6" style="display: inline-block;">
-                                      <input maxlength="100%" type="text"  [(ngModel)]="payplan.planID"  [ngModelOptions]="{standalone: true}" readonly>
-                                    </div>
-                                
-                                  </div>
-                                  <div class="form-group" style="margin-bottom: 15px;">
-                              
-                                    <mat-label class="control-label col-sm-4">NEXT PLAN</mat-label>
-                                    <div class="col-sm-6" style="display: inline-block;">
-                                      <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)" style="height: 25px; width: 150px;">
-                                          <option value="1 month" selected>1 month</option>
-                                          <option value="3 months">3 months</option>
-                                          <option value="6 months">6 months</option>
-                                      </select>
-                                    </div>
-                            
-                                  </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                    <div class="form-group" style="margin-bottom: 15px;">
-                            
-                                      <mat-label class="control-label col-sm-4">ACTIVATED ON</mat-label>
-                                      <div class="col-sm-6" style="display: inline-block;">
-                                        <input maxlength="100%" [(ngModel)]="payplan.paymentDate" [ngModelOptions]="{standalone: true}" readonly>
-                                      </div>
-                      
-                                    </div>
-                                    <div class="form-group" style="margin-bottom: 15px;">
-                            
-                                        <mat-label class="control-label col-sm-4">ENDED ON</mat-label>
-                                        <div class="col-sm-6" style="display: inline-block;">
-                                          <input maxlength="100%" [(ngModel)]="payplan.dueDate" [ngModelOptions]="{standalone: true}" readonly>
+                                  <div class="col-sm-5">
+                                    <div class="summary">
+                                      <div class="summary-bg"><img style="height: 250px;" src="/assets/images/stickynote.png" >
+                                      <div class="summary-content"> <h2 style="display: flex;justify-content: center; font-weight: bold;">SUMMARY</h2>
+                                        <div class="summaryvalues"><p>Plan price&nbsp;</p>
+                                        <div class="values"><p>{{plandetails?.price}}</p></div></div>
+                                        <div class="summaryvalues">
+                                        <p>Grace period charge &nbsp;</p>
+                                        <div class="values" ><div *ngIf="plandetails.dayLeft < 0">
+                                          <p *ngIf="plandetails.dayLeft>-5"> {{payplan.amount- plandetails.price}}</p>
+                                          <p *ngIf="plandetails.dayLeft<-5"> {{payplan.amount- plandetails.price-100}}</p></div>
+                                        <div *ngIf="plandetails.dayLeft >= 0">
+                                          <p>N/A</p>
                                         </div>
-                                
-                                      </div>
-                                      </div>
-            
-                                      <div class="col-sm-6">
-                                        <div class="form-group" style="margin-bottom: 15px;">
-                                          <label class="control-label col-sm-4">ACTIVATES ON</label>
-                                          <div class="col-sm-6" style="display: inline-block;">
-                                            <input maxlength="100%" [(ngModel)]="formattedDate" [ngModelOptions]="{standalone: true}" readonly>
-                                          </div>
                                         </div>
-                                        <div class="form-group" style="margin-bottom: 15px;">
-                                          <label class="control-label col-sm-4">DUE DATE</label>
-                                          <div class="col-sm-6" style="display: inline-block;">
-                                            <input maxlength="100%" [(ngModel)]="formatteddueDate" [ngModelOptions]="{standalone: true}" readonly>
-                                          </div>
                                         </div>
-                                        <div class="form-group" style="margin-bottom: 15px;">
-                                            <label class="control-label col-sm-4">BILL AMOUNT
-                                                <img src="/assets/images/rupeeicon.png" style="height: 20px; margin-top: 2px;">
-                                            </label>
-                                            <div class="col-sm-6" style="display: inline-block;">
-                                                
-                                                <input maxlength="100%" type="text"  [(ngModel)]="payplan.amount" [ngModelOptions]="{standalone: true}" readonly>
-                                            </div>
-                                          </div>
-                                          </div>
+                                        <div class="summaryvalues" >
+                                        <p>Late payment fee&nbsp;</p>
+                                        <div class="values" *ngIf="plandetails.blinkLight == 'expiry'; else elseblock"><p >100</p></div>
+                                        <ng-template #elseblock><p>N/A</p></ng-template>
+                                      </div>
+                                      <div style="background-color: rgb(31, 35, 34);height: 1px; width: 100%; margin-bottom: 20px;"></div>
+                                      <div class="summaryvalues" style="margin-top: -10px;">
+                                        <p>TOTAL&nbsp;</p>
+                                        <p class="values">{{payplan.amount}}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                    </div>
+                                  </div>
                                   </div>
                   <div>
                     <button mat-button matStepperNext (click)="navigate()" style="float: right; right: 20px;">Next</button>
@@ -106,43 +101,61 @@
                 </form>
               </mat-step>
 
-              <mat-step [stepControl]="secondFormGroup"  label="Fill out your address">
+              <mat-step [stepControl]="secondFormGroup"  label="PAYMENT">
                 <form [formGroup]="payform">
+                  
                   <div class="cardmodel">
-                    <div class="head">
-                        <h1 style="display: inline-block;">TOTAL AMOUNT: &nbsp;</h1>
-                        <p class="amt" style="font-size: 25px; font-weight: bold; display: inline-block;">{{payplan.amount}} </p>
-                    </div>
-                    <div class="content">
+                    
+                    <div class="content" style="margin-left: 15%;">
+                      <div class="row">
+                      <div class="col-sm-6">
                         <!-- <form [formGroup]="payform"> -->
                         <div class="input-field" [class.error]="payform.controls['cardnum'].dirty && payform.hasError('required','cardnum')">
                         <label style="display: block;">CARD NUMBER</label>
-                        <input type="text" placeholder="Card number" formControlName="cardnum" class="cardnum">
+                        <input type="text" placeholder="Card number" formControlName="cardnum" class="cardnum" style="width: 50%;">
                     </div>
-                    <div class="row1">
-                    <div class="input-field"  style="display: inline-block; " [class.error]="payform.controls['expiry'].dirty && payform.hasError('required','expiry')">
+                    
+                    <div class="input-field" [class.error]="payform.controls['expiry'].dirty && payform.hasError('required','expiry')">
                         <label style="display: block;">EXPIRY DATE</label>
-                        <input type="date" placeholder="Validity" formControlName="expiry" class="carddate">
+                        <input type="date" placeholder="Validity" formControlName="expiry" class="carddate" style="width: 50%;">
                     </div>
-                    <div class="input-field" style="display: inline-block;" [class.error]="payform.controls['cvv'].dirty && payform.hasError('required','cvv')">
+                    <div class="input-field"[class.error]="payform.controls['cvv'].dirty && payform.hasError('required','cvv')">
                         <label style="display: block;">CVV</label>
-                        <input type="password" placeholder="CVV" formControlName="cvv" class="cardcvv" >
+                        <input type="password" placeholder="CVV" formControlName="cvv" class="cardcvv" style="width: 50%;">
                     </div>
+                  </div>
+                <div class="col-sm-6">
+                <div class="input-field" style="margin-bottom: 15px; width: 50%;">
+                  <label style="display: block;">NEXT PLAN</label>
+                  <select [(ngModel)]="duration" [ngModelOptions]="{standalone:true}"  (ngModelChange)="onSelectChange($event)" style="height: 25px; width: 100%;">
+                    <option value="1 month" selected>1 month</option>
+                    <option value="3 months">3 months</option>
+                    <option value="6 months">6 months</option>
+                </select>
+              </div>
+              
+                <div class="input-field"  style="margin-bottom: 15px;">
+                    <label style="display: block;">ACTIVATES ON</label>
+                    <input maxlength="100%" [(ngModel)]="formattedDate" [ngModelOptions]="{standalone: true}" style="width: 50%;" readonly>
                 </div>
+                <div class="input-field" style="margin-bottom: 15px;" >
+                    <label style="display: block;">DUE DATE</label>
+                    <input maxlength="100%" [(ngModel)]="formatteddueDate" [ngModelOptions]="{standalone: true}" style="width: 50%;" readonly>
+                </div>
+                </div>
+
             <!-- </form> -->
+          </div>
                     </div>
-                    <button class="paybtn" (click)="paybills()" style="left: 40%;" >PAY</button>
+                    <div class="head" style="margin-right: 5%;">
+                        <h2 style="display: inline-block;">TOTAL AMOUNT: &nbsp;</h2>
+                        <p class="amt" style="font-size: 20px; font-weight: bold; display: inline-block;">{{payplan.amount}} </p>
+                    </div>
+                    <button class="paybtn" (click)="paybills()" style="margin-left: 10%;" >PAY</button>
                 </div>
                 </form>
               </mat-step>
-              <mat-step>
-                <ng-template matStepLabel>Done</ng-template>
-                <p>You are now done.</p>
-                <div>
-                  <button mat-button matStepperPrevious >Back</button>
-                 
-                </div>
-              </mat-step>
+              
             </mat-stepper>
             
             
