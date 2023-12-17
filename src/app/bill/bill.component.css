@@ -84,8 +84,8 @@
 }
 .head
 {
-    margin-top: 20px;
-    float: right;
+   
+    float: left;
 }
 .content
 {
@@ -94,6 +94,7 @@
     padding-right: 5px;
     width: 90%;
     left: 4%;
+    max-height: 100vh;
     padding-bottom: 20px;
 }
 .modal-content label
@@ -144,6 +145,7 @@ label{
 {
     box-shadow: -1px -1px 3px;
     border-radius: 20px;
+    max-height: 170vh;
 }
 mat-stepper
 {

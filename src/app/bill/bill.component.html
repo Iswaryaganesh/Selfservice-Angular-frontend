@@ -105,10 +105,7 @@
                 <form [formGroup]="payform">
                   
                   <div class="cardmodel">
-                    <!-- <div class="head" style="margin-right: 5%;">
-                        <h1 style="display: inline-block;">TOTAL AMOUNT: &nbsp;</h1>
-                        <p class="amt" style="font-size: 25px; font-weight: bold; display: inline-block;">{{payplan.amount}} </p>
-                    </div> -->
+                    
                     <div class="content" style="margin-left: 15%;">
                       <div class="row">
                       <div class="col-sm-6">
@@ -150,8 +147,11 @@
             <!-- </form> -->
           </div>
                     </div>
-                    
-                    <button class="paybtn" (click)="paybills()" style="margin-left: 40%;" >PAY</button>
+                    <div class="head" style="margin-right: 5%;">
+                        <h2 style="display: inline-block;">TOTAL AMOUNT: &nbsp;</h2>
+                        <p class="amt" style="font-size: 20px; font-weight: bold; display: inline-block;">{{payplan.amount}} </p>
+                    </div>
+                    <button class="paybtn" (click)="paybills()" style="margin-left: 10%;" >PAY</button>
                 </div>
                 </form>
               </mat-step>
