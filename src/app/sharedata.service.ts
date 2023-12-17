@@ -10,6 +10,7 @@ import { Plans } from './plans';
   providedIn: 'root'
 })
 export class SharedataService {
+  
 
 
 
@@ -20,6 +21,7 @@ export class SharedataService {
   private phone:String;
   private routers:any; //entire router object
   private routerEach:Routerdetails;
+  private plandetails:any;
 
 
   constructor() { }
@@ -101,6 +103,15 @@ export class SharedataService {
 
   getPaymentPlan(){
     return this.paymentPlan;
+  }
+
+  setplandetails(plans: any)
+  {
+    this.plandetails = plans;
+  }
+  getplandetails()
+  {
+    return this.plandetails;
   }
 
 
