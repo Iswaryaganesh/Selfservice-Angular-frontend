@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
-import { Routerdetails } from '../routerdetails';
+import { Routerdetails } from '../../classDefinition/routerdetails';
 // export class PeriodicElement {
 //   name: string;
 //   position: number;

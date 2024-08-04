@@ -1,0 +1,55 @@
+
+
+<div class="full">
+  <app-navbar></app-navbar>
+
+  <div class="display" style="padding-bottom: 35px;">
+    <div class="select-dropdown" style="display: flex;">
+    <p style="display: inline-block; margin: 5px;">Plan type</p>
+          <select #teams (change)="onSelected(teams.value)" style="width: 150px; font-size: 15px; font-weight: 300;"  [(ngModel)]="selectedItem">
+                <option default style="font-weight: 300;">All</option>
+                <option style="font-weight: 300;">Router</option>
+                <option style="font-weight: 300;">SIM</option>
+            </select>
+        </div>
+    </div>
+
+<div class="carousel-container" (wheel)="onScroll($event)">
+    <button mat-icon-button class="carousel-arrow" [class.disabled]="!showLeftArrow" (click)="scrollLeft()" aria-label="Previous">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  
+    <div class="cards-container" #cardsContainer (scroll)="checkArrows()">
+      <mat-card class="price-card" *ngFor="let plan of plans">
+        <mat-card-header>
+          <div class="imgBox">
+            <ng-container *ngIf="plan.name=='BASIC'">
+            <img src="/assets/images/basicplan.jpg" style="height: 120px; width: 200px;">
+          </ng-container>
+          <ng-container *ngIf="plan.name=='PREMIUM'">
+            <img src="/assets/images/premiumplan.jpg" style="height: 120px; width: 200px;">
+          </ng-container>
+            <h2 class="imgheader">{{ plan.price }}/month</h2>
+          </div>
+          <!-- <mat-card-title style="color: rgb(179, 175, 176);">{{ plan.name }}</mat-card-title> -->
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li style="font-weight: bold;">{{plan.name}}</li>
+            <li>{{ plan.users }}</li>
+            <li>{{ plan.projects }}</li>
+            <li>{{ plan.storage }}</li>
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button style="min-width: 30px; background-color: black; color: whitesmoke; border-radius: 9px;">PAY</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  
+    <button mat-icon-button class="carousel-arrow" [class.disabled]="!showRightArrow" (click)="scrollRight()" aria-label="Next">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>
+  

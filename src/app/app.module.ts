@@ -27,6 +27,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { AsyncPipe } from '@angular/common';
+import { PlancardComponent } from './plancard/plancard.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterPlansComponent } from './router-plans/router-plans.component';
 
 
 
@@ -42,7 +47,10 @@ import { AsyncPipe } from '@angular/common';
     RouterpageComponent,
     ForgotpwdComponent,
     FaqComponent,
-    BillComponent
+    BillComponent,
+    PlancardComponent,
+    NavbarComponent,
+    RouterPlansComponent
    
 
   ],
@@ -51,6 +59,9 @@ import { AsyncPipe } from '@angular/common';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    MatCardModule,
+    MatIconModule,
+    
     MattableComponent,
     BlockedtableComponent,
     HttpClientModule,

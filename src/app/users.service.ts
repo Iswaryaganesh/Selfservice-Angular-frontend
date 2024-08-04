@@ -1,33 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Users } from 'src/app/users';
-import { Customers } from './customers';
+import { Users } from 'src/classDefinition/users';
+import { Customers } from '../classDefinition/customers';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Plans } from './plans';
-import { Routerdetails } from './routerdetails';
-import { Device } from './devices';
+import { Routerdetails } from '../classDefinition/routerdetails';
+import { Device } from '../classDefinition/devices';
+import { Login } from 'src/classDefinition/Login';
+import { mobilePlans } from 'src/classDefinition/mobilePlans';
+import { routerPlans } from 'src/classDefinition/routerPlans';
+import { simCardWithPlans } from 'src/classDefinition/simcardWithPlans';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+ 
   
   
   //private baseURL = "http://localhost:8080/api/v1/users";
-  private baseURL = "http://localhost:8080/api/v1/";
-  private userlink = "users";
+  private baseURL = "http://129.159.229.9:8080/api/v1/";
+  private userlink = "Login";
   private signuplink = "signup";
   private preparesignup = "signup1"
   private otplink = "otp";
   private otpcheckforforgotpwd = "otpcheck";
   private changepwd = "changepwd";
   private profilelink = "profile";
-  private CustomerURL = "http://localhost:8080/api/v1/customers";
+  private CustomerURL = "http://129.159.229.9:8080/api/v1/customers";
   private forgotlink = "forgotPassword";
-  private getplanspage = "getplans"
+  private getsimplans = "simWithPlans"
   private getrouter = "getrouter"
   private UpdateRouter = "updateRouter";
   private connected = "getconnecteddevices";
@@ -38,14 +42,17 @@ export class UsersService {
   private payBillDetails = "paybills";
   private paymoney = "payamount";
   private paymentHistory = "getpaymenthistory";
+  private fetchCustomerId = "Login/customerId";
+  private getPlansOfRouters = "/routerPlans"
 
 
   constructor(private httpClient : HttpClient, private toast:ToastrService) { 
   }
 
-  loginUser(users:Users):Observable<String>{
+  
+  loginUser(login:Login):Observable<String>{
     //console.log(users)
-    return this.httpClient.post(`${this.baseURL}`+this.userlink,users,{responseType: 'text'});
+    return this.httpClient.post(`${this.baseURL}`+this.userlink,login,{responseType: 'text'});
   }
 
 
@@ -77,8 +84,16 @@ export class UsersService {
     return this.httpClient.post(`${this.baseURL}`+this.otpcheckforforgotpwd,users,{responseType: 'text'});
   }
 
-  ProfilePage(users:Users):Observable<Users>{
-    return this.httpClient.post<Users>(`${this.baseURL}`+this.profilelink,users);
+  ProfilePage(id:String):Observable<Users>{
+    return this.httpClient.get<Users>(`${this.baseURL}`+this.profilelink+'/'+id);
+  }
+
+  getPlansofAllRouters(id:String):Observable<routerPlans[]>{
+    return this.httpClient.get<routerPlans[]>(`${this.baseURL}`+id+this.getPlansOfRouters);
+  }
+
+  fetchId(login:Login):Observable<String>{
+    return this.httpClient.post(`${this.baseURL}`+this.fetchCustomerId,login, {responseType: 'text'});
   }
 
   SetRegpage(customers:Customers):Observable<Customers>
@@ -91,15 +106,17 @@ export class UsersService {
     return this.httpClient.post(`${this.baseURL}`+this.forgotlink,user,{responseType: 'text'});
   }
 
-  getPlans(customer:Customers):Observable<Plans[]>
+  getPlans(id:String):Observable<simCardWithPlans[]>
   {
-    return this.httpClient.post<Plans[]>(`${this.baseURL}`+this.getplanspage,customer);
+    return this.httpClient.get<simCardWithPlans[]>(`${this.baseURL}`+id+'/'+this.getsimplans);
   }
 
   getRouterDetails(customer:Customers):Observable<Routerdetails[]>{  
     //get router details
     return this.httpClient.post<Routerdetails[]>(`${this.baseURL}`+this.getrouter,customer);
   }
+
+
 
   // private updateurl:String = "http://localhost:8080/api/v1/update/"
 
@@ -144,7 +161,7 @@ export class UsersService {
     return this.httpClient.post(`${this.baseURL}`+this.deleteDeviceurl,router,{responseType: 'text'});
   }
 
-  getPaymentDetails(plan:Plans):Observable<any>{
+  getPaymentDetails(plan:mobilePlans):Observable<any>{
     return this.httpClient.post<any>(`${this.baseURL}`+this.payBillDetails,plan);
   }
 

@@ -3,29 +3,38 @@
       <div class="row"> 
           <!-- <div class="col-md-7"> -->
             <div id="col1" class="col-md-5 col-lg-6 col-sm-0 col-xs-0">
-              <img id="loginimage" src="/assets/images/undraw_login1.png">
+              <div class="logodesign">
+                <div>
+            <img src="/assets/images/logo.png" id="logoimg">
+          </div>
+          <div style="align-self: center; margin-top: 15px;">
+            <h4 style="font-weight: bolder; font-family: 'Courier New', Courier, monospace; font-size: 35px; display: inline-block;">IP</h4><h5 style="display: inline-block; font-weight: bolder; font-family: 'Courier New', Courier, monospace; font-size: 25px;">ay</h5>
+          </div>
+          </div>
+              <img id="loginimage" src="/assets/images/undraw_login1-edited.png">
           </div>
         <div id="col2" class=" col-lg-6">
-          <div class="panel border"  style= "margin-left: 30px;">
+          <div id="slogan"><h3 id="slogantext">𝐄𝐱𝐩𝐞𝐫𝐢𝐞𝐧𝐜𝐞 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐢𝐯𝐢𝐭𝐲 <br> <h4 style="font-size: 20px;"> 𝐀𝐦𝐩𝐥𝐢𝐟𝐲 𝐘𝐨𝐮𝐫 𝐋𝐢𝐟𝐞</h4></h3></div>
+          <div class="panel"  style= "margin-left: 30px;">
             <div class="panel-heading">
-              <h3 class="pt-3 font-weight-bold" style="color: black;">L O G I N</h3>
+              <!-- <h1 class="pt-3 font-weight-bold" style="color: black; font-weight: bold; display: inline-block;">W E L C O M E </h1> &nbsp; &nbsp; <h1 style="display: inline-block;">:)</h1> -->
             </div>
             <div class="panel-body p-3">
                 <form [formGroup]="loginForm" (ngSubmit)="onsubmit()">
                     <div class="form-group pt-3">
                     <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
                         <span class="fa fa-user p-2"></span>
-                        <input formControlName="username" type="text" placeholder="Email / Phone number (add +91)" [(ngModel)]="users.email" [(ngModel)]="users.phonenumber">
+                        <input formControlName="username" type="text" placeholder="Email / Phone number (add +91)" [(ngModel)]="login.email">
                     </div>
                 </div>
                 <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*Username is required</small>
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error] = "loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
                         <span class="fa fa-lock p-2"></span>
-                        <input [type]="show? 'text' : 'password'" formControlName="password" type="password" placeholder="Password" [(ngModel)]="users.password">
+                        <input [type]="show? 'text' : 'password'" formControlName="password" type="password" placeholder="Password" [(ngModel)]="login.password" style="display: inline-block; margin-right: 15px;">
                         <a (click)="onClick()" style="display: inline-block; cursor: pointer;">
                           <i class="fa fa-eye" aria-hidden="true" *ngIf="!show" style="display: inline-block; size: 45px;"></i>
-                          <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" style="display: inline-block;"></i>
+                          <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show" style="display: inline-block; size: 45px;"></i>
                         </a>
                     </div>
                 </div>
@@ -33,8 +42,8 @@
                 <div class="form-inline fr mt-4">
                     <div class="text-end"><a id="forget" class="font-weight-bold" routerLink="/forgotPassword">Forgot password?</a> </div>
                 </div>
-                <button type="submit" class="btn btn-outline-primary mt-4 w-100">LOGIN</button> 
-                <div class="my-2 mx-3 py-3"><div id="loginlink" class="text-center pt-4" style="color: black ; ">Don't have account? <a id="forget" routerLink="/acct1" routerLinkActive="active">Sign up</a></div></div>
+                <button type="submit" class="btn btn-outline-primary mt-4">LOGIN</button> 
+                <div class="my-2 mx-3  py-3"><div id="loginlink" class="text-center pt-4" style="color: black ; ">Don't have account? <a id="forget" routerLink="/acct1" routerLinkActive="active">Sign up</a></div></div>
                 </form>
             </div>
           </div>

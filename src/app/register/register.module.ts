@@ -9,7 +9,6 @@ import { Acct1Component } from '../acct1/acct1.component';
 @NgModule({
   declarations: [
     //RegComponent,
-    Acct1Component
   ],
   imports: [
     CommonModule,

@@ -1,182 +1,150 @@
 <div class="container" id="page">
-<div class="container-fluid" id="cont">
-  <nav class="navbar fixed-top navbar-expand-lg " >
-      <div class="container-fluid">
-        <a class="navbar-brand">S E L F - S E R V I C E</a>
-        <button style="float: right;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span><img style="height: 30px;" src="/assets/images/hamburgericon.png" ></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item px-3">
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#324271}</style><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
-              <a routerLink="/home" style="display: inline-block; padding-left: 0; padding-left: 0;" class="nav-link px-2">HOME</a>
-              <router-outlet></router-outlet>
-            </li>
-            <li class="nav-item px-3">
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f58c14}</style><path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
-              <a style="display: inline-block; padding-left: 0; padding-left: 0;" class="nav-link px-2" routerLink="/plans">PLANS</a>
-            </li>
-            <li class="nav-item px-3">
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
-              <a style="display: inline-block; padding-left: 0; padding-left: 0;" class="nav-link px-2" routerLink="/routerpage">ROUTER</a>
-            </li>
-              <li class="nav-item px-3">
-                <svg style="display: inline-block;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fdb10d}</style><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
-                <a style="display: inline-block; padding-left: 0; padding-left: 0;" class="nav-link px-2" href="/home#about"> ABOUT US</a>
-              </li>
-            <div class="dropdown dropstart nav-item px-3" style=" float: none; margin-right: 70px;">
-            <div href="#" id="profileicon"><svg class="proficon" style="margin-top: 8px;" xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><style>svg{fill:#235286}</style><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg></div>
-            <div class="dropdown-content" style="left: -17px;">
-              <a href="/profile" style="font-size: 14px;">VIEW PROFILE</a>
-              <a href="/faq" style="font-size: 14px;">FAQ</a>
-              <a (click)="logout()" style="font-size: 14px;">LOGOUT</a>
+<app-navbar></app-navbar>
+<div class="container-fluid" id="plandiv">
+  <div class="dailyusage">
+    <div *ngIf="show">
+  <div class="plancard" *ngFor="let i of plans">
+      {{setuseddata(i.dataLimit,i.dataUsed)}}
+    
+      <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <div class="card-title">
+            <h1 style="display: inline-block; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">{{dataLeft}} GB </h1><p style="display: inline-block; font-size: 15px; position: absolute; right: 5%;">left of {{i.dataLimit}}</p></div>
+            <div class="progress" style="height: 16px; margin-top: 5px; border-radius: 20px;">
+              <ng-container *ngIf="unused>23.0; else elseblock" >
+              <div 
+                class="progress-bar"
+                role="progressbar"
+                attr.aria-valuenow="{{unused}}"
+                [ngStyle]="{width: used+ '%' }"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="background-color: black;"
+              > 
+                
+              </div>
+            </ng-container>
+              <ng-template #elseblock>
+              <div 
+                class="progress-bar bg-danger"
+                role="progressbar"
+                attr.aria-valuenow="{{unused}}"
+                [ngStyle]="{width: used+ '%', 'transition': 'width 1s ease'}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="background-color: black;"
+              >
+                
+              </div>
+            </ng-template>
             </div>
-          </div>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    </div>
-      <div class="container-fluid" id="plandiv">
-        <div class="dailyusage">
-          <div *ngIf="show">
-        <div class="plancard" *ngFor="let i of plans">
-            {{setuseddata(i.dataLimit,i.dataLeft)}}
-          
-            <div class="card" style="width: 20rem;">
-                <div class="card-body">
-                  <div class="card-title">
-                  <h1 style="display: inline-block; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">{{i.dataLeft}} </h1><p style="display: inline-block;position: absolute; right: 10%;">left of {{i.dataLimit}}</p></div>
-                  <div class="progress" style="height: 16px; margin-top: 5px; border-radius: 20px;">
-                    <ng-container *ngIf="val>23.0; else elseblock" >
-                    <div 
-                      class="progress-bar"
-                      role="progressbar"
-                      attr.aria-valuenow="{{val}}"
-                      [ngStyle]="{width: used+ '%'}"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    > 
-                      
-                    </div>
-                  </ng-container>
-                    <ng-template #elseblock>
-                    <div 
-                      class="progress-bar bg-danger"
-                      role="progressbar"
-                      attr.aria-valuenow="{{val}}"
-                      [ngStyle]="{width: used+ '%'}"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    > 
-                      
-                    </div>
-                  </ng-template>
-                  </div>
-                  <a href="#"  style="display: inline-block; position: absolute; margin-top: 7px; text-decoration: none;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dummy(i)"><p style="font-size: 12px; display: inline-block;">View details</p>&nbsp;<img src="/assets/images/infoicon.png" style="height: 14px; margin-top: -1px; display: inline-block;"> </a>
-                  <p *ngIf="i.dayLeft>0" style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.dayLeft}} days remaining</p>
-                  <div *ngIf="i.dayLeft < 0 && i.dayLeft>-5"> <p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.dayLeft*(-1)}} days exceeded</p></div>
-                  <div *ngIf="i.dayLeft <= -5" ><p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">Service expired</p></div>
+            <a href="#"  style="display: inline-block; position: absolute; margin-top: 7px; text-decoration: none;" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dummy(i)"><p style="font-size: 12px; display: inline-block;">View details</p>&nbsp;<img src="/assets/images/infoicon.png" style="height: 14px; margin-top: -1px; display: inline-block;"> </a>
+            <!-- <p  style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.duration}} days</p> -->
+            <!-- <div *ngIf="i.dayLeft < 0 && i.dayLeft>-5"> <p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">{{i.dayLeft*(-1)}} days exceeded</p></div> -->
+            <!-- <div *ngIf="i.dayLeft <= -5" ><p style="margin-left: 55%; font-size: 13px; margin-top: 5px;">Service expired</p></div> -->
 
-                  
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content" style="border-radius: 10px;">
-                        <!-- <div class="modal-header"> -->
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="border-radius: 10px;">
+                  <!-- <div class="modal-header"> -->
 
-                          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
-                        <!-- </div> -->
-                        <div class="modal-body" style="padding: 30px;">
-                          <!-- <div class="plandetails"> -->
-                            <div class="modalcontent">
-                                      <div id="popupcardtitle" class="card-title" id="plancarddetails" style="text-align: center;"><p *ngIf="popobj?.planName=='Basic'" style="display: inline-block; font-size: 50px; color: rgb(37, 139, 190);">&#8377; {{popobj?.price}}  &nbsp; </p>
-                                        <p *ngIf="popobj?.planName=='Premium'" style="display: inline-block; font-size: 50px; color: rgb(70, 82, 178);">&#8377; {{popobj?.price}}  &nbsp; </p>
-                                        <p>per month</p></div>
-                                        <h4 style="display: inline-block;" >Plan ID: {{popobj?.planID}}</h4><input type="text" style="display: inline-block;  width: 60px; background-color: rgb(255, 255, 255); border: none; margin-left: 3px;" disabled>
-                                        <h4 style="display: inline-block; position: absolute; right: 70px;"> {{popobj?.planName}}</h4>
-                                      <p id="benefitsheader" style="margin-bottom: 15px; font-weight: bold; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">BENEFITS</p>
-        
-                                      <div class="plan-benefits">
-                                        <div class="benefit-icons">
-                                            <img src="/assets/images/signal.png">
-                                        </div>
-                                        <div class="benefit-desc" style="font-weight: 20px;">
-                                          <p>Data Rollover</p>
-                                            <p>{{popobj?.dataLimit}}/month</p>
-                                        </div>
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; top: -30px; right: -25px;border: 1px solid; padding: 15px; border-radius: 30px;"></button>
+                  <!-- </div> -->
+                  <div class="modal-body" style="padding: 30px;">
+                    <!-- <div class="plandetails"> -->
+                      <div class="modalcontent">
+                                <div id="popupcardtitle" class="card-title" id="plancarddetails" style="text-align: center; display: flex; justify-content: center;"><p *ngIf="popobj?.planName=='Standard Plan'" style="display: inline-block; font-size: 50px; color: rgb(37, 139, 190);">&#8377; {{popobj?.price}}  &nbsp; </p>
+                                  <p *ngIf="popobj?.planName=='Premium Plan'" style="display: inline-block; font-size: 50px; color: rgb(70, 82, 178);">&#8377; {{popobj?.price}}  &nbsp; </p>
+                                  <p *ngIf="popobj?.planName=='Business Plan'" style="display: inline-block; font-size: 50px; color: rgb(39, 207, 210);">&#8377; {{popobj?.price}}  &nbsp; </p>
+                                  <p *ngIf="popobj?.planName=='Basic Plan'" style="display: inline-block; font-size: 50px; color: rgb(220, 46, 46);">&#8377; {{popobj?.price}}  &nbsp; </p>
+
+                                  <p style="display: inline-block; font-size: 18px;">/ {{popobj?.duration}} days</p></div>
+                                  <!-- <h4 style="display: inline-block;" >Plan ID: {{popobj?.planId}}</h4><input type="text" style="display: inline-block;  width: 60px; background-color: rgb(255, 255, 255); border: none; margin-left: 3px;" disabled> -->
+                                  <!-- <h4 style=" position: relative; right: 1%;  display: block;"> {{popobj?.planName}}</h4> -->
+                                <p id="benefitsheader" style="margin-bottom: 15px; font-weight: bold; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">BENEFITS</p>
+  
+                                <div class="plan-benefits">
+                                  <div class="benefit-icons">
+                                      <img src="/assets/images/signal.png">
                                   </div>
-                                  <div class="modal-footer"></div>
-                                  <div class="plan-benefits">
-                                    <div class="benefit-icons">
-                                        <img src="/assets/images/speed.png">
-                                    </div>
-                                    <div class="benefit-desc">
-                                      <p>Speed</p>
-                                        <p>{{popobj?.speed}}MBPS</p>
-                                    </div>
+                                  <div class="benefit-desc" style="font-weight: 20px;">
+                                    <p>Data Rollover</p>
+                                      <p>{{popobj?.dataAllowance}}</p>
+                                  </div>
+                            </div>
+                            <div class="modal-footer"></div>
+                            <div class="plan-benefits">
+                              <div class="benefit-icons">
+                                  <img src="/assets/images/speed.png">
                               </div>
-                              <div class="modal-footer"></div>
-                                      <div class="plan-benefits">
-                                            <div class="benefit-icons">
-                                                <img src="/assets/images/phone.png">
-                                            </div>
-                                            <div class="benefit-desc">
-                                              <p>Calls</p>
-                                                <p>Unlimited calls</p>
-                                            </div>
-                                      </div>
-                                      <div class="modal-footer"></div>
-                                     <div style="float: right;">
-                                    <p>Cycle starts on: {{cycledate}}</p></div>
-                                 
-                                 
-                        <!-- </div>   -->
+                              <div class="benefit-desc">
+                                <p>Plan type</p>
+                                  <p>{{popobj?.planType}}</p>
+                              </div>
                         </div>
-                      </div>
-                      </div>
-                    </div>
+                        <div class="modal-footer"></div>
+                                <div class="plan-benefits">
+                                      <div class="benefit-icons">
+                                          <img src="/assets/images/phone.png">
+                                      </div>
+                                      <div class="benefit-desc">
+                                        <p>Calls</p>
+                                          <p>{{popobj?.voiceCallDetails}}</p>
+                                      </div>
+                                </div>
+                                <div class="modal-footer"></div>
+                               <div style="float: right;">
+                              <p>Cycle starts on: {{popobj?.startDate}}</p></div>
+                           
+                           
+                  <!-- </div>   -->
                   </div>
-                  
-                  <div *ngIf="i.blinkLight=='Blue'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)">PAY</button>  </div> 
-                  <div *ngIf="i.blinkLight=='near expiry'"><button  class=" blink paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: red;">PAY</button> </div>
-                 <div  *ngIf="i.blinkLight=='expiry'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: gray;">PAY</button></div>
+                </div>
                 </div>
               </div>
+            </div>
+            
+            <div ><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)">PAY</button>  </div> 
+            <!-- <div *ngIf="i.blinkLight=='near expiry'"><button  class=" blink paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: red;">PAY</button> </div> -->
+           <!-- <div  *ngIf="i.blinkLight=='expiry'"><button class="paybtn" data-toggle="modal" data-target="#myModal" (click)="getDetails(i)" style="background-color: gray;">PAY</button></div> -->
+          </div>
         </div>
-    </div>
-    </div>
-
-    <div class="dropdown1">
-        <h3 style="display: inline-block; margin-right: 15px; margin-top: 70px;">View history</h3>
-        <button *ngIf="!showhistory" (click)="showhist(); gethistory() " style="border-color: gray 1px; background-color: #f8f8f8; border-radius: 20px;"><img src="/assets/images/downarrow.png" style="height: 20px; display: inline-block;"></button>
-          <button *ngIf="showhistory" (click)="showhist()" style="border-color: gray 1px; border-radius: 20px"><img src="/assets/images/uparrow.png" style="height: 15px; display: inline-block;"></button>
-    </div>
-    <div *ngIf="showhistory" class="historysection">
-    <section class="scrollablehistory" id="scrollable">
-    <div *ngFor="let i of history" class="card" id="historycard">
-      <div class="card-title1" style="background-color:rgb(37, 139, 190) ;">
-          <h3>
-            PLAN ID:{{i.planID}}
-          </h3>
-          <h3>
-            {{i.planName}}
-          </h3>
-      </div>
-      <!-- <div *ngIf="popobj?.planName=='Premium'" class="card-title1" style="background-color: rgb(70, 82, 178);">
-        <h3>
-          PLAN ID:1
-        </h3>
-        <h3>
-          Basic
-        </h3>
-    </div> -->
-      <div class="card-desc">
-        You have paid {{i.final_amount}}₹ for your {{i.planName}} plan on {{i.paymentDate}}.<br> Your next due date is on {{i.dueDate}} .
-      </div>
-    </div>
-    </section>
-</div>
-    </div>
   </div>
+</div>
+</div>
+
+<!-- <div class="dropdown1">
+  <h3 style="display: inline-block; margin-right: 15px; margin-top: 70px;">View history</h3>
+  <button *ngIf="!showhistory" (click)="showhist(); gethistory() " style="border-color: gray 1px; background-color: #f8f8f8; border-radius: 20px;"><img src="/assets/images/downarrow.png" style="height: 20px; display: inline-block;"></button>
+    <button *ngIf="showhistory" (click)="showhist()" style="border-color: gray 1px; border-radius: 20px"><img src="/assets/images/uparrow.png" style="height: 15px; display: inline-block;"></button>
+</div>
+<div *ngIf="showhistory" class="historysection">
+<section class="scrollablehistory" id="scrollable">
+<div *ngFor="let i of history" class="card" id="historycard">
+<div class="card-title1" style="background-color:rgb(37, 139, 190) ;">
+    <h3>
+      PLAN ID:{{i.planID}}
+    </h3>
+    <h3>
+      {{i.planName}}
+    </h3>
+</div> -->
+<!-- <div *ngIf="popobj?.planName=='Premium'" class="card-title1" style="background-color: rgb(70, 82, 178);">
+  <h3>
+    PLAN ID:1
+  </h3>
+  <h3>
+    Basic
+  </h3>
+</div> -->
+<!-- <div class="card-desc">
+  You have paid {{i.final_amount}}₹ for your {{i.planName}} plan on {{i.paymentDate}}.<br> Your next due date is on {{i.dueDate}} .
+</div>
+</div>
+</section>
+</div> -->
+</div>
+<app-router-plans></app-router-plans>
+</div>

@@ -15,7 +15,7 @@
               <div class="form-group pt-3">
                 <div class="input-field" [class.error]="forgotpwd.controls['mobile'].dirty && forgotpwd.hasError('required','mobile')">
                   <span class="fa fa-user p-2"></span>
-                  <input  type="text" id="mobile" name="mobile" formControlName="mobile" placeholder="Phone number (add +91)" [(ngModel)]="user.phonenumber" required>
+                  <input  type="text" id="mobile" name="mobile" formControlName="mobile" placeholder="Phone number (add +91)" [(ngModel)]="user.phoneNumber" required>
               </div>
           </div>
           <small *ngIf="forgotpwd.controls['mobile'].dirty && forgotpwd.hasError('required','mobile')" class="text-danger">*Mobile number is required</small>

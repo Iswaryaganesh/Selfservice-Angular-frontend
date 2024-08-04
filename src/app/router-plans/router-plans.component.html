@@ -1,0 +1,47 @@
+<div class="cont">
+    <div class="routercard" *ngFor="let plan of routerplan">
+        {{calculateDaysLeft(plan.startDate, plan.duration)}}
+        {{setprogress(plan.duration, this.daysleft)}}
+    <div class="card">
+        <div class="card-body">
+            <h3 style="color: rgb(116, 109, 104); font-size: 14px; font-weight: 500;">{{plan.name}}</h3>
+            <div class="card-content">
+            <div class="circular-progress-bar">
+                <svg viewBox="0 0 36 36" class="circular-chart">
+                  <path class="circle-bg"
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#eee"
+                    stroke-width="4.5"
+                  />
+              
+                  <path class="circle"
+                    attr.stroke-dasharray="{{ this.usedpercent }}, 100"
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#007bff"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="percentage" style="font-size: 13px;">{{ this.daysleft }} &nbsp;days left</span>
+              </div>
+              <div class="details">
+              <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">{{plan.speed}} </h4>
+              <div>
+                <h4 style="font-size: 16px; display: inline-block;"> &#8377; {{plan.price}} </h4>
+                <h4 style="display: inline-block;">&nbsp; / {{plan.duration}} days</h4>
+              </div>
+              <h4>{{plan.serviceType}}</h4>
+            </div>
+              </div>  
+              <button class="paybtn">PAY</button>  
+              
+        </div>
+    </div>
+    </div>
+</div>

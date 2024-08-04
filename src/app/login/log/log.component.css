@@ -7,6 +7,7 @@ h3{
 }
 input, text, button
 {
+    
     font-family: 'Red Hat Display', sans-serif;
     color: black;
 }
@@ -18,11 +19,13 @@ input, text, button
     -moz-background-size: cover; 
      -o-background-size: cover; */
      background-position: center;
+     background-color: #FFF5EE;
      
 }
 .panel-heading
 {
-    text-align: center;
+    word-wrap: break-word;
+    text-align: left;
     margin-bottom: 10px;
 }
 #forget
@@ -31,14 +34,19 @@ input, text, button
     margin-left: auto;
     text-decoration: none;
     cursor: pointer;
+    margin-right: 60px;
 }
 a{
     max-width: 100px;
     text-decoration: none;
+    color: #ff543c;
 }
 a:hover
 {
     text-decoration: none;
+}
+form{
+    min-width: 100%;
 }
 .form-inline
 {
@@ -52,43 +60,93 @@ a:hover
     border-radius: 15px;
 	border: 1px solid #ff543c;
 	cursor: pointer;
+    background-color: #ff543c;
 	transition: 1s;
-	color: black;
+	color: white;
+    width: 85%;
 } 
 
 .btn:hover{
-	background-color: #ff543c;
-    color: white;
+	transform: translateY(-10px);
+    
 }
-.panel{
-    right: 0;
-    min-height: 380px;
-    width: 400px;
-    box-shadow: 10px 10px 20px;
-    border-radius: 12px;
-    margin-top: 100px;
-    float: right;
-    margin-right: 120px;
+.row
+{
+    background-color: #FFF5EE;
+    z-index: -3;
 }
+
 #col1
 {
+    z-index: 30;
     height: 100vh;
+    background-color: #FFF5EE;
+    z-index: 2;
+    
 }
 #col2
 {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* width: 40%; */
+    background-color: white;
+    z-index: 35;
+    /* margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 5%; */
+    /* box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(-30px); */
+    /* border-radius: 20px; */
+    position: relative;
+}
+#slogan{
+    position: absolute;
+    right: 15px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+#slogantext{
+    text-align: end;
+    font-size: 25px;
+    font-weight: bold;
+    color:  #6082B6;
+}
+
+.panel{
+    
+    left: 0;
+    min-height: 80%;
+    min-width: 80%;
+    /* box-shadow: 10px 10px 20px; */
+    /* border-radius: 12px; */
+    border: none;
+    margin-top: 150px;
+    /* float: right; */
+    margin-left: 60px;
+    margin-right: 60px;
+    position: absolute;
+}
+.panel-body
+{
+    min-width: 75%;
+    min-height: 90%;
 }
 #loginimage
 {
-    top: 170px;
-    left: 150px;
+    top: 100px;
+    left: 50px;
     height: 330px;
     width: 330px;
     background-position: center;
 }
+
 #loginlink{
     border-top: 1px solid #aaa;
     position: relative;
+    width: 90%;
+    margin-left: -10px;
 }
 #loginlink::after
 {
@@ -102,16 +160,23 @@ a:hover
 }
 .input-field
 {
-    
+    display: flex;
+    border: 1px solid #ff543c;
+    width: 85%;
     margin: 5px;
     border-radius: 5px;
     padding: 5px;
-    display: flex;
     cursor: pointer;
     align-items: center;
     /* border: 1px solid #ddd; */
     color: #ff543c;
     
+}
+
+#logoimg
+{
+    min-height: 50px;
+    top: 2%;
 }
 
 
@@ -124,7 +189,7 @@ input[type='text'], input[type='password']
 {
     box-shadow: none;
     outline: none;
-    width: 100%;
+    width: 95%;
     border: none;
     margin: 3px;
     padding: 4px;
@@ -132,7 +197,8 @@ input[type='text'], input[type='password']
 }
  input[type='text']:focus, input[type='password']:focus
 {
-    border: 1px solid #ff543c;
+    border-radius: 8px;
+    
     /* transition-delay: 0.5s;
     transition-duration: 0.5s; */
     -webkit-transition: 0.5s;
@@ -174,3 +240,25 @@ img{
 	transition: 1s;
 	color: white;
 } */
+
+.logodesign
+{
+
+    display: flex;
+   
+}
+
+@media only screen and (max-width:992px){
+    .row #col1{
+        
+        visibility: hidden;
+        position: relative;
+    }
+    .row #col2{
+        min-width: 100%;
+        position: absolute;
+    }
+    
+}
+
+

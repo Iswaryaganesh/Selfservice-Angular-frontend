@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Users } from './users';
+import { Users } from '../classDefinition/users';
 import { Observable } from 'rxjs';
-import { Routerdetails } from './routerdetails';
-import { Plans } from './plans';
+import { Routerdetails } from '../classDefinition/routerdetails';
 
 
 
@@ -16,7 +15,7 @@ export class SharedataService {
 
   private paymentPlan:any;
   private acctnumber:number;
-  private email:String;
+  private currentId:String;
   private acctnum:String;
   private phone:String;
   private routers:any; //entire router object
@@ -26,19 +25,19 @@ export class SharedataService {
 
   constructor() { }
 
-  setprofileusers(emailsent:String){
-      this.email=emailsent
+  setprofileusers(id:String){
+      this.currentId=id
       //console.log(emailsent)
       const key = 'active'
-      const login_email:string = JSON.stringify(this.email)
+      const login_id:string = JSON.stringify(this.currentId)
       // console.log(`JSON stringify`)
       // console.log(login_email)
-      localStorage.setItem(key,login_email)
+      localStorage.setItem(key,login_id)
   } 
 
 
   getprofileusers(){
-    return this.email
+    return this.currentId
   }
 
 

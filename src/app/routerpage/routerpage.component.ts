@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import Validateform from '../helpers/validateform';
 import { SharedataService } from '../sharedata.service';
 import { UsersService } from '../users.service';
-import { Routerdetails } from '../routerdetails';
-import { Customers } from '../customers';
+import { Routerdetails } from '../../classDefinition/routerdetails';
+import { Customers } from '../../classDefinition/customers';
 import { FormsModule } from '@angular/forms';
 
 

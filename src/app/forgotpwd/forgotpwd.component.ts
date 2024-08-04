@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Validateform from '../helpers/validateform';
 import { UsersService } from '../users.service';
-import { Users } from '../users';
+import { Users } from '../../classDefinition/users';
 import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
 
@@ -55,7 +55,7 @@ export class ForgotpwdComponent {
             }
             else 
             {
-              this.sharedata.setPhoneNumber(this.user.phonenumber);
+              this.sharedata.setPhoneNumber(this.user.phoneNumber);
               this.userservice.Showinfo("","Enter otp sent to your registered mobile number");
               this.showotp = !this.showotp;
               
@@ -98,7 +98,7 @@ export class ForgotpwdComponent {
         if(this.user.password===this.Repassword)
         {
           let tempNumber = this.sharedata.getPhoneNumber();
-          this.user.phonenumber= tempNumber
+          this.user.phoneNumber= tempNumber
           console.log(this.user);
           this.userservice.Changepwd(this.user).subscribe(
           response =>{

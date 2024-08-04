@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedataService } from '../sharedata.service';
-import { Users } from '../users';
+import { Users } from '../../classDefinition/users';
 import { UsersService } from '../users.service';
+import { Customers } from 'src/classDefinition/customers';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +17,7 @@ export class ProfileComponent  {
 
   ///load the email in object and continue after lunch
   emailProfile:String;
-  users: Users = new Users();//to load data to send to backend
+  customer: Customers = new Customers();//to load data to send to backend
   profileusers :Users = new Users();//to get the profile data from backend.
 
   constructor(private fb: FormBuilder, private router:Router,private sharedata:SharedataService,private userservice:UsersService){
@@ -34,10 +35,9 @@ export class ProfileComponent  {
 
     //console.log('hello by profile')
     //console.log(this.emailProfile);
-    this.users.email= this.emailProfile
+    this.customer.id= this.emailProfile
     //console.log('hello hello')
-    console.log(this.users)
-    this.userservice.ProfilePage(this.users).subscribe(
+    this.userservice.ProfilePage(this.emailProfile).subscribe(
       response =>{
         this.profileusers = response;
         console.log(this.profileusers);

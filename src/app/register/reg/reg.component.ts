@@ -2,10 +2,10 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms'
 import {Route, Router} from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
-import { Customers } from 'src/app/customers';
+import { Customers } from 'src/classDefinition/customers';
 import Validateform from 'src/app/helpers/validateform';
 import { SharedataService } from 'src/app/sharedata.service';
-import { Users } from 'src/app/users';
+import { Users } from 'src/classDefinition/users';
 import { UsersService } from 'src/app/users.service';
 
 @Component({
@@ -58,7 +58,7 @@ export class RegComponent {
   })
 
   this.acctnum=this.sharedata.getRegAccountNumber();
-  this.customers.accountNumber = this.acctnum;
+  this.customers.id = this.acctnum;
   this.userservice.SetRegpage(this.customers).subscribe( response =>{
     this.emailphone = response;
     console.log(this.customers);
@@ -164,7 +164,7 @@ export class RegComponent {
         let tempNumber = this.sharedata.getAccountNumber()
         //console.log(tempNumber)
         //console.log(typeof(tempNumber))
-        this.users.accountNumber= tempNumber
+        this.users.id= tempNumber
         this.userservice.CustomerSignup(this.users).subscribe(
         response =>{
           console.log('good job');

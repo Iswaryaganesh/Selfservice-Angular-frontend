@@ -31,7 +31,7 @@
                 <div class="form-group pt-3">
                     <div class="input-field" [class.error]="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">
                         <span class="fa fa-phone p-2"></span>
-                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number add(+91)"  [(ngModel)]="users.phonenumber" [(ngModel)]="emailphone.phonenumber" readonly>
+                        <input id="fields" formControlName="mobile" type="tel" placeholder="Mobile Number add(+91)"  [(ngModel)]="users.phoneNumber" [(ngModel)]="emailphone.phoneNumber" readonly>
                     </div>
                 </div>
                 <small class="text-danger" *ngIf="regForm.controls['mobile'].dirty && regForm.hasError('required','mobile')">*Mobile number is required</small>
